@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */; };
+		3C2BE4EC28D8CD7B007A24FD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */; };
+		3C2BE4EF28D8CD7B007A24FD /* gripp_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4ED28D8CD7B007A24FD /* gripp_ios.xcdatamodeld */; };
+		3C2BE4F128D8CD7B007A24FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4F028D8CD7B007A24FD /* ContentView.swift */; };
+		3C2BE4F328D8CD7C007A24FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2BE4F228D8CD7C007A24FD /* Assets.xcassets */; };
+		3C2BE4F728D8CD7C007A24FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2BE4F628D8CD7C007A24FD /* Preview Assets.xcassets */; };
+		3C2BE50128D8CD7C007A24FD /* gripp_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50028D8CD7C007A24FD /* gripp_iosTests.swift */; };
+		3C2BE50B28D8CD7C007A24FD /* gripp_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50A28D8CD7C007A24FD /* gripp_iosUITests.swift */; };
+		3C2BE50D28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3C2BE4FD28D8CD7C007A24FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C2BE4DE28D8CD7B007A24FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C2BE4E528D8CD7B007A24FD;
+			remoteInfo = "gripp-ios";
+		};
+		3C2BE50728D8CD7C007A24FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C2BE4DE28D8CD7B007A24FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C2BE4E528D8CD7B007A24FD;
+			remoteInfo = "gripp-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3C2BE4E628D8CD7B007A24FD /* gripp-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gripp-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosApp.swift; sourceTree = "<group>"; };
+		3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		3C2BE4EE28D8CD7B007A24FD /* gripp_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = gripp_ios.xcdatamodel; sourceTree = "<group>"; };
+		3C2BE4F028D8CD7B007A24FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3C2BE4F228D8CD7C007A24FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C2BE4F428D8CD7C007A24FD /* gripp_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gripp_ios.entitlements; sourceTree = "<group>"; };
+		3C2BE4F628D8CD7C007A24FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3C2BE4FC28D8CD7C007A24FD /* gripp-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gripp-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C2BE50028D8CD7C007A24FD /* gripp_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosTests.swift; sourceTree = "<group>"; };
+		3C2BE50628D8CD7C007A24FD /* gripp-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gripp-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C2BE50A28D8CD7C007A24FD /* gripp_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosUITests.swift; sourceTree = "<group>"; };
+		3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C2BE4E328D8CD7B007A24FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C2BE4F928D8CD7C007A24FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C2BE50328D8CD7C007A24FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C2BE4DD28D8CD7B007A24FD = {
+			isa = PBXGroup;
+			children = (
+				3C2BE4E828D8CD7B007A24FD /* gripp-ios */,
+				3C2BE4FF28D8CD7C007A24FD /* gripp-iosTests */,
+				3C2BE50928D8CD7C007A24FD /* gripp-iosUITests */,
+				3C2BE4E728D8CD7B007A24FD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3C2BE4E728D8CD7B007A24FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C2BE4E628D8CD7B007A24FD /* gripp-ios.app */,
+				3C2BE4FC28D8CD7C007A24FD /* gripp-iosTests.xctest */,
+				3C2BE50628D8CD7C007A24FD /* gripp-iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3C2BE4E828D8CD7B007A24FD /* gripp-ios */ = {
+			isa = PBXGroup;
+			children = (
+				3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */,
+				3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */,
+				3C2BE4F028D8CD7B007A24FD /* ContentView.swift */,
+				3C2BE4F228D8CD7C007A24FD /* Assets.xcassets */,
+				3C2BE4F428D8CD7C007A24FD /* gripp_ios.entitlements */,
+				3C2BE4ED28D8CD7B007A24FD /* gripp_ios.xcdatamodeld */,
+				3C2BE4F528D8CD7C007A24FD /* Preview Content */,
+			);
+			path = "gripp-ios";
+			sourceTree = "<group>";
+		};
+		3C2BE4F528D8CD7C007A24FD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3C2BE4F628D8CD7C007A24FD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3C2BE4FF28D8CD7C007A24FD /* gripp-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				3C2BE50028D8CD7C007A24FD /* gripp_iosTests.swift */,
+			);
+			path = "gripp-iosTests";
+			sourceTree = "<group>";
+		};
+		3C2BE50928D8CD7C007A24FD /* gripp-iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3C2BE50A28D8CD7C007A24FD /* gripp_iosUITests.swift */,
+				3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */,
+			);
+			path = "gripp-iosUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3C2BE4E528D8CD7B007A24FD /* gripp-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C2BE51028D8CD7C007A24FD /* Build configuration list for PBXNativeTarget "gripp-ios" */;
+			buildPhases = (
+				3C2BE4E228D8CD7B007A24FD /* Sources */,
+				3C2BE4E328D8CD7B007A24FD /* Frameworks */,
+				3C2BE4E428D8CD7B007A24FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gripp-ios";
+			productName = "gripp-ios";
+			productReference = 3C2BE4E628D8CD7B007A24FD /* gripp-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3C2BE4FB28D8CD7C007A24FD /* gripp-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C2BE51328D8CD7C007A24FD /* Build configuration list for PBXNativeTarget "gripp-iosTests" */;
+			buildPhases = (
+				3C2BE4F828D8CD7C007A24FD /* Sources */,
+				3C2BE4F928D8CD7C007A24FD /* Frameworks */,
+				3C2BE4FA28D8CD7C007A24FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3C2BE4FE28D8CD7C007A24FD /* PBXTargetDependency */,
+			);
+			name = "gripp-iosTests";
+			productName = "gripp-iosTests";
+			productReference = 3C2BE4FC28D8CD7C007A24FD /* gripp-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3C2BE50528D8CD7C007A24FD /* gripp-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C2BE51628D8CD7C007A24FD /* Build configuration list for PBXNativeTarget "gripp-iosUITests" */;
+			buildPhases = (
+				3C2BE50228D8CD7C007A24FD /* Sources */,
+				3C2BE50328D8CD7C007A24FD /* Frameworks */,
+				3C2BE50428D8CD7C007A24FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3C2BE50828D8CD7C007A24FD /* PBXTargetDependency */,
+			);
+			name = "gripp-iosUITests";
+			productName = "gripp-iosUITests";
+			productReference = 3C2BE50628D8CD7C007A24FD /* gripp-iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3C2BE4DE28D8CD7B007A24FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					3C2BE4E528D8CD7B007A24FD = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					3C2BE4FB28D8CD7C007A24FD = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 3C2BE4E528D8CD7B007A24FD;
+					};
+					3C2BE50528D8CD7C007A24FD = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 3C2BE4E528D8CD7B007A24FD;
+					};
+				};
+			};
+			buildConfigurationList = 3C2BE4E128D8CD7B007A24FD /* Build configuration list for PBXProject "gripp-ios" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3C2BE4DD28D8CD7B007A24FD;
+			productRefGroup = 3C2BE4E728D8CD7B007A24FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3C2BE4E528D8CD7B007A24FD /* gripp-ios */,
+				3C2BE4FB28D8CD7C007A24FD /* gripp-iosTests */,
+				3C2BE50528D8CD7C007A24FD /* gripp-iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3C2BE4E428D8CD7B007A24FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C2BE4F728D8CD7C007A24FD /* Preview Assets.xcassets in Resources */,
+				3C2BE4F328D8CD7C007A24FD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C2BE4FA28D8CD7C007A24FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C2BE50428D8CD7C007A24FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C2BE4E228D8CD7B007A24FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C2BE4EF28D8CD7B007A24FD /* gripp_ios.xcdatamodeld in Sources */,
+				3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */,
+				3C2BE4F128D8CD7B007A24FD /* ContentView.swift in Sources */,
+				3C2BE4EC28D8CD7B007A24FD /* Persistence.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C2BE4F828D8CD7C007A24FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C2BE50128D8CD7C007A24FD /* gripp_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C2BE50228D8CD7C007A24FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C2BE50B28D8CD7C007A24FD /* gripp_iosUITests.swift in Sources */,
+				3C2BE50D28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3C2BE4FE28D8CD7C007A24FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3C2BE4E528D8CD7B007A24FD /* gripp-ios */;
+			targetProxy = 3C2BE4FD28D8CD7C007A24FD /* PBXContainerItemProxy */;
+		};
+		3C2BE50828D8CD7C007A24FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3C2BE4E528D8CD7B007A24FD /* gripp-ios */;
+			targetProxy = 3C2BE50728D8CD7C007A24FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3C2BE50E28D8CD7C007A24FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3C2BE50F28D8CD7C007A24FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		3C2BE51128D8CD7C007A24FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "gripp-ios/gripp_ios.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"gripp-ios/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Gripp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cannot-climb.gripp-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3C2BE51228D8CD7C007A24FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "gripp-ios/gripp_ios.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"gripp-ios/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Gripp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cannot-climb.gripp-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3C2BE51428D8CD7C007A24FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cannot-climb.gripp-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gripp-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/gripp-ios";
+			};
+			name = Debug;
+		};
+		3C2BE51528D8CD7C007A24FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cannot-climb.gripp-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gripp-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/gripp-ios";
+			};
+			name = Release;
+		};
+		3C2BE51728D8CD7C007A24FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cannot-climb.gripp-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "gripp-ios";
+			};
+			name = Debug;
+		};
+		3C2BE51828D8CD7C007A24FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cannot-climb.gripp-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "gripp-ios";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C2BE4E128D8CD7B007A24FD /* Build configuration list for PBXProject "gripp-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2BE50E28D8CD7C007A24FD /* Debug */,
+				3C2BE50F28D8CD7C007A24FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C2BE51028D8CD7C007A24FD /* Build configuration list for PBXNativeTarget "gripp-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2BE51128D8CD7C007A24FD /* Debug */,
+				3C2BE51228D8CD7C007A24FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C2BE51328D8CD7C007A24FD /* Build configuration list for PBXNativeTarget "gripp-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2BE51428D8CD7C007A24FD /* Debug */,
+				3C2BE51528D8CD7C007A24FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C2BE51628D8CD7C007A24FD /* Build configuration list for PBXNativeTarget "gripp-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2BE51728D8CD7C007A24FD /* Debug */,
+				3C2BE51828D8CD7C007A24FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3C2BE4ED28D8CD7B007A24FD /* gripp_ios.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3C2BE4EE28D8CD7B007A24FD /* gripp_ios.xcdatamodel */,
+			);
+			currentVersion = 3C2BE4EE28D8CD7B007A24FD /* gripp_ios.xcdatamodel */;
+			path = gripp_ios.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3C2BE4DE28D8CD7B007A24FD /* Project object */;
+}
