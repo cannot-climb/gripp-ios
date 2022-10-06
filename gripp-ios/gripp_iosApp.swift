@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+@main 
 struct gripp_iosApp: App {
     let persistenceController = PersistenceController.shared
 
@@ -15,6 +15,7 @@ struct gripp_iosApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
         }
     }
 }
