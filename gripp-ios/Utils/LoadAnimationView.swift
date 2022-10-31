@@ -21,9 +21,9 @@ struct LoadAnimationView: View {
                 .stroke(AngularGradient (gradient:.init (colors: [color]), center: .center), style: StrokeStyle(lineWidth: 15, lineCap: .round))
                 .shadow(color: .white, radius: 10)
                 .rotationEffect(Angle(degrees: animate ? 0: 360))
-                .animation(Animation.linear (duration: 0.9).repeatForever(autoreverses: false), value: animate)
+                .animation(Animation.linear (duration: 1.3).repeatForever(autoreverses: false), value: animate)
                 .onAppear{animate = false}
-                .onDisappear{animate = falsLe}
+                .onDisappear{animate = false}
         }
     }
 }
