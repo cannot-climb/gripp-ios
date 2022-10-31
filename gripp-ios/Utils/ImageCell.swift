@@ -39,7 +39,7 @@ struct ImageCell: View {
                         .padding(.bottom, 10)
                         .padding(.leading, 4)
                 }
-                .background(Color("#202020"))
+                .background(Color("#101012"))
                 .clipped()
                 .aspectRatio(1, contentMode: .fit)
             }
@@ -49,9 +49,6 @@ struct ImageCell: View {
                     .aspectRatio(contentMode: .fill)
                     .layoutPriority(-1)
                     
-                    .onTapGesture {
-                        isPresented.toggle()
-                    }
                 
                 HStack(alignment: .top){
                     Spacer()
@@ -67,7 +64,11 @@ struct ImageCell: View {
                         Spacer()
                     }
                 }
+                .contentShape(Rectangle())
                 .clipped()
+                .onTapGesture {
+                    isPresented.toggle()
+                }
                 .aspectRatio(1, contentMode: .fit)
             }
         }
