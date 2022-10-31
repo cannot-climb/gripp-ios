@@ -22,12 +22,12 @@ extension Font {
     
     /// Create a font with the headline text style.
     public static var head_line: Font {
-        return Font.custom("Roboto-Regular", size: 16)
+        return Font.custom("Roboto-Regular", size: 18)
     }
     
     /// Create a font with the subheadline text style.
     public static var subheadline: Font {
-        return Font.custom("Roboto-Regular", size: 12)
+        return Font.custom("Roboto-Regular", size: 14)
     }
     
     /// Create a font with the body text style.
@@ -42,41 +42,49 @@ extension Font {
     
     /// Create a font with the footnote text style.
     public static var foot_note: Font {
-        return Font.custom("Roboto-Regular", size: 12)
+        return Font.custom("Roboto-Regular", size: 14)
     }
     
     /// Create a font with the caption text style.
     public static var context: Font {
-        return Font.custom("Roboto-Bold", size: 12)
+        return Font.custom("Roboto-Bold", size: 14)
     }
     
     
     public static var textfield_leading: Font {
-        return Font.custom("Roboto-Bold", size: 16)
+        return Font.custom("Roboto-Bold", size: 18)
     }
     
     public static var podium_id: Font {
         return Font.custom("Roboto-Regular", size: 16)
     }
     public static var podium_level: Font {
-        return Font.custom("Roboto-Regular", size: 13)
+        return Font.custom("Roboto-Regular", size: 15)
     }
     public static var podium_footer: Font {
-        return Font.custom("Roboto-Regular", size: 12)
+        return Font.custom("Roboto-Regular", size: 14)
     }
     
     
     public static var player_id: Font {
-        return Font.custom("Roboto-Regular", size: 12)
+        return Font.custom("Roboto-Regular", size: 13)
     }
     public static var player_id_info: Font {
-        return Font.custom("Roboto-Regular", size: 10)
+        return Font.custom("Roboto-Regular", size: 13)
     }
     public static var player_vid_info: Font {
-        return Font.custom("Roboto-Regular", size: 12)
+        return Font.custom("Roboto-Regular", size: 14)
     }
     public static var player_vid_description: Font {
-        return Font.custom("Roboto-Regular", size: 12)
+        return Font.custom("Roboto-Regular", size: 13)
+    }
+    
+    
+    public static var login_button: Font {
+        return Font.custom("Roboto-Bold", size: 14)
+    }
+    public static var login_textfield: Font {
+        return Font.custom("Roboto-Bold", size: 13)
     }
     
     public static func system(size: CGFloat, weight: Font.Weight = .regular, design: Font.Design = .default) -> Font {

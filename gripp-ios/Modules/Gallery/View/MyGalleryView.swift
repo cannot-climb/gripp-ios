@@ -1,14 +1,13 @@
 //
-//  HomeView.swift
+//  GalleryView.swift
 //  gripp-ios
 //
-//  Created by 조준오 on 2022/10/04.
+//  Created by 조준오 on 2022/10/05.
 //
 
-import Foundation
 import SwiftUI
 
-struct HomeView: View {
+struct MyGalleryView: View {
     
     let postItemImages = [
         PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
@@ -34,38 +33,32 @@ struct HomeView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
-            Text("Gripp").font(.context)
-                .padding(.leading, 31).padding(.top, 6)
-                .foregroundColor(Color(named:"TextSubduedColor"))
+            Text("Gripp").font(.context).padding(.leading, 31).padding(.top, 6).foregroundColor(Color(named:"TextSubduedColor"))
             HStack{
-                Text("아이디").font(.large_title)
-                Image(systemName: "arrow.forward")
-            }.padding(.leading, 30).padding(.top, 7)
-            HStack(alignment: .center){
-                Text("상위 30%, V3.78").font(.foot_note)
-                    .padding(.leading, 32)
-                
+                Text("내 계정").font(.large_title)
                 Spacer()
-                
                 Group{
-                    Text("난이도").font(.foot_note)
-                    Image(systemName: "line.3.horizontal.decrease.circle")
+                    Text("로그아웃").font(.foot_note)
+                    Image(systemName: "minus.circle")
                         .resizable()
                         .frame(width: 20, height: 20)
                         .padding(.trailing, 32)
                 }
-            }.padding(.top, 5).padding(.bottom, 13)
+            }.padding(.leading, 30).padding(.top, 7).padding(.bottom, 13)
             
-            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true)
+            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
+            
         }
         .background(Color(named:"BackgroundSubduedColor"))
+        
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+
+struct MyGalleryView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        MyGalleryView()
     }
 }

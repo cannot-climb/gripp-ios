@@ -9,25 +9,33 @@ import Foundation
 import SwiftUI
 
 struct ImageGrid: View {
-    
-    private var imagePaths =  ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg","img7.jpg","img8.jpg","img9.jpg","img10.jpg","img11.jpg","img12.jpg","img13.jpg","img14.jpg"]
+    public var postItemImages : [PostGridItem]
     private var gridItemLayout = [GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3)]
+    public var firstItemGiantDecoration = false
     
+    @State private var isPresented = false
+    
+    init(postItemImages: [PostGridItem], firstItemGiantDecoration: Bool) {
+        self.postItemImages = postItemImages
+        self.firstItemGiantDecoration = firstItemGiantDecoration
+    }
     
     var body: some View {
         ScrollView{
             LazyVGrid(columns: gridItemLayout, spacing: 3){
-                ForEach((0...40), id: \.self){ item in
+                ForEach(postItemImages, id: \.self){ item in
                     GeometryReader{ gr in
-                        Image(uiImage: UIImage(named: imagePaths[item % imagePaths.count])!)
-                            .resizable()
-                            .scaledToFill()
+                        ImageCell(imagePath: item.thumbnailPath, processing: item.processing, conquered: item.conquered, present: $isPresented)
                     }
                     .clipped()
                     .aspectRatio(1, contentMode: .fit)
                 }
             }
-        }
+            
+        }.background(Color(named:"BackgroundMasterColor"))
+            .sheet(isPresented: $isPresented) {
+                PlayerView()
+            }
     }
 }
 
@@ -44,4 +52,33 @@ private func load(fileName: String) -> Image? {
         print("Error loading image : \(error)")
     }
     return nil
+}
+
+
+
+struct ImageGrid_Previews: PreviewProvider {
+    static var previews: some View {
+        let postItemImages = [
+            PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
+            PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img3.jpg", processing: true, conquered: false),
+            PostGridItem(thumbnailPath: "img4.jpg", processing: true, conquered: false),
+            PostGridItem(thumbnailPath: "img5.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img6.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img7.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img8.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img9.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img10.jpg", processing: true, conquered: true),
+            PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
+            PostGridItem(thumbnailPath: "img12.jpg", processing: true, conquered: false),
+            PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
+            PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
+        ]
+        ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true)
+    }
 }

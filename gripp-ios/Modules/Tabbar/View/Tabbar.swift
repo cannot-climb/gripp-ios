@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TabBar: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -19,41 +20,35 @@ struct TabBar: View {
     
     var homeView = HomeView()
     var leaderBoard = LeaderBoardView()
-//    var uploadView = UploadView(imagePath: "img3.jpg")
-    var uploadView = PlayerView()
-    var myProfileView = GalleryView()
+    var myProfileView = MyGalleryView()
     
 
     @State private var isPresented = false
     
     var body: some View {
         TabView{
-            homeView
-            .tabItem {
+            
+            homeView.tabItem {
                     Image(systemName: "mosaic.fill")
                     Text("홈")
             }
-            leaderBoard
-                .tabItem {
+            
+            leaderBoard.tabItem {
                     Image(systemName: "list.number")
                     Text("리더보드")
             }
-            myProfileView
-                .tabItem {
+            
+            myProfileView.tabItem {
                     Image(systemName: "video.fill")
                     Text("내 프로필")
             }
             Button("Present") {
                 isPresented.toggle()
             }
-//            .sheet(isPresented: $isPresented) {
-//                uploadView
-////                    .ignoresSafeArea(.all)
-//            }
-            .fullScreenCover(isPresented: $isPresented, content: {
-                uploadView
+            .sheet(isPresented: $isPresented) {
+                UploadView(imagePath: "img3.jpg")
 //                    .ignoresSafeArea(.all)
-            })
+            }
             .tabItem {
                 Image(systemName: "mappin.circle.fill")
                 Text("영상 올리기")

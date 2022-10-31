@@ -17,6 +17,13 @@
 		3C2BE50128D8CD7C007A24FD /* gripp_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50028D8CD7C007A24FD /* gripp_iosTests.swift */; };
 		3C2BE50B28D8CD7C007A24FD /* gripp_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50A28D8CD7C007A24FD /* gripp_iosUITests.swift */; };
 		3C2BE50D28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */; };
+		3C8A4AA4290DC35A00B7508C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AA3290DC35A00B7508C /* LoginView.swift */; };
+		3C8A4AAA290DC4A900B7508C /* LoginSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AA9290DC4A900B7508C /* LoginSheet.swift */; };
+		3C8A4AAE290DC4C100B7508C /* SignupSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AAD290DC4C100B7508C /* SignupSheet.swift */; };
+		3C8A4AB0290DD0F100B7508C /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AAF290DD0F100B7508C /* ImageCell.swift */; };
+		3C8A4AB4290EC89F00B7508C /* LoadAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AB3290EC89F00B7508C /* LoadAnimationView.swift */; };
+		3C8A4AB6290ED27700B7508C /* PostGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AB5290ED27700B7508C /* PostGridItem.swift */; };
+		3C8A4AB8290EFE1100B7508C /* MyGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AB7290EFE1100B7508C /* MyGalleryView.swift */; };
 		3CDDF42A28EB9D4900884847 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDF40A28EB9D4900884847 /* RoundedCorner.swift */; };
 		3CDDF42B28EB9D4900884847 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDF40B28EB9D4900884847 /* Color.swift */; };
 		3CDDF46528EB9E4200884847 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CDDF45728EB9E4200884847 /* Roboto-Medium.ttf */; };
@@ -89,6 +96,13 @@
 		3C2BE50628D8CD7C007A24FD /* gripp-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gripp-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2BE50A28D8CD7C007A24FD /* gripp_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosUITests.swift; sourceTree = "<group>"; };
 		3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3C8A4AA3290DC35A00B7508C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3C8A4AA9290DC4A900B7508C /* LoginSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSheet.swift; sourceTree = "<group>"; };
+		3C8A4AAD290DC4C100B7508C /* SignupSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupSheet.swift; sourceTree = "<group>"; };
+		3C8A4AAF290DD0F100B7508C /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		3C8A4AB3290EC89F00B7508C /* LoadAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAnimationView.swift; sourceTree = "<group>"; };
+		3C8A4AB5290ED27700B7508C /* PostGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridItem.swift; sourceTree = "<group>"; };
+		3C8A4AB7290EFE1100B7508C /* MyGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGalleryView.swift; sourceTree = "<group>"; };
 		3CDDF40A28EB9D4900884847 /* RoundedCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		3CDDF40B28EB9D4900884847 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		3CDDF45728EB9E4200884847 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -222,6 +236,16 @@
 			path = "gripp-iosUITests";
 			sourceTree = "<group>";
 		};
+		3C8A4AA1290DC34600B7508C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3C8A4AA3290DC35A00B7508C /* LoginView.swift */,
+				3C8A4AA9290DC4A900B7508C /* LoginSheet.swift */,
+				3C8A4AAD290DC4C100B7508C /* SignupSheet.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3CDDF40928EB9D4900884847 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				3CDDF47428EBA63000884847 /* ImageGrid.swift */,
+				3C8A4AAF290DD0F100B7508C /* ImageCell.swift */,
+				3C8A4AB3290EC89F00B7508C /* LoadAnimationView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -303,6 +329,7 @@
 		3CDDF42928EB9D4900884847 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C8A4AB5290ED27700B7508C /* PostGridItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,6 +382,7 @@
 		3CDDF47928EBA71B00884847 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				3C8A4AA1290DC34600B7508C /* View */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -387,6 +415,7 @@
 		3CFD6AE628EC8F5A0039EBAF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3C8A4AB7290EFE1100B7508C /* MyGalleryView.swift */,
 				3CFD6AE828EC8F720039EBAF /* GalleryView.swift */,
 			);
 			path = View;
@@ -580,10 +609,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8A4AB6290ED27700B7508C /* PostGridItem.swift in Sources */,
 				3CDDF46928EB9E4200884847 /* Roboto.swift in Sources */,
+				3C8A4AAE290DC4C100B7508C /* SignupSheet.swift in Sources */,
 				3C2B53D328EA2FD300725FC2 /* Tabbar.swift in Sources */,
+				3C8A4AB0290DD0F100B7508C /* ImageCell.swift in Sources */,
 				3CDDF47C28EBAC7E00884847 /* Leaderboard.swift in Sources */,
 				3CFD6B0928EE488B0039EBAF /* PlayerView.swift in Sources */,
+				3C8A4AB4290EC89F00B7508C /* LoadAnimationView.swift in Sources */,
 				3C2BE4EF28D8CD7B007A24FD /* gripp_ios.xcdatamodeld in Sources */,
 				3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */,
 				3CF357CB28EB5E7600646D37 /* HomeView.swift in Sources */,
@@ -594,7 +627,10 @@
 				3CDDF47E28EBB7F400884847 /* ScoreListView.swift in Sources */,
 				3CFD6AE528EC4B390039EBAF /* UploadView.swift in Sources */,
 				3C2BE4EC28D8CD7B007A24FD /* Persistence.swift in Sources */,
+				3C8A4AA4290DC35A00B7508C /* LoginView.swift in Sources */,
+				3C8A4AAA290DC4A900B7508C /* LoginSheet.swift in Sources */,
 				3CDDF42A28EB9D4900884847 /* RoundedCorner.swift in Sources */,
+				3C8A4AB8290EFE1100B7508C /* MyGalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,12 +779,15 @@
 		3C2BE51128D8CD7C007A24FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "gripp-ios/gripp_ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 45339DQ884;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "gripp-ios/Info.plist";
@@ -781,12 +820,14 @@
 		3C2BE51228D8CD7C007A24FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "gripp-ios/gripp_ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 45339DQ884;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "gripp-ios/Info.plist";
