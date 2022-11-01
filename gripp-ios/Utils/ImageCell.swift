@@ -27,11 +27,12 @@ struct ImageCell: View {
             if(processing){
                 VStack(alignment: .center){
                     GeometryReader{ gr in
-                        LoadAnimationView()
+                        LoadAnimationView(alwaysDark: true)
                             .padding(.all, gr.size.width*0.1)
                             .frame(width: gr.size.width*0.6, height: gr.size.width*0.6)
                             .padding(.horizontal, gr.size.width*0.2)
                             .padding(.vertical, gr.size.width*0.1)
+                            .colorScheme(.dark)
                     }
                     
                     Text("분석 중...").font(.player_id)
