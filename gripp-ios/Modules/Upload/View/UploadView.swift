@@ -74,7 +74,8 @@ struct UploadView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 50, height: 50)
-                                    .padding(.all, 100)
+                                    .padding(.vertical, 30)
+                                    .padding(.horizontal, (UIScreen.main.bounds.width - 90 - 20)/2)
                                     .foregroundColor(Color(named: "TextMasterColor"))
                             }
                             
