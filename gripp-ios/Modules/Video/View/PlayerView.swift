@@ -10,7 +10,7 @@ import AVKit
 
 struct PlayerView: View {
     
-//    var playerLayer:AVPlayerLayer
+    //    var playerLayer:AVPlayerLayer
     var videoURL = URL(string: "https://objectstorage.ap-seoul-1.oraclecloud.com/n/cngzlmggdnp2/b/gripp/o/videos/sample/master.m3u8")!
     var zoomFactor:Float
     var avPlayer:AVPlayer
@@ -22,32 +22,32 @@ struct PlayerView: View {
     @State var description:String = ""
     
     init(){
-//        playerLayer = AVPlayerLayer()
+        //        playerLayer = AVPlayerLayer()
         avPlayer = AVPlayer(url: videoURL)
         videoSize = CGSize(width: 9, height: 16)
         zoomFactor = Float(UIScreen.main.bounds.size.height / videoSize.height)
         
-//        playerLayer.player = avPlayer
-//        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
+        //        playerLayer.player = avPlayer
+        //        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
     }
     
     var body: some View {
         
         NavigationView{
-        ZStack{
-            GeometryReader{geometry in
-                VideoPlayer(player: avPlayer)
-                    .frame(minWidth: videoSize.width*CGFloat(zoomFactor), minHeight: videoSize.height*CGFloat(zoomFactor))
-                    .ignoresSafeArea()
-                    .offset(x: -0.5*(videoSize.width*CGFloat(zoomFactor) - geometry.size.width), y: -0.5*(videoSize.height*CGFloat(zoomFactor) - geometry.size.height))
-                
-                VStack{
+            ZStack{
+                GeometryReader{geometry in
                     VideoPlayer(player: avPlayer)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .onAppear(perform: {
-                            avPlayer.play()
-                        })
+                        .frame(minWidth: videoSize.width*CGFloat(zoomFactor), minHeight: videoSize.height*CGFloat(zoomFactor))
+                        .ignoresSafeArea()
+                        .offset(x: -0.5*(videoSize.width*CGFloat(zoomFactor) - geometry.size.width), y: -0.5*(videoSize.height*CGFloat(zoomFactor) - geometry.size.height))
                     
+                    VStack{
+                        VideoPlayer(player: avPlayer)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .onAppear(perform: {
+                                avPlayer.playImmediately(atRate: 1.0)
+                            })
+                        
                         VStack{
                             HStack{
                                 Button(action:{
@@ -111,16 +111,6 @@ struct PlayerView: View {
                     .background(.thinMaterial)
                 }
             }
-        }
-    }
-}
-
-
-extension AVAsset {
-    
-    var videoSize: CGSize? {
-        tracks(withMediaType: .video).first.flatMap {
-            tracks.count > 0 ? $0.naturalSize.applying($0.preferredTransform) : nil
         }
     }
 }

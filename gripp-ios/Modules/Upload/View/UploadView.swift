@@ -4,7 +4,7 @@
 //
 //  https://www.youtube.com/watch?v=crULPMS7Uxs
 //
-//  Created by 조준오 on 2022/10/04.
+//  Created by 조준오 on 2022/10/04
 //
 
 import Foundation
@@ -80,18 +80,17 @@ struct UploadView: View {
                                     .frame(width: min(geometry.size.height / videoSize.height * videoSize.width, geometry.size.width), height: min(geometry.size.width / videoSize.width * videoSize.height, geometry.size.height))
                                     .clipped()
                                     .cornerRadius(20)
-                                //                            .scaledToFit()
                             }.frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
                     }.onChange(of: selectedItems) {
                         newValue in
                         guard let item = selectedItems.first else { return }
-                        item.loadTransferable(type: Movie.self) { result in   // <-- here
+                        item.loadTransferable(type: Movie.self) { result in
                             switch result {
                             case .success(let movie):
                                 if let movie = movie {
-                                    avPlayer = AVPlayer(url: movie.url) // <-- here
-                                    avPlayer?.play()
+                                    avPlayer = AVPlayer(url: movie.url)
+                                    avPlayer!.playImmediately(atRate: 1.0)
                                 } else {
                                     print("movie is nil")
                                 }
