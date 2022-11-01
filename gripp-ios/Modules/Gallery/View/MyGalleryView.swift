@@ -35,16 +35,45 @@ struct MyGalleryView: View {
         VStack(alignment: .leading, spacing: 0){
             Text("Gripp").font(.context).padding(.leading, 31).padding(.top, 6).foregroundColor(Color(named:"TextSubduedColor"))
             HStack{
-                Text("내 계정").font(.large_title)
+                Text("내 정보").font(.large_title)
                 Spacer()
-                Group{
+                Button(action:{}){
                     Text("로그아웃").font(.foot_note)
                     Image(systemName: "minus.circle")
                         .resizable()
                         .frame(width: 20, height: 20)
                         .padding(.trailing, 32)
+                }.foregroundColor(Color(named: "TextMasterColor"))
+            }.padding(.leading, 30).padding(.top, 7).padding(.bottom, 30)
+            
+            VStack(alignment: .center){
+                HStack{
+                    Spacer()
+                    Text("전체 순위 : 42위")
+                    Spacer()
+                    Text("티어 : 12")
+                    Spacer()
+                }.padding(.bottom, 5)
+                HStack{
+                    Spacer()
+                    Text("게시물 수 : 138")
+                    Spacer()
+                    Text("성공 횟수 : 63")
+                    Spacer()
+                }.padding(.bottom, 5)
+                HStack{
+                    Spacer()
+                    Text("상위 99%")
+                    Spacer()
+                    Text("점수 : 12.5")
+                    Spacer()
+                }.padding(.bottom, 5)
+                HStack{
+                    Spacer()
+                    Text("Gripp과 함께 n일째")
+                    Spacer()
                 }
-            }.padding(.leading, 30).padding(.top, 7).padding(.bottom, 18)
+            }.padding(.bottom, 30)
             
             ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
