@@ -54,7 +54,7 @@ struct HomeView: View {
                         .frame(width: 20, height: 20)
                         .padding(.trailing, 32)
                 }
-            }.padding(.top, 5).padding(.bottom, 13)
+            }.padding(.top, 4).padding(.bottom, 16)
             
             ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true)
                 .cornerRadius(24, corners: [.topLeft, .topRight])

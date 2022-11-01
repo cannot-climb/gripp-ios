@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GalleryView: View {
     
+    @State var contextString: String
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let postItemImages = [
@@ -36,9 +38,9 @@ struct GalleryView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             
-            Text("context").font(.context)
+            Text(contextString).font(.context)
                 .foregroundColor(Color(named:"TextSubduedColor"))
-                .padding(.leading, 61).padding(.top, 6)
+                .padding(.leading, 69).padding(.top, 6)
             HStack{
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -48,7 +50,7 @@ struct GalleryView: View {
                 }.padding(.leading, 30)
                 Text("아이디").font(.large_title).padding(.leading, 8)
                     .padding(.leading, 2)
-            }.padding(.top, 7).padding(.bottom, 13)
+            }.padding(.top, 7).padding(.bottom, 18)
             
             
             ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false)
@@ -70,6 +72,6 @@ extension UINavigationController {
 
 struct GalleryView_Previews: PreviewProvider {
     static var previews: some View {
-        GalleryView()
+        GalleryView(contextString: "Context")
     }
 }

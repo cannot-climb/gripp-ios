@@ -15,7 +15,7 @@ struct ScoreListView: View {
     var body: some View {
         ScrollView{
             ForEach((0...40), id: \.self){ item in
-                NavigationLink(destination: GalleryView().navigationBarBackButtonHidden(true)) {
+                NavigationLink(destination: GalleryView(contextString: "리더보드").navigationBarBackButtonHidden(true)) {
                     HStack(alignment: .center, spacing: 15){
                         Text("아이디").font(.head_line).foregroundColor(Color(named:"TextMasterColor"))
                         Spacer()

@@ -12,47 +12,46 @@ struct PlayerView: View {
     
     //    var playerLayer:AVPlayerLayer
     var videoURL = URL(string: "https://objectstorage.ap-seoul-1.oraclecloud.com/n/cngzlmggdnp2/b/gripp/o/videos/sample/master.m3u8")!
-    var zoomFactor:Float
-    var avPlayer:AVPlayer
-    var videoSize:CGSize
+    @State var zoomFactor:Float = 1
+    @State var avPlayer:AVPlayer?
+    @State var videoSize:CGSize = CGSize(width: 1, height: 0)
     
     @Environment(\.presentationMode) var presentationMode
     
     @State var title:String = ""
     @State var description:String = ""
     
-    init(){
-        //        playerLayer = AVPlayerLayer()
-        avPlayer = AVPlayer(url: videoURL)
-        videoSize = CGSize(width: 9, height: 16)
-        zoomFactor = Float(UIScreen.main.bounds.size.height / videoSize.height)
-        
-        //        playerLayer.player = avPlayer
-        //        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
-    }
-    
     var body: some View {
         
         NavigationView{
             ZStack{
                 GeometryReader{geometry in
+                    //background blurry
                     VideoPlayer(player: avPlayer)
                         .frame(minWidth: videoSize.width*CGFloat(zoomFactor), minHeight: videoSize.height*CGFloat(zoomFactor))
                         .ignoresSafeArea()
                         .offset(x: -0.5*(videoSize.width*CGFloat(zoomFactor) - geometry.size.width), y: -0.5*(videoSize.height*CGFloat(zoomFactor) - geometry.size.height))
                     
                     VStack{
+                        
+                        //                        ZStack{
+                        //                            LoadAnimationView(alwaysDark: false)
+                        //                                .frame(width: 100, height: 100)
+                        //main video
                         VideoPlayer(player: avPlayer)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .onAppear(perform: {
-                                avPlayer.playImmediately(atRate: 1.0)
+                                avPlayer = AVPlayer(url: videoURL)
+                                avPlayer?.playImmediately(atRate: 1.0)
+                                videoSize = CGSize(width: 9, height: 16)
+                                zoomFactor = Float(UIScreen.main.bounds.size.height / videoSize.height)
                             })
+                        //                        }
                         
                         VStack{
                             HStack{
                                 Button(action:{
                                     self.presentationMode.wrappedValue.dismiss()
-                                    avPlayer.pause()
+                                    avPlayer?.pause()
                                 }){
                                     Image(systemName: "arrow.left").foregroundColor(Color(named:"TextMasterColor"))
                                 }
@@ -61,12 +60,12 @@ struct PlayerView: View {
                                 VStack(alignment: .trailing){
                                     Button(action: {
                                         self.presentationMode.wrappedValue.dismiss()
-                                        avPlayer.pause()
+                                        avPlayer?.pause()
                                     }){
-                                        NavigationLink(destination: GalleryView().navigationBarBackButtonHidden(true)) {
+                                        NavigationLink(destination: GalleryView(contextString: "").navigationBarBackButtonHidden(true)) {
                                             Text("아이디").font(.player_id).foregroundColor(Color(named:"AccentMasterColor")).padding(.bottom, 1)
                                         }
-                                        .onTapGesture(perform: {avPlayer.pause()})
+                                        .onTapGesture(perform: {avPlayer?.pause()})
                                     }
                                     Text("상위 20%, V6.43").font(.player_id_info)
                                 }
@@ -84,7 +83,7 @@ struct PlayerView: View {
                                 Spacer()
                                 Button(action:{
                                     self.presentationMode.wrappedValue.dismiss()
-                                    avPlayer.pause()
+                                    avPlayer?.pause()
                                 }){
                                     Image(systemName: "trash").foregroundColor(Color(named:"TextMasterColor"))
                                         .scaledToFill()

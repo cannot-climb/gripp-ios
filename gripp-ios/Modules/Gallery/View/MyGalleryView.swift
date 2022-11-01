@@ -44,7 +44,7 @@ struct MyGalleryView: View {
                         .frame(width: 20, height: 20)
                         .padding(.trailing, 32)
                 }
-            }.padding(.leading, 30).padding(.top, 7).padding(.bottom, 13)
+            }.padding(.leading, 30).padding(.top, 7).padding(.bottom, 18)
             
             ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
