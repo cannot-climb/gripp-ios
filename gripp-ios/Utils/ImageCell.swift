@@ -44,50 +44,50 @@ struct ImageCell: View {
                 .aspectRatio(1, contentMode: .fit)
             }
             else{
-                Image(uiImage: UIImage(named: imagePath)!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .layoutPriority(-1)
-                    
-                
-                HStack(alignment: .top){
-                    Spacer()
-                    VStack(alignment: .trailing){
-                        if(conquered){
-                            Image(systemName: "mappin.circle.fill")
-                                .resizable()
-                                .foregroundColor(.white)
-                                .frame(width: 24, height: 24)
-                                .padding(.all, 10)
-                                .shadow(radius: 10)
-                        }
+                ZStack{
+                    GeometryReader{geometry in
+                        Image(uiImage: UIImage(named: imagePath)!)
+                            .resizable()
+                            .scaledToFill()
+                            .aspectRatio(1, contentMode: .fit)
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                            .contentShape(Rectangle())
+                    }
+                    HStack(alignment: .top){
                         Spacer()
+                        VStack(alignment: .trailing){
+                            if(conquered){
+                                Image(systemName: "mappin.circle.fill")
+                                    .resizable()
+                                    .foregroundColor(.white)
+                                    .frame(width: 24, height: 24)
+                                    .padding(.all, 10)
+                                    .shadow(radius: 10)
+                            }
+                            Spacer()
+                        }
                     }
                 }
-                .contentShape(Rectangle())
-                .clipped()
                 .onTapGesture {
                     isPresented.toggle()
                 }
-                .aspectRatio(1, contentMode: .fit)
+                .contextMenu{
+                    Button {} label: {
+                        Label("좋아요", systemImage: "heart")
+                    }
+                    Button {} label: {
+                        Label("프로필 보기", systemImage: "person.circle")
+                    }
+                }
             }
         }
         .clipped()
         .aspectRatio(1, contentMode: .fit)
-        .contextMenu{
-            Button {} label: {
-                Label("좋아요", systemImage: "heart")
-            }
-            Button {} label: {
-                Label("프로필 보기", systemImage: "person.circle")
-            }
-        }
     }
 }
 
 struct ImageCell_Previews: PreviewProvider {
     static var previews: some View {
-        ImageCell(imagePath: "img1.jpg", processing: false, conquered: true, present: .constant(true))
-            .frame(width: 200, height: 200)
+        ImageCell(imagePath: "img1.jpg", processing: false, conquered: true, present: .constant(true)).frame(width:200, height:200)
     }
 }
