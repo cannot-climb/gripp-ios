@@ -47,7 +47,6 @@ struct TabBar: View {
             }
             .sheet(isPresented: $isPresented) {
                 UploadView()
-//                    .ignoresSafeArea(.all)
             }
             .tabItem {
                 Image(systemName: "mappin.circle.fill")

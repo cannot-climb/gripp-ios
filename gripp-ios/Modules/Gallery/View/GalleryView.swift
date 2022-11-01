@@ -48,7 +48,7 @@ struct GalleryView: View {
                     Image(systemName: "arrow.left")
                         .foregroundColor(Color(named:"TextMasterColor"))
                 }.padding(.leading, 30)
-                Text("아이디").font(.large_title).padding(.leading, 8)
+                Text("userId").font(.large_title).padding(.leading, 8)
                     .padding(.leading, 2)
             }.padding(.top, 7).padding(.bottom, 18)
             
