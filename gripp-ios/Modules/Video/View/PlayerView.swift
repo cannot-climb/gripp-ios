@@ -56,7 +56,7 @@ struct PlayerView: View {
                                 }){
                                     Image(systemName: "arrow.left").foregroundColor(Color(named:"TextMasterColor"))
                                 }
-                                Text("영상 제목").font(.large_title)
+                                Text("영상 제목").font(.large_title).padding(.leading, 8)
                                 Spacer()
                                 VStack(alignment: .trailing){
                                     Button(action: {

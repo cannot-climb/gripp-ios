@@ -35,7 +35,7 @@ struct UploadView: View {
                     Image(systemName: "arrow.left")
                         .foregroundColor(Color(named: "TextMasterColor"))
                 }
-                Text("영상 올리기").font(.large_title)
+                Text("영상 올리기").font(.large_title).padding(.leading, 8)
                 Spacer()
                 Image(systemName: "pencil")
                     .foregroundColor(.white)
