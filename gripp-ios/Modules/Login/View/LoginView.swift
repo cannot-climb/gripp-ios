@@ -31,7 +31,7 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .zIndex(1)
                 ZStack(){
-                    SignupSheet()
+                    LoginSheet()
                         .frame(width: width)
                         .padding(.bottom, 50)
                 }

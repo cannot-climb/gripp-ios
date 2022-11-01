@@ -24,9 +24,11 @@ struct LoginSheet: View {
                 .padding(.top, 28)
                 .padding(.bottom, 12)
                 .font(.login_textfield)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
         
                 
-            TextField("비밀번호", text: $pw)
+            SecureField("비밀번호", text: $pw)
                 .padding(.all, 18)
                 .background(Color(named: "BackgroundSubduedColor"))
                 .cornerRadius(12)

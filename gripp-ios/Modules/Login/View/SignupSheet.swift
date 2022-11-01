@@ -24,8 +24,10 @@ struct SignupSheet: View {
                     .padding(.top, 28)
                     .padding(.bottom, 12)
                     .font(.login_textfield)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
                     
-                TextField("비밀번호(제한사항 추가)", text: $pw)
+                SecureField("비밀번호(제한사항 추가)", text: $pw)
                     .padding(.all, 18)
                     .background(Color(named: "BackgroundSubduedColor"))
                     .foregroundColor(Color(named: "TextSubduedColor"))
@@ -34,8 +36,9 @@ struct SignupSheet: View {
                     .padding(.horizontal, 28)
                     .padding(.bottom, 12)
                     .font(.login_textfield)
+                    
                 
-                TextField("비밀번호(다시 입력)", text: $pw2)
+                SecureField("비밀번호(다시 입력)", text: $pw2)
                     .padding(.all, 18)
                     .background(Color(named: "BackgroundSubduedColor"))
                     .foregroundColor(Color(named: "TextSubduedColor"))
