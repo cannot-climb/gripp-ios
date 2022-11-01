@@ -83,21 +83,23 @@ struct UploadView: View {
                         }
                         else{
                             //main video
-                            ZStack{
-                                LoadAnimationView(alwaysDark: false)
-                                    .frame(width: 100, height: 100)
+                            GeometryReader{geometry in
+                                ZStack{
+                                    LoadAnimationView(alwaysDark: false)
+                                        .padding(.all, 10)
+                                        .frame(width: max(geometry.size.height/3, 120), height: max(geometry.size.width/3, 120))
                                     
-                                
-                                GeometryReader{geometry in
+
                                     VStack{
                                         VideoPlayer(player: avPlayer)
                                             .frame(width: min(geometry.size.height / videoSize.height * videoSize.width, geometry.size.width), height: min(geometry.size.width / videoSize.width * videoSize.height, geometry.size.height))
                                             .clipped()
                                             .cornerRadius(20)
                                     }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    
                                 }
+                                .contentShape(Rectangle())
                             }
-                            .contentShape(Rectangle())
                         }
                     
                     Spacer().frame(width: 40)
