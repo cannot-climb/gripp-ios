@@ -74,6 +74,14 @@ struct ImageCell: View {
         }
         .clipped()
         .aspectRatio(1, contentMode: .fit)
+        .contextMenu{
+            Button {} label: {
+                Label("좋아요", systemImage: "heart")
+            }
+            Button {} label: {
+                Label("프로필 보기", systemImage: "person.circle")
+            }
+        }
     }
 }
 
