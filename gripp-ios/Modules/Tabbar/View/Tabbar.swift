@@ -46,7 +46,7 @@ struct TabBar: View {
                 isPresented.toggle()
             }
             .sheet(isPresented: $isPresented) {
-                UploadView(imagePath: "img3.jpg")
+                UploadView()
 //                    .ignoresSafeArea(.all)
             }
             .tabItem {

@@ -10,7 +10,7 @@ import AVKit
 
 struct PlayerView: View {
     
-    var playerLayer:AVPlayerLayer
+//    var playerLayer:AVPlayerLayer
     var videoURL = URL(string: "https://objectstorage.ap-seoul-1.oraclecloud.com/n/cngzlmggdnp2/b/gripp/o/videos/sample/master.m3u8")!
     var zoomFactor:Float
     var avPlayer:AVPlayer
@@ -22,13 +22,13 @@ struct PlayerView: View {
     @State var description:String = ""
     
     init(){
-        playerLayer = AVPlayerLayer()
+//        playerLayer = AVPlayerLayer()
         avPlayer = AVPlayer(url: videoURL)
         videoSize = CGSize(width: 9, height: 16)
         zoomFactor = Float(UIScreen.main.bounds.size.height / videoSize.height)
         
-        playerLayer.player = avPlayer
-        playerLayer.videoGravity = AVLayerVideoGravity.resize
+//        playerLayer.player = avPlayer
+//        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
     }
     
     var body: some View {
