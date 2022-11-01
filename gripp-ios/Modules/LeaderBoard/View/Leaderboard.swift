@@ -17,7 +17,7 @@ struct LeaderBoardView: View {
                 Text("Gripp").font(.context).padding(.leading, 31).padding(.top, 6).foregroundColor(Color(named:"TextSubduedColor"))
                 HStack{
                     Text("리더보드").font(.large_title)
-                }.padding(.leading, 30).padding(.top, 7).padding(.bottom, 10)
+                }.padding(.leading, 30).padding(.top, 5).padding(.bottom, 10)
                 
                 HStack(alignment: .bottom, spacing: 0){
                     Spacer()

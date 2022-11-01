@@ -50,7 +50,7 @@ struct GalleryView: View {
                 }.padding(.leading, 30)
                 Text("userId").font(.large_title).padding(.leading, 8)
                     .padding(.leading, 2)
-            }.padding(.top, 7).padding(.bottom, 18)
+            }.padding(.top, 5).padding(.bottom, 18)
             
             
             ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false)

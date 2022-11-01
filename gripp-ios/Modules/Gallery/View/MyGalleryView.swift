@@ -44,36 +44,85 @@ struct MyGalleryView: View {
                         .frame(width: 20, height: 20)
                         .padding(.trailing, 32)
                 }.foregroundColor(Color(named: "TextMasterColor"))
-            }.padding(.leading, 30).padding(.top, 7).padding(.bottom, 30)
+            }.padding(.leading, 30).padding(.top, 5).padding(.bottom, 20)
             
-            VStack(alignment: .center){
-                HStack{
-                    Spacer()
-                    Text("전체 순위 : 42위")
-                    Spacer()
-                    Text("티어 : 12")
-                    Spacer()
-                }.padding(.bottom, 5)
-                HStack{
-                    Spacer()
-                    Text("게시물 수 : 138")
-                    Spacer()
-                    Text("성공 횟수 : 63")
-                    Spacer()
-                }.padding(.bottom, 5)
-                HStack{
-                    Spacer()
-                    Text("상위 99%")
-                    Spacer()
-                    Text("점수 : 12.5")
-                    Spacer()
-                }.padding(.bottom, 5)
-                HStack{
-                    Spacer()
-                    Text("Gripp과 함께 n일째")
-                    Spacer()
+            GeometryReader{geometry in
+                HStack(alignment: .center, spacing: 6){
+                    Button(action:{}){
+                        VStack(spacing: 4){
+                            HStack{
+                                Text("게시물").font(.player_id)
+                                    .padding(.leading, 12)
+                                    .padding(.vertical, 12)
+                                Spacer()
+                            }
+                            HStack{
+                                Spacer()
+                                Text("12개").font(.large_title)
+                                    .padding(.trailing, 10)
+                                    .padding(.bottom, 10)
+                            }
+                        }
+                        .background(Color(named: "BackgroundMasterColor"))
+                        .cornerRadius(14)
+                        .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
+                        .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 8)
+                        .frame(width: (geometry.size.width-40)/3)
+                    }
+                    Button(action:{}){
+                        VStack(spacing: 4){
+                            HStack{
+                                Text("티어").font(.player_id)
+                                    .padding(.leading, 12)
+                                    .padding(.vertical, 12)
+                                Spacer()
+                            }
+                            HStack{
+                                Spacer()
+                                Text("V12").font(.large_title)
+                                    .padding(.trailing, 10)
+                                    .padding(.bottom, 10)
+                            }
+                        }
+                        .background(Color(named: "BackgroundMasterColor"))
+                        .cornerRadius(14)
+                        .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
+                        .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 8)
+                        .frame(width: (geometry.size.width-40)/3)
+                    }
+                    
+                    Button(action:{}){
+                        VStack(spacing: 4){
+                            HStack{
+                                Text("순위").font(.player_id)
+                                    .padding(.leading, 12)
+                                    .padding(.vertical, 12)
+                                Spacer()
+                            }
+                            HStack{
+                                Spacer()
+                                Text("42위").font(.large_title)
+                                    .padding(.trailing, 10)
+                                    .padding(.bottom, 10)
+                            }
+                        }
+                        .background(Color(named: "BackgroundMasterColor"))
+                        .cornerRadius(14)
+                        .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
+                        .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 8)
+                        .frame(width: (geometry.size.width-40)/3)
+                    }
                 }
-            }.padding(.bottom, 30)
+                .frame(width: geometry.size.width)
+                .foregroundColor(Color(named: "TextMasterColor"))
+            }
+            .frame(height: 130)
             
             ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false)
                 .cornerRadius(24, corners: [.topLeft, .topRight])

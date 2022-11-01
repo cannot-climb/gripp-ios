@@ -40,7 +40,7 @@ struct HomeView: View {
             Button(action:{}){
                 Text("masterUserId").font(.large_title)
                 Image(systemName: "arrow.forward")
-            }.padding(.leading, 30).padding(.top, 7)
+            }.padding(.leading, 30).padding(.top, 5)
                 .foregroundColor(Color(named: "TextMasterColor"))
             HStack(alignment: .center){
                 Text("userInfoString").font(.foot_note)
