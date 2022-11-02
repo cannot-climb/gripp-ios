@@ -12,21 +12,21 @@ struct MyGalleryView: View {
     let postItemImages = [
         PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
         PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img3.jpg", processing: true, conquered: false),
-        PostGridItem(thumbnailPath: "img4.jpg", processing: true, conquered: false),
+        PostGridItem(thumbnailPath: "img3.jpg", processing: false, conquered: false),
+        PostGridItem(thumbnailPath: "img4.jpg", processing: false, conquered: false),
         PostGridItem(thumbnailPath: "img5.jpg", processing: false, conquered: true),
         PostGridItem(thumbnailPath: "img6.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img7.jpg", processing: false, conquered: true),
+        PostGridItem(thumbnailPath: "img7.jpg", processing: false, conquered: false),
         PostGridItem(thumbnailPath: "img8.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img9.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img10.jpg", processing: true, conquered: true),
-        PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
+        PostGridItem(thumbnailPath: "img9.jpg", processing: false, conquered: false),
         PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: true),
         PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img12.jpg", processing: true, conquered: false),
+        PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: false),
+        PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
+        PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: false),
+        PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: true),
+        PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
+        PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: false),
         PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
         PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
     ]
@@ -44,85 +44,55 @@ struct MyGalleryView: View {
                         .frame(width: 20, height: 20)
                         .padding(.trailing, 32)
                 }.foregroundColor(Color(named: "TextMasterColor"))
-            }.padding(.leading, 30).padding(.top, 5).padding(.bottom, 20)
+            }.padding(.leading, 30).padding(.top, 5).padding(.bottom, 6)
             
             GeometryReader{geometry in
                 HStack(alignment: .center, spacing: 6){
-                    Button(action:{}){
-                        VStack(spacing: 4){
-                            HStack{
-                                Text("게시물").font(.player_id)
-                                    .padding(.leading, 12)
-                                    .padding(.vertical, 12)
-                                Spacer()
-                            }
-                            HStack{
-                                Spacer()
-                                Text("12개").font(.large_title)
-                                    .padding(.trailing, 10)
-                                    .padding(.bottom, 10)
-                            }
-                        }
-                        .background(Color(named: "BackgroundMasterColor"))
-                        .cornerRadius(14)
-                        .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
-                        .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 8)
-                        .frame(width: (geometry.size.width-40)/3)
+                    TabView(){
+                        GalleryViewPage(title: "게시물", content: "20개",pageIndex: 0 ,pageCount: 3)
+                        GalleryViewPage(title: "성공", content: "12회",pageIndex: 1 ,pageCount: 3)
+                        GalleryViewPage(title: "성공율", content: "60%",pageIndex: 2 ,pageCount: 3)
                     }
-                    Button(action:{}){
-                        VStack(spacing: 4){
-                            HStack{
-                                Text("티어").font(.player_id)
-                                    .padding(.leading, 12)
-                                    .padding(.vertical, 12)
-                                Spacer()
-                            }
-                            HStack{
-                                Spacer()
-                                Text("V12").font(.large_title)
-                                    .padding(.trailing, 10)
-                                    .padding(.bottom, 10)
-                            }
-                        }
-                        .background(Color(named: "BackgroundMasterColor"))
-                        .cornerRadius(14)
-                        .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
-                        .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 8)
-                        .frame(width: (geometry.size.width-40)/3)
-                    }
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                    .background(Color(named: "BackgroundMasterColor"))
+                    .cornerRadius(14)
+                    .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
+                    .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
+                    .padding(.vertical, 22)
+                    .padding(.horizontal, 8)
+                    .frame(width: (geometry.size.width-40)/3)
                     
-                    Button(action:{}){
-                        VStack(spacing: 4){
-                            HStack{
-                                Text("순위").font(.player_id)
-                                    .padding(.leading, 12)
-                                    .padding(.vertical, 12)
-                                Spacer()
-                            }
-                            HStack{
-                                Spacer()
-                                Text("42위").font(.large_title)
-                                    .padding(.trailing, 10)
-                                    .padding(.bottom, 10)
-                            }
-                        }
-                        .background(Color(named: "BackgroundMasterColor"))
-                        .cornerRadius(14)
-                        .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
-                        .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 8)
-                        .frame(width: (geometry.size.width-40)/3)
+                    TabView{
+                        GalleryViewPage(title: "티어", content: "V12",pageIndex: 0 ,pageCount: 2)
+                        GalleryViewPage(title: "점수", content: "11.54",pageIndex: 1 ,pageCount: 2)
                     }
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                    .background(Color(named: "BackgroundMasterColor"))
+                    .cornerRadius(14)
+                    .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
+                    .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
+                    .padding(.vertical, 22)
+                    .padding(.horizontal, 8)
+                    .frame(width: (geometry.size.width-40)/3)
+                    
+                    TabView{
+                        GalleryViewPage(title: "전체", content: "20위",pageIndex: 0 ,pageCount: 2)
+                        GalleryViewPage(title: "상위", content: "90%",pageIndex: 1 ,pageCount: 2)
+                    }
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                    .background(Color(named: "BackgroundMasterColor"))
+                    .cornerRadius(14)
+                    .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
+                    .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
+                    .padding(.vertical, 22)
+                    .padding(.horizontal, 8)
+                    .frame(width: (geometry.size.width-40)/3)
                 }
                 .frame(width: geometry.size.width)
                 .foregroundColor(Color(named: "TextMasterColor"))
             }
             .frame(height: 130)
+            .padding(.bottom, 10)
             
             ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
