@@ -21,21 +21,43 @@ struct ImageGrid: View {
     }
     
     var body: some View {
-        ScrollView{
-            LazyVGrid(columns: gridItemLayout, spacing: 3){
-                ForEach(postItemImages, id: \.self){ item in
-                    GeometryReader{ gr in
-                        ImageCell(imagePath: item.thumbnailPath, processing: item.processing, conquered: item.conquered, present: $isPresented)
+        
+        GeometryReader{ gr in
+            ScrollView{
+                if(firstItemGiantDecoration){
+                    HStack(spacing: 3){
+                        let item = postItemImages[0..<3]
+                        ImageCell(imagePath: item[0].thumbnailPath, processing: item[0].processing, conquered: item[0].conquered, present: $isPresented, useDecoration: true)
+                            .frame(width: (gr.size.width-3)*2/3+1)
+                        VStack(spacing: 3){
+                            ImageCell(imagePath: item[1].thumbnailPath, processing: item[1].processing, conquered: item[1].conquered, present: $isPresented)
+                            ImageCell(imagePath: item[2].thumbnailPath, processing: item[2].processing, conquered: item[2].conquered, present: $isPresented)
+                        }
+                        .frame(width: (gr.size.width-3)/3-1)
                     }
-                    .clipped()
-                    .aspectRatio(1, contentMode: .fit)
+                    .padding(.bottom, -5)
                 }
-            }
-            
-        }.background(Color(named:"BackgroundMasterColor"))
-            .sheet(isPresented: $isPresented) {
-                PlayerView()
-            }
+                else{
+                    HStack(spacing: 3){
+                        ForEach(postItemImages[0..<3]) { item in
+                            ImageCell(imagePath: item.thumbnailPath, processing: item.processing, conquered: item.conquered, present: $isPresented)
+                        }
+                    }
+                    .padding(.bottom, -5)
+                }
+                LazyVGrid(columns: gridItemLayout, spacing: 3){
+                    ForEach(postItemImages[3..<postItemImages.count], id: \.self){ item in
+                        ImageCell(imagePath: item.thumbnailPath, processing: item.processing, conquered: item.conquered, present: $isPresented)
+                            .clipped()
+                            .aspectRatio(1, contentMode: .fit)
+                    }
+                }
+                
+            }.background(Color(named:"BackgroundMasterColor"))
+                .sheet(isPresented: $isPresented) {
+                    PlayerView()
+                }
+        }
     }
 }
 

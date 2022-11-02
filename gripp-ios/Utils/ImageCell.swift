@@ -9,15 +9,18 @@ import SwiftUI
 
 struct ImageCell: View {
     var imagePath : String
-    var processing : Bool = false
-    var conquered : Bool = false
+    var processing = false
+    var conquered = false
     
+    var useDecoration = false
     @Binding var isPresented : Bool
     
-    init(imagePath: String, processing: Bool, conquered: Bool, present: Binding<Bool>) {
+    init(imagePath: String, processing: Bool, conquered: Bool, present: Binding<Bool>, useDecoration: Bool? = false) {
         self.imagePath = imagePath
         self.processing = processing
         self.conquered = conquered
+        
+        self.useDecoration = useDecoration ?? false
         self._isPresented = present
     }
     
@@ -89,6 +92,23 @@ struct ImageCell: View {
 
 struct ImageCell_Previews: PreviewProvider {
     static var previews: some View {
-        ImageCell(imagePath: "img1.jpg", processing: false, conquered: true, present: .constant(true)).frame(width:200, height:200)
+        VStack{
+            HStack{
+                
+                ImageCell(imagePath: "img1.jpg", processing: false, conquered: true, present: .constant(true))
+                
+                ImageCell(imagePath: "img1.jpg", processing: true, conquered: false, present: .constant(true))
+                
+                ImageCell(imagePath: "img1.jpg", processing: false, conquered: false, present: .constant(true))
+            }
+            HStack{
+                
+                ImageCell(imagePath: "img1.jpg", processing: false, conquered: true, present: .constant(true), useDecoration: true)
+                
+                ImageCell(imagePath: "img1.jpg", processing: true, conquered: false, present: .constant(true), useDecoration: true)
+                
+                ImageCell(imagePath: "img1.jpg", processing: false, conquered: false, present: .constant(true), useDecoration: true)
+            }
+        }
     }
 }
