@@ -50,14 +50,19 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Button(action: {}){
+                Menu{
+                    ForEach(0..<21){i in
+                        Button(action: {}, label: {Text("V\(20-i)")})
+                    }
+                } label: {
                     Text("난이도").font(.foot_note)
+                        .foregroundColor(Color(named: "TextMasterColor"))
                     Image("Sort")
                         .resizable()
                         .frame(width: 24, height: 24)
                         .padding(.trailing, 32)
+                        .foregroundColor(Color(named: "TextMasterColor"))
                 }
-                .foregroundColor(Color(named: "TextMasterColor"))
             }.padding(.top, 4).padding(.bottom, 16)
             
             ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true, shouldHaveChin: shouldHaveChin)
