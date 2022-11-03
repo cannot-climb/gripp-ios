@@ -44,9 +44,6 @@ struct TabBarItem: View {
             if(assignedPage != nil){
                 viewRouter.currentPage = assignedPage!
             }
-            else{
-                
-            }
         }
     }
     

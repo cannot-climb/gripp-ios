@@ -28,10 +28,7 @@ struct LeaderBoardView: View {
                         Spacer()
                         Text("2위").font(.podium_footer).frame(width: 110, height: 30)
                     }
-                    .frame(
-                        width: 100,
-                        height: 105
-                    )
+                    .frame(width: 100, height: 105)
                     .background(Color(named:"BackgroundMasterColor").opacity(0.5))
                     VStack{
                         Image(systemName: "crown.fill").foregroundColor(Color("#FFC400")).padding(.bottom, 1)
@@ -50,10 +47,7 @@ struct LeaderBoardView: View {
                         Spacer()
                         Text("3위").font(.podium_footer).frame(width: 110, height: 30)
                     }
-                    .frame(
-                        width: 100,
-                        height: 90
-                    )
+                    .frame(width: 100, height: 90)
                     .background(Color(named:"BackgroundMasterColor").opacity(0.5))
                     Spacer()
                 }.zIndex(1)
@@ -62,9 +56,8 @@ struct LeaderBoardView: View {
                     .cornerRadius(24, corners: [.topLeft, .topRight])
                     .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
             }
-            .navigationBarBackButtonHidden(true)
             .background(Color(named:"BackgroundSubduedColor"))
-            
+            .navigationBarHidden(true)
         }
         .navigationBarBackButtonHidden(true)
     }
