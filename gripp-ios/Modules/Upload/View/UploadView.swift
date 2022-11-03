@@ -18,6 +18,9 @@ struct UploadView: View {
     @State var angle = ""
     @State var difficulty = ""
     
+    let angles = Array(0...15).map({"\($0*5)º"})
+    let difficulties = Array(0...21).map({"V\($0)"})
+    
     //    private var playerLayer:AVPlayerLayer
     @State private var zoomFactor:Float = 1.0
     @State private var avPlayer:AVPlayer?
@@ -71,38 +74,38 @@ struct UploadView: View {
                 HStack(alignment: .center){
                     Spacer().frame(width: 40)
                     
-                        if(selectedItems.count == 0){
-                            PhotosPicker(selection: $selectedItems, maxSelectionCount: 1, matching: .videos){
-                                Image(systemName: "video.badge.plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 50, height: 50)
-                                    .padding(.vertical, 30)
-                                    .padding(.horizontal, (UIScreen.main.bounds.width - 90 - 20)/2)
-                                    .foregroundColor(Color(named: "TextMasterColor"))
-                            }
-                            
-                            
+                    if(selectedItems.count == 0){
+                        PhotosPicker(selection: $selectedItems, maxSelectionCount: 1, matching: .videos){
+                            Image(systemName: "video.badge.plus")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50, height: 50)
+                                .padding(.vertical, 30)
+                                .padding(.horizontal, (UIScreen.main.bounds.width - 90 - 20)/2)
+                                .foregroundColor(Color(named: "TextMasterColor"))
                         }
-                        else{
-                            //main video
-                            GeometryReader{geometry in
-                                ZStack{
-                                    LoadAnimationView(alwaysDark: false)
-                                        .frame(width: max(geometry.size.height/3, 120), height: max(geometry.size.width/3, 120))
-                                    
-
-                                    VStack{
-                                        VideoPlayer(player: avPlayer)
-                                            .frame(width: min(geometry.size.height / videoSize.height * videoSize.width, geometry.size.width), height: min(geometry.size.width / videoSize.width * videoSize.height, geometry.size.height))
-                                            .clipped()
-                                            .cornerRadius(20)
-                                    }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    
-                                }
-                                .contentShape(Rectangle())
+                        
+                        
+                    }
+                    else{
+                        //main video
+                        GeometryReader{geometry in
+                            ZStack{
+                                LoadAnimationView(alwaysDark: false)
+                                    .frame(width: max(geometry.size.height/3, 120), height: max(geometry.size.width/3, 120))
+                                
+                                
+                                VStack{
+                                    VideoPlayer(player: avPlayer)
+                                        .frame(width: min(geometry.size.height / videoSize.height * videoSize.width, geometry.size.width), height: min(geometry.size.width / videoSize.width * videoSize.height, geometry.size.height))
+                                        .clipped()
+                                        .cornerRadius(20)
+                                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                                
                             }
+                            .contentShape(Rectangle())
                         }
+                    }
                     
                     Spacer().frame(width: 40)
                 }
@@ -135,39 +138,43 @@ struct UploadView: View {
                 Text("제목").font(.textfield_leading)
                 TextField("", text: $title).overlay(VStack{Divider().offset(x: 0, y: 15)})
             }.padding(.top, 30).padding(.leading, 30).padding(.trailing, 30)
+                .frame(height: 50)
             HStack(spacing: 15){
                 Text("설명").font(.textfield_leading)
                 TextField("", text: $description).overlay(VStack{Divider().offset(x: 0, y: 15)})
             }.padding(.top, 30).padding(.leading, 30).padding(.trailing, 30)
+                .frame(height: 50)
             HStack(spacing: 20){
-                HStack(spacing: 15){
-                    Text("각도").font(.textfield_leading)
-                    Menu{
-                        ForEach(0..<15){i in
-                            Button(action: {angle = String(i*5)}, label: {Text("\(i*5)º")})
-                        }
-                    } label: {
-                        TextField("", text: $angle).overlay(VStack{Divider().offset(x: 0, y: 15)})
+                Text("각도").font(.textfield_leading)
+                Picker("Angle", selection: $angle){
+                    ForEach(angles, id: \.self){
+                        Text($0)
                     }
                 }
-                HStack(spacing: 15){
-                    Text("난이도").font(.textfield_leading)
-                    Menu{
-                        ForEach(0..<21){i in
-                            Button(action: {difficulty = String(i)}, label: {Text("V\(i)")})
-                        }
-                    } label: {
-                        TextField("", text: $difficulty).overlay(VStack{Divider().offset(x: 0, y: 15)})
+                .frame(maxWidth: .infinity)
+                .pickerStyle(.menu)
+                .tint(Color(named: "TextMasterColor"))
+                .overlay(VStack{Divider().offset(x: 0, y: 15)})
+                
+                Text("난이도").font(.textfield_leading)
+                    .padding(.leading, 15)
+                Picker("Difficulty", selection: $difficulty){
+                    ForEach(difficulties, id: \.self){
+                        Text($0)
                     }
                 }
+                .frame(maxWidth: .infinity)
+                .pickerStyle(.menu)
+                .tint(Color(named: "TextMasterColor"))
+                .overlay(VStack{Divider().offset(x: 0, y: 15)})
             }.padding(.top, 30).padding(.leading, 30).padding(.trailing, 30)
+            
+            
             Spacer()
         }
         .padding(.bottom, 20)
         .background(Color(named:"BackgroundMasterColor"))
     }
-    
-    
 }
 
 
