@@ -53,9 +53,9 @@ struct PlayerView: View {
                                     self.presentationMode.wrappedValue.dismiss()
                                     avPlayer?.pause()
                                 }){
-                                    Image(systemName: "arrow.left").foregroundColor(Color(named:"TextMasterColor"))
+                                    Image("ArrowLeft").foregroundColor(Color(named:"TextMasterColor"))
                                 }
-                                Text("영상 제목").font(.large_title).padding(.leading, 8)
+                                Text("영상 제목").font(.large_title).padding(.leading, 4)
                                 Spacer()
                                 VStack(alignment: .trailing){
                                     Button(action: {
@@ -85,7 +85,7 @@ struct PlayerView: View {
                                     self.presentationMode.wrappedValue.dismiss()
                                     avPlayer?.pause()
                                 }){
-                                    Image(systemName: "trash").foregroundColor(Color(named:"TextMasterColor"))
+                                    Image("Trash").foregroundColor(Color(named:"TextMasterColor"))
                                         .scaledToFill()
                                         .frame(width: 30,height: 30)
                                 }

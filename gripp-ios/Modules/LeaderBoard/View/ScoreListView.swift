@@ -20,7 +20,7 @@ struct ScoreListView: View {
                         Text("아이디").font(.head_line).foregroundColor(Color(named:"TextMasterColor"))
                         Spacer()
                         Text("상위 30%, V3.78").font(.subheadline).foregroundColor(Color(named:"TextMasterColor"))
-                        Image(systemName: "arrow.right").foregroundColor(Color(named:"TextMasterColor"))
+                        Image("ArrowRight").foregroundColor(Color(named:"TextMasterColor"))
                     }.padding(.leading, 23).padding(.trailing, 31).padding(.top, 16).padding(.bottom, 16)
                 }
             }

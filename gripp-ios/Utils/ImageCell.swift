@@ -48,6 +48,15 @@ struct ImageCell: View {
                         .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
                         .padding(.horizontal, 8)
                     }
+                    else{
+                        Image(systemName: "person.and.background.dotted")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 28, height: 21)
+                            .padding(.top, 8)
+                            .padding(.trailing, 6)
+                            .shadow(radius: 10)
+                    }
                 }
                 .background(Color("#101012"))
                 .clipped()
@@ -68,7 +77,8 @@ struct ImageCell: View {
                             
                             HStack(alignment: .center){
                                 Text("등반 성공!").font(.foot_note)
-                                Image(systemName: "mappin.circle.fill")
+                                Image("ConquerOutlined")
+                                    .padding(.horizontal, -2)
                             }
                             .padding(.vertical, 10)
                             .padding(.horizontal, 14)
@@ -83,11 +93,12 @@ struct ImageCell: View {
                                 Spacer()
                                 VStack(alignment: .trailing){
                                     if(conquered){
-                                        Image(systemName: "mappin.circle.fill")
+                                        Image("ConquerFilled")
                                             .resizable()
                                             .foregroundColor(.white)
-                                            .frame(width: 24, height: 24)
-                                            .padding(.all, 10)
+                                            .frame(width: 30, height: 30)
+                                            .padding(.top, 8)
+                                            .padding(.trailing, 6)
                                             .shadow(radius: 10)
                                     }
                                     Spacer()

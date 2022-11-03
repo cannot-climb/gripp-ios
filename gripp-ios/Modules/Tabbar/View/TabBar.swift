@@ -12,35 +12,36 @@ struct TabBar: View {
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
+    
     private var items: FetchedResults<Item>
     
     var homeView = HomeView()
     var leaderBoard = LeaderBoardView()
     var myProfileView = MyGalleryView()
     
-
+    
     @State private var isPresented = false
     
     var body: some View {
         TabView{
             
             homeView.tabItem {
-                    Image(systemName: "mosaic.fill")
-                    Text("홈")
+                Image("Home")
+                Text("홈")
             }
             
             leaderBoard.tabItem {
-                    Image(systemName: "list.number")
-                    Text("리더보드")
+                Image("Leaderboard")
+                Text("리더보드")
             }
             
             myProfileView.tabItem {
-                    Image(systemName: "video.fill")
-                    Text("내 프로필")
+                Image("Person")
+                Text("내 프로필")
             }
             Button("Present") {
                 isPresented.toggle()
@@ -49,14 +50,15 @@ struct TabBar: View {
                 UploadView()
             }
             .tabItem {
-                Image(systemName: "mappin.circle.fill")
+                Image("Video")
                 Text("영상 올리기")
             }
         }
     }
     
-
+    
 }
+
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
@@ -64,7 +66,7 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct Tabbar_Previews: PreviewProvider {
+struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
         TabBar()
     }

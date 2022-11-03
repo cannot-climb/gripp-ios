@@ -32,14 +32,13 @@ struct UploadView: View {
         VStack(alignment: .leading, spacing: 0){
             HStack{
                 Button(action: {self.presentationMode.wrappedValue.dismiss()}){
-                    Image(systemName: "arrow.left")
-                        .foregroundColor(Color(named: "TextMasterColor"))
+                    Image("ArrowLeft").foregroundColor(Color(named: "TextMasterColor"))
                 }
-                Text("영상 올리기").font(.large_title).padding(.leading, 8)
+                Text("영상 올리기").font(.large_title).padding(.leading, 4)
                 Spacer()
-                Image(systemName: "pencil")
+                Image("Pencil")
                     .foregroundColor(.white)
-                    .frame(width: 44, height: 44)
+                    .frame(width: 48, height: 48)
                     .background(Color("#BE1F00"))
                     .cornerRadius(40)
                     .shadow(color: Color("#FF0000").opacity(0.25), radius: 12)

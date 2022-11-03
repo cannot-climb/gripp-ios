@@ -39,7 +39,7 @@ struct HomeView: View {
                 .foregroundColor(Color(named:"TextSubduedColor"))
             Button(action:{}){
                 Text("masterUserId").font(.large_title)
-                Image(systemName: "arrow.forward")
+                Image("ArrowRight")
             }.padding(.leading, 30).padding(.top, 5)
                 .foregroundColor(Color(named: "TextMasterColor"))
             HStack(alignment: .center){
@@ -50,9 +50,9 @@ struct HomeView: View {
                 
                 Button(action: {}){
                     Text("난이도").font(.foot_note)
-                    Image(systemName: "line.3.horizontal.decrease.circle")
+                    Image("Sort")
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 24, height: 24)
                         .padding(.trailing, 32)
                 }
                 .foregroundColor(Color(named: "TextMasterColor"))
