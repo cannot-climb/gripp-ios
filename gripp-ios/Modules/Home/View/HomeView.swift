@@ -52,9 +52,10 @@ struct HomeView: View {
                 Spacer()
                 
                 Menu{
-                    ForEach(0..<21){i in
-                        Button(action: {}, label: {Text("V\(20-i)")})
-                    }
+                    Button(action: {}, label: {Text("V16 - V20")})
+                    Button(action: {}, label: {Text("V11 - V15")})
+                    Button(action: {}, label: {Text("V6 - V10")})
+                    Button(action: {}, label: {Text("V0 - V5")})
                 } label: {
                     Text("난이도").font(.foot_note)
                         .foregroundColor(Color(named: "TextMasterColor"))

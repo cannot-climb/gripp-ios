@@ -30,6 +30,7 @@ struct UploadView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
+            //top bar
             HStack{
                 Button(action: {self.presentationMode.wrappedValue.dismiss()}){
                     Image("ArrowLeft").foregroundColor(Color(named: "TextMasterColor"))
@@ -46,6 +47,7 @@ struct UploadView: View {
                 }
             }.padding(.leading, 30).padding(.top, 24).padding(.trailing, 14)
             
+            //video area
             ZStack{
                 HStack(alignment: .center){
                     Spacer().frame(width: 20)
@@ -128,6 +130,7 @@ struct UploadView: View {
                 }
             }
             
+            //input area
             HStack(spacing: 15){
                 Text("제목").font(.textfield_leading)
                 TextField("", text: $title).overlay(VStack{Divider().offset(x: 0, y: 15)})
@@ -139,15 +142,25 @@ struct UploadView: View {
             HStack(spacing: 20){
                 HStack(spacing: 15){
                     Text("각도").font(.textfield_leading)
-                    TextField("", text: $angle).overlay(VStack{Divider().offset(x: 0, y: 15)}) //todo : swap to dropdown
+                    Menu{
+                        ForEach(0..<15){i in
+                            Button(action: {angle = String(i*5)}, label: {Text("\(i*5)º")})
+                        }
+                    } label: {
+                        TextField("", text: $angle).overlay(VStack{Divider().offset(x: 0, y: 15)})
+                    }
                 }
                 HStack(spacing: 15){
                     Text("난이도").font(.textfield_leading)
-                    TextField("", text: $difficulty).overlay(VStack{Divider().offset(x: 0, y: 15)}) //todo : swap to dropdown
+                    Menu{
+                        ForEach(0..<21){i in
+                            Button(action: {difficulty = String(i)}, label: {Text("V\(i)")})
+                        }
+                    } label: {
+                        TextField("", text: $difficulty).overlay(VStack{Divider().offset(x: 0, y: 15)})
+                    }
                 }
             }.padding(.top, 30).padding(.leading, 30).padding(.trailing, 30)
-            
-            
             Spacer()
         }
         .padding(.bottom, 20)
