@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C0D6FF52914886400C7C91B /* ModalInfoLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D6FF42914886400C7C91B /* ModalInfoLine.swift */; };
 		3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */; };
 		3C2BE4EC28D8CD7B007A24FD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */; };
 		3C2BE4EF28D8CD7B007A24FD /* gripp_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4ED28D8CD7B007A24FD /* gripp_ios.xcdatamodeld */; };
@@ -20,6 +21,7 @@
 		3C491354291354C500792CDF /* CustomIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C491353291354C500792CDF /* CustomIcons.xcassets */; };
 		3C4913652914087600792CDF /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913642914087600792CDF /* ViewRouter.swift */; };
 		3C4913672914196800792CDF /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913662914196800792CDF /* Dimensions.swift */; };
+		3C4913692914703E00792CDF /* DanglingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913682914703E00792CDF /* DanglingModal.swift */; };
 		3C8A4AA4290DC35A00B7508C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AA3290DC35A00B7508C /* LoginView.swift */; };
 		3C8A4AAA290DC4A900B7508C /* LoginSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AA9290DC4A900B7508C /* LoginSheet.swift */; };
 		3C8A4AAE290DC4C100B7508C /* SignupSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AAD290DC4C100B7508C /* SignupSheet.swift */; };
@@ -85,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C0D6FF42914886400C7C91B /* ModalInfoLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfoLine.swift; sourceTree = "<group>"; };
 		3C2BE4E628D8CD7B007A24FD /* gripp-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gripp-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosApp.swift; sourceTree = "<group>"; };
 		3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 		3C491353291354C500792CDF /* CustomIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CustomIcons.xcassets; sourceTree = "<group>"; };
 		3C4913642914087600792CDF /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		3C4913662914196800792CDF /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
+		3C4913682914703E00792CDF /* DanglingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DanglingModal.swift; sourceTree = "<group>"; };
 		3C8A4AA3290DC35A00B7508C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3C8A4AA9290DC4A900B7508C /* LoginSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSheet.swift; sourceTree = "<group>"; };
 		3C8A4AAD290DC4C100B7508C /* SignupSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupSheet.swift; sourceTree = "<group>"; };
@@ -456,6 +460,8 @@
 			isa = PBXGroup;
 			children = (
 				3CFD6B0828EE488B0039EBAF /* PlayerView.swift */,
+				3C4913682914703E00792CDF /* DanglingModal.swift */,
+				3C0D6FF42914886400C7C91B /* ModalInfoLine.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -631,8 +637,10 @@
 				3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */,
 				3CF357CB28EB5E7600646D37 /* HomeView.swift in Sources */,
 				3CDDF47528EBA63000884847 /* ImageGrid.swift in Sources */,
+				3C4913692914703E00792CDF /* DanglingModal.swift in Sources */,
 				3CFD6AE928EC8F720039EBAF /* GalleryView.swift in Sources */,
 				3C2BE4F128D8CD7B007A24FD /* ContentView.swift in Sources */,
+				3C0D6FF52914886400C7C91B /* ModalInfoLine.swift in Sources */,
 				3CDDF42B28EB9D4900884847 /* Color.swift in Sources */,
 				3CDDF47E28EBB7F400884847 /* ScoreListView.swift in Sources */,
 				3CFD6AE528EC4B390039EBAF /* UploadView.swift in Sources */,

@@ -67,13 +67,13 @@ extension Font {
     
     
     public static var player_id: Font {
-        return Font.custom("Roboto-Regular", size: 13)
+        return Font.custom("Roboto-Bold", size: 16)
     }
     public static var player_id_info: Font {
-        return Font.custom("Roboto-Regular", size: 13)
+        return Font.custom("Roboto-Bold", size: 16)
     }
     public static var player_vid_info: Font {
-        return Font.custom("Roboto-Regular", size: 14)
+        return Font.custom("Roboto-Regular", size: 16)
     }
     public static var player_vid_description: Font {
         return Font.custom("Roboto-Regular", size: 13)
