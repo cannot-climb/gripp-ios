@@ -30,10 +30,8 @@ struct ImageCell: View {
                 ZStack(alignment: .topTrailing){
                     GeometryReader{ gr in
                         LoadAnimationView(alwaysDark: true)
-                            .padding(.all, gr.size.width*0.1)
                             .frame(width: gr.size.width*0.6, height: gr.size.width*0.6)
-                            .padding(.horizontal, gr.size.width*0.2)
-                            .padding(.vertical, gr.size.width*0.2)
+                            .padding(.all, gr.size.width*0.2)
                             .colorScheme(.dark)
                     }
                     if(useDecoration){

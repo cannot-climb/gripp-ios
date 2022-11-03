@@ -44,7 +44,7 @@ struct UploadView: View {
                         .cornerRadius(40)
                         .shadow(color: Color("#FF0000").opacity(0.25), radius: 12)
                 }
-            }.padding(.leading, 30).padding(.top, 20).padding(.trailing, 20)
+            }.padding(.leading, 30).padding(.top, 24).padding(.trailing, 14)
             
             ZStack{
                 HStack(alignment: .center){
@@ -87,7 +87,6 @@ struct UploadView: View {
                             GeometryReader{geometry in
                                 ZStack{
                                     LoadAnimationView(alwaysDark: false)
-                                        .padding(.all, 10)
                                         .frame(width: max(geometry.size.height/3, 120), height: max(geometry.size.width/3, 120))
                                     
 

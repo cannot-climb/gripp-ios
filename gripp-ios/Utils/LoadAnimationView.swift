@@ -22,20 +22,23 @@ struct LoadAnimationView: View {
     
     
     var body: some View{
-        ZStack{
-            GeometryReader{gr in
+        GeometryReader{gr in
+            let zoomFactor = min(gr.size.width, gr.size.height)
+            ZStack(alignment: .center){
                 Circle()
-                    .stroke(AngularGradient (gradient: .init (colors: [color]), center: .center), style: StrokeStyle(lineWidth: min(gr.size.width, gr.size.height)/15, lineCap: .round))
+                    .stroke(AngularGradient (gradient: .init (colors: [color]), center: .center), style: StrokeStyle(lineWidth: zoomFactor/18, lineCap: .round))
                 
                 Circle()
                     .trim(from: 0.1, to: 0.101)
-                    .stroke(AngularGradient (gradient:.init (colors: [color]), center: .center), style: StrokeStyle(lineWidth: min(gr.size.width, gr.size.height)/4, lineCap: .round))
-                    .shadow(color: color, radius: 10)
+                    .stroke(AngularGradient (gradient:.init (colors: [color]), center: .center), style: StrokeStyle(lineWidth: zoomFactor/5, lineCap: .round))
+                    .shadow(color: color, radius: zoomFactor/20)
                     .rotationEffect(Angle(degrees: animate ? 0: 360))
                     .animation(Animation.linear (duration: 1.3).repeatForever(autoreverses: false), value: animate)
                     .onAppear{animate = false}
                     .onDisappear{animate = false}
             }
+            .padding(zoomFactor/6)
+            .frame(width: gr.size.width, height: gr.size.height)
         }
     }
 }
@@ -44,8 +47,7 @@ struct LoadAnimationView: View {
 struct LoadAnimationView_Previews: PreviewProvider {
     static var previews: some View {
         LoadAnimationView(alwaysDark: false)
-            .frame(width: 200, height: 200)
-            .padding(.all, 40)
+            .frame(width: 400, height: 300)
             .background(Color(named: "BackgroundSubduedColor"))
     }
 }
