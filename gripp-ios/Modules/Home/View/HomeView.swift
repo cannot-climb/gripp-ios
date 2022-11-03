@@ -11,7 +11,7 @@ import SwiftUI
 struct HomeView: View {
     
     let postItemImages = [
-        PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
+        PostGridItem(thumbnailPath: "img1.jpg", processing: false, conquered: true),
         PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
         PostGridItem(thumbnailPath: "img3.jpg", processing: false, conquered: false),
         PostGridItem(thumbnailPath: "img4.jpg", processing: false, conquered: false),
