@@ -149,25 +149,27 @@ struct UploadView: View {
                 Picker("Angle", selection: $angle){
                     ForEach(angles, id: \.self){
                         Text($0)
+                            .lineLimit(1)
                     }
                 }
-                .frame(maxWidth: .infinity)
+                .frame(minWidth: 100, maxWidth: .infinity)
                 .pickerStyle(.menu)
                 .tint(Color(named: "TextMasterColor"))
                 .overlay(VStack{Divider().offset(x: 0, y: 15)})
                 
                 Text("난이도").font(.textfield_leading)
-                    .padding(.leading, 15)
+                    .padding(.leading, 5)
                 Picker("Difficulty", selection: $difficulty){
                     ForEach(difficulties, id: \.self){
                         Text($0)
                     }
                 }
-                .frame(maxWidth: .infinity)
+                .frame(minWidth: 100, maxWidth: .infinity)
                 .pickerStyle(.menu)
                 .tint(Color(named: "TextMasterColor"))
                 .overlay(VStack{Divider().offset(x: 0, y: 15)})
             }.padding(.top, 30).padding(.leading, 30).padding(.trailing, 30)
+                .frame(height: 50)
             
             
             Spacer()
