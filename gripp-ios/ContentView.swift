@@ -20,7 +20,7 @@ struct ContentView: View {
         ZStack{
             switch viewRouter.currentPage {
             case .home:
-                HomeView(shouldHaveChin: true)
+                HomeView(shouldHaveChin: true, viewRouter: viewRouter)
             case .leader:
                 LeaderBoardView(shouldHaveChin: true)
             case .myGallery:

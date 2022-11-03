@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeView: View {
     
     let shouldHaveChin : Bool
+    @StateObject var viewRouter: ViewRouter
     
     let postItemImages = [
         PostGridItem(thumbnailPath: "img1.jpg", processing: false, conquered: true),
@@ -39,7 +40,7 @@ struct HomeView: View {
             Text("Gripp").font(.context)
                 .padding(.leading, 31).padding(.top, 6)
                 .foregroundColor(Color(named:"TextSubduedColor"))
-            Button(action:{}){
+            Button(action:{viewRouter.currentPage = .myGallery}){
                 Text("masterUserId").font(.large_title)
                 Image("ArrowRight")
             }.padding(.leading, 30).padding(.top, 5)
@@ -75,6 +76,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(shouldHaveChin: false)
+        HomeView(shouldHaveChin: false, viewRouter: ViewRouter())
     }
 }
