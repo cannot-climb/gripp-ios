@@ -45,6 +45,7 @@ struct ImageCell: View {
                         .padding(.vertical, 10)
                         .padding(.horizontal, 14)
                         .background(Color(named: "BackgroundMasterColor").opacity(0.8))
+                        .background(.ultraThinMaterial)
                         .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
                         .padding(.horizontal, 8)
                     }
@@ -83,8 +84,9 @@ struct ImageCell: View {
                             .padding(.vertical, 10)
                             .padding(.horizontal, 14)
                             .background(Color(named: "BackgroundMasterColor").opacity(0.6))
+                            .background(.ultraThinMaterial)
                             .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
-                            .backgroundStyle(.thickMaterial)
+                            .shadow(radius: <#T##CGFloat#>)
                             .padding(.horizontal, 8)
                             
                         }

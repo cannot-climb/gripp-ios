@@ -62,7 +62,7 @@ struct PlayerView: View {
                                         self.presentationMode.wrappedValue.dismiss()
                                         avPlayer?.pause()
                                     }){
-                                        NavigationLink(destination: GalleryView(contextString: "").navigationBarBackButtonHidden(true)) {
+                                        NavigationLink(destination: GalleryView(contextString: "", shouldHaveChin: false).navigationBarBackButtonHidden(true)) {
                                             Text("아이디").font(.player_id).foregroundColor(Color(named:"AccentMasterColor")).padding(.bottom, 1)
                                         }
                                         .onTapGesture(perform: {avPlayer?.pause()})
@@ -103,6 +103,7 @@ struct PlayerView: View {
                             .padding(.leading, 40)
                             .padding(.top, 10)
                             .padding(.trailing, 30)
+                            .scrollIndicators(.hidden)
                         }
                     }
                     .frame(width: geometry.size.width)

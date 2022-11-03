@@ -10,12 +10,12 @@ import SwiftUI
 @main 
 struct gripp_iosApp: App {
     let persistenceController = PersistenceController.shared
+    
+    @StateObject var viewRouter = ViewRouter()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            
+            ContentView(viewRouter: viewRouter)
         }
     }
 }

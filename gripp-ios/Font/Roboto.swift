@@ -87,6 +87,10 @@ extension Font {
         return Font.custom("Roboto-Bold", size: 13)
     }
     
+    public static var tabbar_item: Font {
+        return Font.custom("Roboto-Light", size: 10)
+    }
+    
     public static func system(size: CGFloat, weight: Font.Weight = .regular, design: Font.Design = .default) -> Font {
         var font = "Roboto-Bold"
         switch weight {

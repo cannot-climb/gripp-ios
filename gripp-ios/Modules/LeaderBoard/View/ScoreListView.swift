@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 
 struct ScoreListView: View {
-    private var symbols = ["keyboard", "hifispeaker.fill", "printer.fill", "tv.fill", "desktopcomputer",
-                           "headphones", "tv.music.note", "mic", "plus.bubble","video" ]
-    private var colors: [Color] = [.yellow]
+    public var shouldHaveChin: Bool
+    
     var body: some View {
         ScrollView{
             ForEach((0...40), id: \.self){ item in
-                NavigationLink(destination: GalleryView(contextString: "리더보드").navigationBarBackButtonHidden(true)) {
+                NavigationLink(destination: GalleryView(contextString: "리더보드", shouldHaveChin: shouldHaveChin).navigationBarBackButtonHidden(true)) {
                     HStack(alignment: .center, spacing: 15){
                         Text("아이디").font(.head_line).foregroundColor(Color(named:"TextMasterColor"))
                         Spacer()
@@ -24,6 +23,10 @@ struct ScoreListView: View {
                     }.padding(.leading, 23).padding(.trailing, 31).padding(.top, 16).padding(.bottom, 16)
                 }
             }
+            if(shouldHaveChin){
+                Spacer().frame(height: DOCK_HEIGHT)
+            }
         }.background(Color(named:"BackgroundMasterColor"))
+            .scrollIndicators(.hidden)
     }
 }

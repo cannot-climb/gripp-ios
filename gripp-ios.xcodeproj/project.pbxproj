@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C2B53D328EA2FD300725FC2 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B53D228EA2FD300725FC2 /* TabBar.swift */; };
 		3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */; };
 		3C2BE4EC28D8CD7B007A24FD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */; };
 		3C2BE4EF28D8CD7B007A24FD /* gripp_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4ED28D8CD7B007A24FD /* gripp_ios.xcdatamodeld */; };
@@ -19,6 +18,8 @@
 		3C2BE50D28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */; };
 		3C4913522913529900792CDF /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913512913529900792CDF /* TabBarItem.swift */; };
 		3C491354291354C500792CDF /* CustomIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C491353291354C500792CDF /* CustomIcons.xcassets */; };
+		3C4913652914087600792CDF /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913642914087600792CDF /* ViewRouter.swift */; };
+		3C4913672914196800792CDF /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913662914196800792CDF /* Dimensions.swift */; };
 		3C8A4AA4290DC35A00B7508C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AA3290DC35A00B7508C /* LoginView.swift */; };
 		3C8A4AAA290DC4A900B7508C /* LoginSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AA9290DC4A900B7508C /* LoginSheet.swift */; };
 		3C8A4AAE290DC4C100B7508C /* SignupSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AAD290DC4C100B7508C /* SignupSheet.swift */; };
@@ -84,7 +85,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3C2B53D228EA2FD300725FC2 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		3C2BE4E628D8CD7B007A24FD /* gripp-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gripp-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosApp.swift; sourceTree = "<group>"; };
 		3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -100,6 +100,8 @@
 		3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3C4913512913529900792CDF /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		3C491353291354C500792CDF /* CustomIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CustomIcons.xcassets; sourceTree = "<group>"; };
+		3C4913642914087600792CDF /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		3C4913662914196800792CDF /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		3C8A4AA3290DC35A00B7508C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3C8A4AA9290DC4A900B7508C /* LoginSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSheet.swift; sourceTree = "<group>"; };
 		3C8A4AAD290DC4C100B7508C /* SignupSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupSheet.swift; sourceTree = "<group>"; };
@@ -301,7 +303,8 @@
 		3CDDF41228EB9D4900884847 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3C2B53D228EA2FD300725FC2 /* TabBar.swift */,
+				3C4913512913529900792CDF /* TabBarItem.swift */,
+				3C4913642914087600792CDF /* ViewRouter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				3CFD6AEA28ECB5170039EBAF /* DemoImages */,
+				3C4913662914196800792CDF /* Dimensions.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -327,7 +331,6 @@
 				3CDDF47428EBA63000884847 /* ImageGrid.swift */,
 				3C8A4AAF290DD0F100B7508C /* ImageCell.swift */,
 				3C8A4AB3290EC89F00B7508C /* LoadAnimationView.swift */,
-				3C4913512913529900792CDF /* TabBarItem.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -615,10 +618,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C4913652914087600792CDF /* ViewRouter.swift in Sources */,
 				3C8A4AB6290ED27700B7508C /* PostGridItem.swift in Sources */,
 				3CDDF46928EB9E4200884847 /* Roboto.swift in Sources */,
 				3C8A4AAE290DC4C100B7508C /* SignupSheet.swift in Sources */,
-				3C2B53D328EA2FD300725FC2 /* TabBar.swift in Sources */,
 				3C8A4AB0290DD0F100B7508C /* ImageCell.swift in Sources */,
 				3CDDF47C28EBAC7E00884847 /* Leaderboard.swift in Sources */,
 				3C4913522913529900792CDF /* TabBarItem.swift in Sources */,
@@ -636,6 +639,7 @@
 				3C2BE4EC28D8CD7B007A24FD /* Persistence.swift in Sources */,
 				3C8A4AA4290DC35A00B7508C /* LoginView.swift in Sources */,
 				3C8A4AAA290DC4A900B7508C /* LoginSheet.swift in Sources */,
+				3C4913672914196800792CDF /* Dimensions.swift in Sources */,
 				3CDDF42A28EB9D4900884847 /* RoundedCorner.swift in Sources */,
 				3C8A4AB8290EFE1100B7508C /* MyGalleryView.swift in Sources */,
 				3CD252962911BBF900AEFABB /* GalleryViewPage.swift in Sources */,
@@ -809,7 +813,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -849,7 +854,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

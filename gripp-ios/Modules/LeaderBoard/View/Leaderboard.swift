@@ -10,6 +10,7 @@ import SwiftUI
 
 struct LeaderBoardView: View {
     @State var isNavigationBarHidden: Bool = true
+    let shouldHaveChin: Bool
     
     var body: some View {
         NavigationView{
@@ -57,7 +58,7 @@ struct LeaderBoardView: View {
                     Spacer()
                 }.zIndex(1)
                 
-                ScoreListView()
+                ScoreListView(shouldHaveChin: shouldHaveChin)
                     .cornerRadius(24, corners: [.topLeft, .topRight])
                     .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
             }
@@ -71,6 +72,6 @@ struct LeaderBoardView: View {
 
 struct LeaderBoard_Previews: PreviewProvider {
     static var previews: some View {
-        LeaderBoardView()
+        LeaderBoardView(shouldHaveChin: false)
     }
 }

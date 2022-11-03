@@ -14,10 +14,12 @@ struct ImageGrid: View {
     public var firstItemGiantDecoration = false
     
     @State private var isPresented = false
+    var shouldHaveChin: Bool
     
-    init(postItemImages: [PostGridItem], firstItemGiantDecoration: Bool) {
+    init(postItemImages: [PostGridItem], firstItemGiantDecoration: Bool, shouldHaveChin: Bool?) {
         self.postItemImages = postItemImages
         self.firstItemGiantDecoration = firstItemGiantDecoration
+        self.shouldHaveChin = shouldHaveChin ?? false
     }
     
     var body: some View {
@@ -52,11 +54,14 @@ struct ImageGrid: View {
                             .aspectRatio(1, contentMode: .fit)
                     }
                 }
-                
+                if(shouldHaveChin){
+                    Spacer().frame(height: DOCK_HEIGHT)
+                }
             }.background(Color(named:"BackgroundMasterColor"))
                 .sheet(isPresented: $isPresented) {
                     PlayerView()
                 }
+                .scrollIndicators(.hidden)
         }
     }
 }
@@ -101,6 +106,6 @@ struct ImageGrid_Previews: PreviewProvider {
             PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
             PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
         ]
-        ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true)
+        ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true, shouldHaveChin: false)
     }
 }

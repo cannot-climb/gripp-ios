@@ -11,6 +11,8 @@ struct GalleryView: View {
     
     @State var contextString: String
     
+    let shouldHaveChin: Bool
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let postItemImages = [
@@ -99,9 +101,9 @@ struct GalleryView: View {
             .frame(height: 130)
             .padding(.bottom, 10)
             
-            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false)
-                .cornerRadius(24, corners: [.topLeft, .topRight])
-                .shadow(color: Color("#000000").opacity(0.08), radius: 20)
+            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false, shouldHaveChin: shouldHaveChin)
+                .cornerRadius(24, corners: shouldHaveChin ? [.topLeft, .topRight] : .allCorners)
+                .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
             
         }
         .background(Color(named:"BackgroundSubduedColor"))
@@ -118,6 +120,6 @@ extension UINavigationController {
 
 struct GalleryView_Previews: PreviewProvider {
     static var previews: some View {
-        GalleryView(contextString: "Context")
+        GalleryView(contextString: "Context", shouldHaveChin: false)
     }
 }

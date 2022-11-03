@@ -10,6 +10,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    let shouldHaveChin : Bool
+    
     let postItemImages = [
         PostGridItem(thumbnailPath: "img1.jpg", processing: false, conquered: true),
         PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
@@ -58,7 +60,7 @@ struct HomeView: View {
                 .foregroundColor(Color(named: "TextMasterColor"))
             }.padding(.top, 4).padding(.bottom, 16)
             
-            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true)
+            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true, shouldHaveChin: shouldHaveChin)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
         }
@@ -68,6 +70,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(shouldHaveChin: false)
     }
 }

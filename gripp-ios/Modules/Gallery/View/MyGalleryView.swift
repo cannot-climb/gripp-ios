@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MyGalleryView: View {
     
+    var shouldHaveChin: Bool
+    
     let postItemImages = [
         PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
         PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
@@ -94,7 +96,7 @@ struct MyGalleryView: View {
             .frame(height: 130)
             .padding(.bottom, 10)
             
-            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false)
+            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false, shouldHaveChin: shouldHaveChin)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
             
@@ -107,6 +109,6 @@ struct MyGalleryView: View {
 
 struct MyGalleryView_Previews: PreviewProvider {
     static var previews: some View {
-        MyGalleryView()
+        MyGalleryView(shouldHaveChin: false)
     }
 }
