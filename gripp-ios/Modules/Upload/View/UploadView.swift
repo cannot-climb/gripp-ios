@@ -36,12 +36,14 @@ struct UploadView: View {
                 }
                 Text("영상 올리기").font(.large_title).padding(.leading, 4)
                 Spacer()
-                Image("Pencil")
-                    .foregroundColor(.white)
-                    .frame(width: 48, height: 48)
-                    .background(Color("#BE1F00"))
-                    .cornerRadius(40)
-                    .shadow(color: Color("#FF0000").opacity(0.25), radius: 12)
+                Button(action: {}){
+                    Image("Pencil")
+                        .foregroundColor(.white)
+                        .frame(width: 48, height: 48)
+                        .background(Color("#BE1F00"))
+                        .cornerRadius(40)
+                        .shadow(color: Color("#FF0000").opacity(0.25), radius: 12)
+                }
             }.padding(.leading, 30).padding(.top, 20).padding(.trailing, 20)
             
             ZStack{

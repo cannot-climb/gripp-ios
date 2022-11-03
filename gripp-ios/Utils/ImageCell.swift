@@ -52,7 +52,7 @@ struct ImageCell: View {
                         Image(systemName: "person.and.background.dotted")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 28, height: 21)
+                            .frame(width: 24, height: 18)
                             .padding(.top, 8)
                             .padding(.trailing, 6)
                             .shadow(radius: 10)
