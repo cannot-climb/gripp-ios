@@ -27,7 +27,6 @@ struct TabBarItem: View {
                 .padding(.vertical, 12)
                 .shadow(color: Color(named: "TabBarIconBackgroundLTShadowColor"), radius: 5, x:-5, y:-5)
                 .shadow(color: Color(named: "TabBarIconBackgroundRBShadowColor"), radius: 5, x:5, y:5)
-                .frame(width: 60, height: 60)
             }
             else{
                 VStack(alignment: .center){
@@ -36,10 +35,11 @@ struct TabBarItem: View {
                     Text(title)
                         .font(.tabbar_item)
                 }
-                .frame(width: 60, height: 60)
                 
             }
         }
+        .frame(width: 60, height: 100)
+        .contentShape(Rectangle())
         .onTapGesture {
             if(assignedPage != nil){
                 viewRouter.currentPage = assignedPage!

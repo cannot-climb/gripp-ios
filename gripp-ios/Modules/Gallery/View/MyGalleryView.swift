@@ -39,7 +39,9 @@ struct MyGalleryView: View {
             HStack{
                 Text("내 정보").font(.large_title)
                 Spacer()
-                Button(action:{}){
+                Button(action:{
+                    print("asdf")
+                }){
                     Text("로그아웃").font(.foot_note)
                     Image(systemName: "minus.circle")
                         .resizable()
