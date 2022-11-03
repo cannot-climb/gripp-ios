@@ -86,7 +86,7 @@ struct ImageCell: View {
                             .background(Color(named: "BackgroundMasterColor").opacity(0.6))
                             .background(.ultraThinMaterial)
                             .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
-                            .shadow(radius: <#T##CGFloat#>)
+                            .shadow(radius: 10)
                             .padding(.horizontal, 8)
                             
                         }
