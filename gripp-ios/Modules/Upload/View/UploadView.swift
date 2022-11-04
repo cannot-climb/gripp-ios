@@ -152,7 +152,7 @@ struct UploadView: View {
                             .lineLimit(1)
                     }
                 }
-                .frame(minWidth: 100, maxWidth: .infinity)
+                .frame(minWidth: 0, maxWidth: .infinity)
                 .pickerStyle(.menu)
                 .tint(Color(named: "TextMasterColor"))
                 .overlay(VStack{Divider().offset(x: 0, y: 15)})
@@ -164,7 +164,7 @@ struct UploadView: View {
                         Text($0)
                     }
                 }
-                .frame(minWidth: 100, maxWidth: .infinity)
+                .frame(minWidth: 0, maxWidth: .infinity)
                 .pickerStyle(.menu)
                 .tint(Color(named: "TextMasterColor"))
                 .overlay(VStack{Divider().offset(x: 0, y: 15)})
