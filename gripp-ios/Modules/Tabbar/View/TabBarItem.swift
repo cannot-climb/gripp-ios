@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBarItem: View {
     let title: String
-    let icon: Image
+    let iconString: String
     
     @StateObject var viewRouter: ViewRouter
     let assignedPage: Page?
@@ -18,10 +18,13 @@ struct TabBarItem: View {
         VStack{
             if(viewRouter.currentPage == assignedPage){
                 ZStack {
-                    icon
+                    Image(iconString)
+                        .resizable()
+                        .frame(width: 28, height: 28)
                         .foregroundColor(Color(named: "TabBarIconForegroundColor"))
+                        
                 }
-                .padding(12)
+                .padding(10)
                 .background(Color(named: "TabBarIconBackgroundColor"))
                 .cornerRadius(40)
                 .padding(.vertical, 12)
@@ -30,7 +33,7 @@ struct TabBarItem: View {
             }
             else{
                 VStack(alignment: .center){
-                    icon.padding(.top, 6)
+                    Image(iconString).padding(.top, 6)
                     Spacer().frame(height: 5)
                     Text(title)
                         .font(.tabbar_item)
@@ -52,8 +55,8 @@ struct TabBarItem: View {
 struct TabBarItem_Previews: PreviewProvider {
     static var previews: some View {
         HStack{
-            TabBarItem(title: "홈", icon: Image("Home"), viewRouter: ViewRouter(), assignedPage: .home)
-            TabBarItem(title: "리더보드", icon: Image("Leaderboard"), viewRouter: ViewRouter(), assignedPage: .leader)
+            TabBarItem(title: "홈", iconString: "Home", viewRouter: ViewRouter(), assignedPage: .home)
+            TabBarItem(title: "리더보드", iconString: "Leaderboard", viewRouter: ViewRouter(), assignedPage: .leader)
         }
     }
 }

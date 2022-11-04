@@ -29,9 +29,9 @@ struct ContentView: View {
             VStack{
                 Spacer()
                 HStack(spacing: UIScreen.main.bounds.width/18){
-                    TabBarItem(title: "홈", icon: Image("Home"), viewRouter: viewRouter, assignedPage: .home)
-                    TabBarItem(title: "리더보드", icon: Image("Leaderboard"), viewRouter: viewRouter, assignedPage: .leader)
-                    TabBarItem(title: "내 정보", icon: Image("Person"), viewRouter: viewRouter, assignedPage: .myGallery)
+                    TabBarItem(title: "홈", iconString: "Home", viewRouter: viewRouter, assignedPage: .home)
+                    TabBarItem(title: "리더보드", iconString: "Leaderboard", viewRouter: viewRouter, assignedPage: .leader)
+                    TabBarItem(title: "내 정보", iconString: "Person", viewRouter: viewRouter, assignedPage: .myGallery)
                     Image(systemName: "square.fill").resizable().frame(width: 1, height: 30)
                     VStack(alignment: .center){
                         Image("Video").padding(.top, 6)
