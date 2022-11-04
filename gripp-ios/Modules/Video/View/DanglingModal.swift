@@ -42,8 +42,8 @@ struct DanglingModal: View {
                         .allowsHitTesting(false)
                 }
                 content
-                    .frame (width: UIScreen.main.bounds.width, height: currHeight)
                     .transition (.move(edge: .bottom))
+                    .offset(y: geometry.size.height - currHeight - 50 - 24)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea()
@@ -53,7 +53,7 @@ struct DanglingModal: View {
                 minHeight = geometry.size.height - geometry.size.width/9*16
                 currHeight = minHeight
                 isExpanded = false
-                maxHeight = geometry.size.height - 30
+                maxHeight = geometry.size.height - 50 - 24 - 30
             }
         }
     }
@@ -167,18 +167,9 @@ struct DanglingModal: View {
                 
                 VStack(spacing: 16){
                     Capsule()
-                        .frame(width: 50, height: 7)
-                        .opacity(0.6)
-                        .padding(.vertical, 8)
-                        .onTapGesture {
-                            isExpanded.toggle()
-                            if(isExpanded){
-                                currHeight = maxHeight
-                            }
-                            else{
-                                currHeight = minHeight
-                            }
-                        }
+                        .frame(width: 50, height: 6)
+                        .opacity(0.5)
+                        .padding(.vertical, 10)
                     
                     ModalInfoLine(imageString: "Angle", text: "45º / V3")
                         .padding(.top, 4)
@@ -219,7 +210,6 @@ struct DanglingModal: View {
         }
         .frame(width: UIScreen.main.bounds.width)
         .animation(isDragging ? nil : .easeInOut(duration: 0.2))
-        .offset(y: 100)
     }
     
     @State private var prevDragTranslation = CGSize.zero
