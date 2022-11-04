@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import AVKit
 
 struct ImageGrid: View {
     public var postItemImages : [PostGridItem]
@@ -59,7 +60,7 @@ struct ImageGrid: View {
                 }
             }.background(Color(named:"BackgroundMasterColor"))
                 .sheet(isPresented: $isPresented) {
-                    PlayerView()
+                    PlayerView(avPlayer: AVPlayer(url: URL(string: "https://objectstorage.ap-seoul-1.oraclecloud.com/n/cngzlmggdnp2/b/gripp/o/videos/sample/master.m3u8")!))
                 }
                 .scrollIndicators(.hidden)
         }
