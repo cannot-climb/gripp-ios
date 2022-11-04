@@ -77,6 +77,15 @@ struct DanglingModal: View {
                 Spacer()
                     .contentShape(Rectangle())
                 Button(action: {
+                    avPlayer!.seek(to: .zero)
+                }){
+                    Image("Refresh")
+                        .padding(.horizontal, 10)
+                        .padding(.top, 5)
+                        .padding(.bottom, 18)
+                        .contentShape(Rectangle())
+                }
+                Button(action: {
                     if(avPlayer!.timeControlStatus == AVPlayer.TimeControlStatus.playing){
                         avPlayer!.pause()
                         videoPlaying = false
@@ -88,14 +97,16 @@ struct DanglingModal: View {
                 }){
                     if(videoPlaying){
                         Image("Pause")
-                            .padding(.horizontal, 30)
+                            .padding(.trailing, 30)
+                            .padding(.leading, 10)
                             .padding(.top, 5)
                             .padding(.bottom, 18)
                             .contentShape(Rectangle())
                     }
                     else{
                         Image("Play")
-                            .padding(.horizontal, 30)
+                            .padding(.trailing, 30)
+                            .padding(.leading, 10)
                             .padding(.top, 5)
                             .padding(.bottom, 18)
                             .contentShape(Rectangle())
