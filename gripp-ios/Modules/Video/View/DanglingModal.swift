@@ -47,7 +47,7 @@ struct DanglingModal: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea()
-            .animation (.easeInOut(duration: 0.1))
+            .animation (.easeInOut(duration: 0.2))
             .gesture(dragGesture)
             .onAppear(){
                 minHeight = geometry.size.height - geometry.size.width/9*16
@@ -112,28 +112,6 @@ struct DanglingModal: View {
                             .contentShape(Rectangle())
                     }
                 }
-//                if(avPlayer!.isPlaying){
-//                    Button(action: {
-//                        avPlayer?.pause()
-//                    }){
-//                        Image("Pause")
-//                            .padding(.horizontal, 30)
-//                            .padding(.top, 5)
-//                            .padding(.bottom, 18)
-//                            .contentShape(Rectangle())
-//                    }
-//                }
-//                else{
-//                    Button(action: {
-//                        avPlayer?.play()
-//                    }){
-//                        Image("Play")
-//                            .padding(.horizontal, 30)
-//                            .padding(.top, 5)
-//                            .padding(.bottom, 18)
-//                            .contentShape(Rectangle())
-//                    }
-//                }
             }
             .foregroundColor(.white)
             .contentShape(Rectangle())
@@ -171,40 +149,50 @@ struct DanglingModal: View {
                         .opacity(0.5)
                         .padding(.vertical, 10)
                     
-                    ModalInfoLine(imageString: "Angle", text: "45º / V3")
-                        .padding(.top, 4)
-                    ModalInfoLine(imageString: "Calendar", text: "2022/09/12")
-                    HStack(alignment: .top){
-                        Spacer()
-                            .frame(width: 40)
-                        Image("Person")
-                            .padding(.trailing, 8)
-                        NavigationLink(destination: GalleryView(contextString: "", shouldHaveChin: false).navigationBarBackButtonHidden(true)) {
-                            Text("UserName").font(.player_id)
-                                .padding(.top,3)
-                                .foregroundColor(Color(named:"AccentMasterColor")).padding(.bottom, 1)
+                    ScrollView{
+                        
+                        ModalInfoLine(imageString: "Angle", text: "45º / V3")
+                            .padding(.top, 4)
+                        ModalInfoLine(imageString: "Calendar", text: "2022/09/12")
+                        HStack(alignment: .top){
+                            Spacer()
+                                .frame(width: 40)
+                            Image("Person")
+                                .padding(.trailing, 8)
+                            NavigationLink(destination: GalleryView(contextString: "", shouldHaveChin: false).navigationBarBackButtonHidden(true)) {
+                                HStack{
+                                    Text("UserName").font(.player_id)
+                                        .padding(.top,3)
+                                        .foregroundColor(Color(named:"AccentMasterColor")).padding(.bottom, 1)
+                                    Text("userInfoString").font(.player_vid_info)
+                                        .foregroundColor(Color(named:"TextMasterColor"))
+                                        .padding(.top,3).padding(.bottom, 1)
+                                }
+                            }
+                            Spacer()
+                        }.frame(height: 30)
+                        ModalInfoLine(imageString: "Eye", text: "103회")
+                        ModalInfoLine(imageString: "Description", text: "Lorem ipsum dolor sit amet, consectetur adipiscin.Descriptionorem ipsum dolor sit amet, consectetur adipiscin.piscin.Descriptionorem ipsum dolor sit amet, consectetur adipiscin.")
+                        
+                        Button(action: {}){
+                            Image("Trash")
+                                .padding(.horizontal, 50)
+                                .padding(.vertical, 10)
+                                .background(Color("#FF4B4B"))
+                                .cornerRadius(100)
+                                .padding(.top, 30)
                         }
-                        Spacer()
-                    }.frame(height: 30)
-                    ModalInfoLine(imageString: "Eye", text: "103회")
-                    ModalInfoLine(imageString: "Description", text: "Lorem ipsum dolor sit amet, consectetur adipiscin.")
-                    
-                    Button(action: {}){
-                        Image("Trash")
-                            .padding(.horizontal, 50)
-                            .padding(.vertical, 10)
-                            .background(Color("#FF4B4B"))
-                            .cornerRadius(100)
-                            .padding(.top, 30)
+                        .foregroundColor(.black)
+                        .padding(.bottom, 80)
+                        .shadow(color: .red.opacity(0.4), radius: 10)
+                        
                     }
-                    .foregroundColor(.black)
-                    .padding(.bottom, 80)
-                    .shadow(color: .red.opacity(0.4), radius: 10)
+                    
                     
 //                    ModalInfoLine(imageString: "Eye", text: "\(minHeight) / \(maxHeight)")
                 }
             }
-            .frame(width: UIScreen.main.bounds.width, height: .infinity)
+            .frame(width: UIScreen.main.bounds.width)
             .background(.thinMaterial)
             .cornerRadius(24, corners: [.topLeft, .topRight])
         }
@@ -227,7 +215,6 @@ struct DanglingModal: View {
                     currHeight -= dragAmount
                 }
                 prevDragTranslation = val.translation
-                print(currHeight)
             }
             .onEnded{ val in
                 prevDragTranslation = .zero

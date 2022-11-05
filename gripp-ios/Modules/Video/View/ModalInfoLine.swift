@@ -24,7 +24,7 @@ struct ModalInfoLine: View {
                 .lineSpacing(3)
             Spacer()
                 
-        }.frame(height: 30)
+        }.frame(minHeight: 30)
     }
 }
 
