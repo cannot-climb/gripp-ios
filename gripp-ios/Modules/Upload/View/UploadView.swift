@@ -37,8 +37,9 @@ struct UploadView: View {
             HStack{
                 Button(action: {self.presentationMode.wrappedValue.dismiss()}){
                     Image("ArrowLeft").foregroundColor(Color(named: "TextMasterColor"))
+                        .padding(.leading, 10).padding(.trailing, 6)
                 }
-                Text("영상 올리기").font(.large_title).padding(.leading, 4)
+                Text("영상 올리기").font(.large_title)
                 Spacer()
                 Button(action: {}){
                     Image("Pencil")
@@ -48,7 +49,7 @@ struct UploadView: View {
                         .cornerRadius(40)
                         .shadow(color: Color("#FF0000").opacity(0.25), radius: 12)
                 }
-            }.padding(.leading, 30).padding(.top, 24).padding(.trailing, 14)
+            }.padding(.leading, 30).padding(.top, 24).padding(.trailing, 20)
             
             //video area
             ZStack{
@@ -92,7 +93,7 @@ struct UploadView: View {
                         GeometryReader{geometry in
                             ZStack{
                                 LoadAnimationView(alwaysDark: false)
-                                    .frame(width: max(geometry.size.height/3, 120), height: max(geometry.size.width/3, 120))
+                                    .frame(width: max(geometry.size.height/4, 120), height: max(geometry.size.width/4, 120))
                                 
                                 
                                 VStack{

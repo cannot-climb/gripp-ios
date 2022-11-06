@@ -33,6 +33,10 @@ struct MyGalleryView: View {
         PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
     ]
     
+    @State private var selectedItem0 = 0
+    @State private var selectedItem1 = 0
+    @State private var selectedItem2 = 0
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             Text("Gripp").font(.context).padding(.leading, 31).padding(.top, 6).foregroundColor(Color(named:"TextSubduedColor"))
@@ -52,10 +56,13 @@ struct MyGalleryView: View {
             
             GeometryReader{geometry in
                 HStack(alignment: .center, spacing: 6){
-                    TabView(){
+                    TabView(selection: $selectedItem0){
                         GalleryViewPage(title: "게시물", content: "20개",pageIndex: 0 ,pageCount: 3)
+                            .tag(0)
                         GalleryViewPage(title: "성공", content: "12회",pageIndex: 1 ,pageCount: 3)
+                            .tag(1)
                         GalleryViewPage(title: "성공율", content: "60%",pageIndex: 2 ,pageCount: 3)
+                            .tag(2)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .background(Color(named: "BackgroundMasterColor"))
@@ -65,10 +72,15 @@ struct MyGalleryView: View {
                     .padding(.vertical, 22)
                     .padding(.horizontal, 8)
                     .frame(width: (geometry.size.width-40)/3)
+                    .onTapGesture {
+                        selectedItem0 = (selectedItem0+1)%3
+                    }
                     
-                    TabView{
+                    TabView(selection: $selectedItem1){
                         GalleryViewPage(title: "티어", content: "V12",pageIndex: 0 ,pageCount: 2)
+                            .tag(0)
                         GalleryViewPage(title: "점수", content: "11.54",pageIndex: 1 ,pageCount: 2)
+                            .tag(1)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .background(Color(named: "BackgroundMasterColor"))
@@ -78,10 +90,15 @@ struct MyGalleryView: View {
                     .padding(.vertical, 22)
                     .padding(.horizontal, 8)
                     .frame(width: (geometry.size.width-40)/3)
+                    .onTapGesture {
+                        selectedItem1 = (selectedItem1+1)%2
+                    }
                     
-                    TabView{
+                    TabView(selection: $selectedItem2){
                         GalleryViewPage(title: "전체", content: "20위",pageIndex: 0 ,pageCount: 2)
+                            .tag(0)
                         GalleryViewPage(title: "상위", content: "90%",pageIndex: 1 ,pageCount: 2)
+                            .tag(1)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .background(Color(named: "BackgroundMasterColor"))
@@ -91,6 +108,9 @@ struct MyGalleryView: View {
                     .padding(.vertical, 22)
                     .padding(.horizontal, 8)
                     .frame(width: (geometry.size.width-40)/3)
+                    .onTapGesture {
+                        selectedItem2 = (selectedItem2+1)%2
+                    }
                 }
                 .frame(width: geometry.size.width)
                 .foregroundColor(Color(named: "TextMasterColor"))

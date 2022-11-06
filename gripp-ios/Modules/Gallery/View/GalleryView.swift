@@ -12,6 +12,9 @@ struct GalleryView: View {
     @State var contextString: String
     
     let shouldHaveChin: Bool
+    @State private var selectedItem0 = 0
+    @State private var selectedItem1 = 0
+    @State private var selectedItem2 = 0
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -48,17 +51,19 @@ struct GalleryView: View {
                     presentationMode.wrappedValue.dismiss()
                 }){
                     Image("ArrowLeft").foregroundColor(Color(named:"TextMasterColor"))
-                }.padding(.leading, 30)
-                Text("userId").font(.large_title).padding(.leading, 4)
-                    .padding(.leading, 2)
+                }.padding(.leading, 30).padding(.trailing, 6)
+                Text("userId").font(.large_title)
             }.padding(.top, 5).padding(.bottom, 6)
             
             GeometryReader{geometry in
                 HStack(alignment: .center, spacing: 6){
-                    TabView(){
+                    TabView(selection: $selectedItem0){
                         GalleryViewPage(title: "게시물", content: "20개",pageIndex: 0 ,pageCount: 3)
+                            .tag(0)
                         GalleryViewPage(title: "성공", content: "12회",pageIndex: 1 ,pageCount: 3)
+                            .tag(1)
                         GalleryViewPage(title: "성공율", content: "60%",pageIndex: 2 ,pageCount: 3)
+                            .tag(2)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .background(Color(named: "BackgroundMasterColor"))
@@ -68,10 +73,15 @@ struct GalleryView: View {
                     .padding(.vertical, 22)
                     .padding(.horizontal, 8)
                     .frame(width: (geometry.size.width-40)/3)
+                    .onTapGesture {
+                        selectedItem0 = (selectedItem0+1)%3
+                    }
                     
-                    TabView{
+                    TabView(selection: $selectedItem1){
                         GalleryViewPage(title: "티어", content: "V12",pageIndex: 0 ,pageCount: 2)
+                            .tag(0)
                         GalleryViewPage(title: "점수", content: "11.54",pageIndex: 1 ,pageCount: 2)
+                            .tag(1)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .background(Color(named: "BackgroundMasterColor"))
@@ -81,10 +91,15 @@ struct GalleryView: View {
                     .padding(.vertical, 22)
                     .padding(.horizontal, 8)
                     .frame(width: (geometry.size.width-40)/3)
+                    .onTapGesture {
+                        selectedItem1 = (selectedItem1+1)%2
+                    }
                     
-                    TabView{
+                    TabView(selection: $selectedItem2){
                         GalleryViewPage(title: "전체", content: "20위",pageIndex: 0 ,pageCount: 2)
+                            .tag(0)
                         GalleryViewPage(title: "상위", content: "90%",pageIndex: 1 ,pageCount: 2)
+                            .tag(1)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .background(Color(named: "BackgroundMasterColor"))
@@ -94,6 +109,9 @@ struct GalleryView: View {
                     .padding(.vertical, 22)
                     .padding(.horizontal, 8)
                     .frame(width: (geometry.size.width-40)/3)
+                    .onTapGesture {
+                        selectedItem2 = (selectedItem2+1)%2
+                    }
                 }
                 .frame(width: geometry.size.width)
                 .foregroundColor(Color(named: "TextMasterColor"))

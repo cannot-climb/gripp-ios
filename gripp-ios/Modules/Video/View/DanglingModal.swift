@@ -47,7 +47,7 @@ struct DanglingModal: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea()
-            .animation (.easeInOut(duration: 0.2))
+            .animation(.easeInOut(duration: 0.2))
             .gesture(dragGesture)
             .onAppear(){
                 minHeight = geometry.size.height - geometry.size.width/9*16
@@ -149,7 +149,7 @@ struct DanglingModal: View {
                         .opacity(0.5)
                         .padding(.vertical, 10)
                     
-                    ScrollView{
+//                    ScrollView{
                         
                         ModalInfoLine(imageString: "Angle", text: "45º / V3")
                             .padding(.top, 4)
@@ -185,11 +185,7 @@ struct DanglingModal: View {
                         .foregroundColor(.black)
                         .padding(.bottom, 80)
                         .shadow(color: .red.opacity(0.4), radius: 10)
-                        
-                    }
-                    
-                    
-//                    ModalInfoLine(imageString: "Eye", text: "\(minHeight) / \(maxHeight)")
+//                    }
                 }
             }
             .frame(width: UIScreen.main.bounds.width)
@@ -246,7 +242,7 @@ struct DanglingModal: View {
 struct DanglingModal_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            Image(uiImage: UIImage(named: "img1.jpg" ?? "") ?? UIImage())
+            Image(uiImage: UIImage(named: "img1.jpg") ?? UIImage())
             DanglingModal(isExpanded: .constant(false))
         }
     }

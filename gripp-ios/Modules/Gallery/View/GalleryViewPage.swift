@@ -12,6 +12,7 @@ struct GalleryViewPage: View {
     @State var content: String
     @State var pageIndex: Int
     @State var pageCount: Int
+    
     var body: some View {
         VStack(spacing: 4){
             HStack{
