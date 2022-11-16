@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
+    
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    
+    @State var shouldShowLogin = true
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         let width = UIScreen.main.bounds.size.width
         
@@ -31,9 +38,18 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .zIndex(1)
                 ZStack(){
-                    LoginSheet()
-                        .frame(width: width)
-                        .padding(.bottom, 50)
+                    if(shouldShowLogin){
+                        LoginSheet(shouldShowLogin : $shouldShowLogin, presentationMode: _presentationMode)
+                            .environmentObject(loginViewModel)
+                            .frame(width: width)
+                            .padding(.bottom, 50)
+                    }
+                    else{
+                        SignupSheet(shouldShowLogin : $shouldShowLogin, presentationMode: _presentationMode)
+                            .environmentObject(loginViewModel)
+                            .frame(width: width)
+                            .padding(.bottom, 50)
+                    }
                 }
                 .background(Color(named: "BackgroundMasterColor"))
                 .cornerRadius(24, corners: [.topLeft, .topRight])
@@ -41,8 +57,7 @@ struct LoginView: View {
             }
             
         }
-        .edgesIgnoringSafeArea(.bottom)
-        .edgesIgnoringSafeArea(.top)
+        .ignoresSafeArea(.container)
         .background(.black)
         
     }
@@ -54,5 +69,6 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+            .environmentObject(LoginViewModel())
     }
 }

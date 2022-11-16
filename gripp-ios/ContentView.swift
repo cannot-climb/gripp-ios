@@ -14,7 +14,8 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var isPresented = false
+    @State private var isLoginPresented = false
+    @State private var isUploadPresented = false
     
     var body: some View {
         ZStack{
@@ -40,16 +41,23 @@ struct ContentView: View {
                             .font(.tabbar_item)
                     }
                     .frame(width: 60, height: 60)
-                        .sheet(isPresented: $isPresented){
-                            UploadView()
-                        }
-                        .onTapGesture {
-                            isPresented.toggle()
-                        }
+                    .sheet(isPresented: $isUploadPresented){
+                        UploadView()
+                    }
+                    .onTapGesture {
+                        isUploadPresented.toggle()
+                    }
                 }
                 .frame(width: UIScreen.main.bounds.width, height: DOCK_HEIGHT)
                 .background(.regularMaterial)
             }
+        }
+        .sheet(isPresented: $isLoginPresented){
+            LoginView().environmentObject(LoginViewModel())
+                .interactiveDismissDisabled(true)
+        }
+        .onAppear() {
+            isLoginPresented.toggle()
         }
     }
 }

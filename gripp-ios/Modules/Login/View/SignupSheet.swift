@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct SignupSheet: View {
+    
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    
+    @Binding var shouldShowLogin : Bool
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @State var id = ""
     @State var pw = ""
     @State var pw2 = ""
@@ -52,31 +58,43 @@ struct SignupSheet: View {
                 HStack{
                     let width = UIScreen.main.bounds.size.width
                     
-                    Text("돌아가기").font(.login_button)
-                        .padding(.all, 16)
-                        .frame(width: (width-56)/2-12)
-                        .background(Color(named: "BackgroundSubduedColor"))
-                        .cornerRadius(14)
-                        .shadow(color: Color(.black).opacity(0.1), radius: 10)
-                        .padding(.trailing, 16)
-                        .foregroundColor(Color(named: "TextMasterColor"))
+                    Button(action:{
+                        shouldShowLogin = true
+                    }){
+                        Text("돌아가기").font(.login_button)
+                            .padding(.all, 16)
+                            .frame(width: (width-56)/2-12)
+                            .background(Color(named: "BackgroundSubduedColor"))
+                            .cornerRadius(14)
+                            .shadow(color: Color(.black).opacity(0.1), radius: 10)
+                            .padding(.trailing, 16)
+                            .foregroundColor(Color(named: "TextMasterColor"))
+                    }
                     
-                    Text("회원 가입").font(.login_button)
-                        .padding(.all, 16)
-                        .frame(width: (width-56)/2-12)
-                        .background(Color("#005DDD"))
-                        .cornerRadius(14)
-                        .shadow(color: Color(.black).opacity(0.16), radius: 10)
-                        .foregroundColor(.white)
+                    Button(action:{
+                        if(pw==pw2){
+                            loginViewModel.register(username: id, password: pw)
+                        }
+                        else{
+                        }
+                    }){
+                        Text("회원 가입").font(.login_button)
+                            .padding(.all, 16)
+                            .frame(width: (width-56)/2-12)
+                            .background(Color("#005DDD"))
+                            .cornerRadius(14)
+                            .shadow(color: Color(.black).opacity(0.16), radius: 10)
+                            .foregroundColor(.white)
+                    }
                 }
+                .onReceive(loginViewModel.registrationSuccess, perform: {
+                    loginViewModel.login(username: id, password: pw)
+                    
+                })
+                .onReceive(loginViewModel.loginSuccess, perform: {
+                    presentationMode.wrappedValue.dismiss()
+                })
                 .padding(.horizontal, 28)
         }
-    }
-}
-
-struct SignupSheet_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        SignupSheet()
     }
 }

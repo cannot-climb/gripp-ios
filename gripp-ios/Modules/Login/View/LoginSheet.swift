@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct LoginSheet: View {
+    
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    
+    @Binding var shouldShowLogin : Bool
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @State var id = ""
     @State var pw = ""
+    
     var body: some View {
         VStack{
-            
-            
             TextField("ID", text: $id)
                 .padding(.all, 18)
                 .background(Color(named: "BackgroundSubduedColor"))
@@ -40,7 +45,9 @@ struct LoginSheet: View {
             HStack{
                 let width = UIScreen.main.bounds.size.width
                 
-                Button(action: {}){
+                Button(action: {
+                    shouldShowLogin = false
+                }){
                     Text("회원 가입").font(.login_button)
                         .padding(.all, 16)
                         .frame(width: (width-56)/2-12)
@@ -52,7 +59,9 @@ struct LoginSheet: View {
                 }
                 
                 
-                Button(action: {}){
+                Button(action: {
+                    loginViewModel.login(username: id, password: pw)
+                }){
                     Text("로그인").font(.login_button)
                         .padding(.all, 16)
                         .frame(width: (width-56)/2-12)
@@ -64,11 +73,8 @@ struct LoginSheet: View {
             }
             .padding(.horizontal, 28)
         }
-    }
-}
-
-struct LoginSheet_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginSheet()
+        .onReceive(loginViewModel.loginSuccess, perform: {
+            presentationMode.wrappedValue.dismiss()
+        })
     }
 }
