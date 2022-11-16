@@ -10,7 +10,6 @@
 		3C0D6FF52914886400C7C91B /* ModalInfoLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D6FF42914886400C7C91B /* ModalInfoLine.swift */; };
 		3C20772C2920C1EC00689B3D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C20772B2920C1EC00689B3D /* UserModel.swift */; };
 		3C20772E2920C20200689B3D /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C20772D2920C20200689B3D /* PostModel.swift */; };
-		3C2077302920C26100689B3D /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C20772F2920C26100689B3D /* WebService.swift */; };
 		3C2077312920C2C400689B3D /* Pods_gripp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DFB0D2A38862808A610522 /* Pods_gripp_ios.framework */; };
 		3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */; };
 		3C2BE4EC28D8CD7B007A24FD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */; };
@@ -23,7 +22,7 @@
 		3C2BE50D28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */; };
 		3C3CF0DE2920C40F00DDBE69 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0DD2920C40F00DDBE69 /* Config.swift */; };
 		3C3CF0E02920C81900DDBE69 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0DF2920C81900DDBE69 /* VideoModel.swift */; };
-		3C3CF0E22920E7C800DDBE69 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0E12920E7C800DDBE69 /* UserToken.swift */; };
+		3C3CF0E22920E7C800DDBE69 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0E12920E7C800DDBE69 /* UserDefaultsManager.swift */; };
 		3C3CF0E82920EA4A00DDBE69 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0E72920EA4A00DDBE69 /* ApiClient.swift */; };
 		3C3CF0EA2920EAA900DDBE69 /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0E92920EAA900DDBE69 /* BaseInterceptor.swift */; };
 		3C3CF0EC2920EC1800DDBE69 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0EB2920EC1800DDBE69 /* ApiLogger.swift */; };
@@ -43,6 +42,7 @@
 		3C8A4AB8290EFE1100B7508C /* MyGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AB7290EFE1100B7508C /* MyGalleryView.swift */; };
 		3CAEDD392924629800F81AF4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD382924629800F81AF4 /* LoginViewModel.swift */; };
 		3CAEDD3B29246E8600F81AF4 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD3A29246E8600F81AF4 /* TokenModel.swift */; };
+		3CAEDD3F29249F2C00F81AF4 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD3E29249F2C00F81AF4 /* UserRouter.swift */; };
 		3CD252962911BBF900AEFABB /* GalleryViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD252952911BBF900AEFABB /* GalleryViewPage.swift */; };
 		3CDDF42A28EB9D4900884847 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDF40A28EB9D4900884847 /* RoundedCorner.swift */; };
 		3CDDF42B28EB9D4900884847 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDF40B28EB9D4900884847 /* Color.swift */; };
@@ -106,7 +106,6 @@
 		3C0D6FF42914886400C7C91B /* ModalInfoLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfoLine.swift; sourceTree = "<group>"; };
 		3C20772B2920C1EC00689B3D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3C20772D2920C20200689B3D /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
-		3C20772F2920C26100689B3D /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		3C2BE4E628D8CD7B007A24FD /* gripp-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gripp-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosApp.swift; sourceTree = "<group>"; };
 		3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -122,7 +121,7 @@
 		3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3C3CF0DD2920C40F00DDBE69 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3C3CF0DF2920C81900DDBE69 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
-		3C3CF0E12920E7C800DDBE69 /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
+		3C3CF0E12920E7C800DDBE69 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		3C3CF0E72920EA4A00DDBE69 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		3C3CF0E92920EAA900DDBE69 /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
 		3C3CF0EB2920EC1800DDBE69 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		3C8A4AB7290EFE1100B7508C /* MyGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGalleryView.swift; sourceTree = "<group>"; };
 		3CAEDD382924629800F81AF4 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3CAEDD3A29246E8600F81AF4 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		3CAEDD3E29249F2C00F81AF4 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		3CD252952911BBF900AEFABB /* GalleryViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewPage.swift; sourceTree = "<group>"; };
 		3CDDF40A28EB9D4900884847 /* RoundedCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		3CDDF40B28EB9D4900884847 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -252,7 +252,6 @@
 				3CDDF40928EB9D4900884847 /* Extension */,
 				3CDDF42928EB9D4900884847 /* Model */,
 				3CDDF40C28EB9D4900884847 /* Modules */,
-				3CDDF41728EB9D4900884847 /* Service */,
 				3CDDF42828EB9D4900884847 /* Utils */,
 				3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */,
 				3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */,
@@ -315,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				3C3CF0ED2920ED5B00DDBE69 /* AuthRouter.swift */,
+				3CAEDD3E29249F2C00F81AF4 /* UserRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -393,21 +393,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3CDDF41728EB9D4900884847 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				3C20772F2920C26100689B3D /* WebService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		3CDDF41828EB9D4900884847 /* Config */ = {
 			isa = PBXGroup;
 			children = (
 				3CFD6AEA28ECB5170039EBAF /* DemoImages */,
 				3C4913662914196800792CDF /* Dimensions.swift */,
 				3C3CF0DD2920C40F00DDBE69 /* Config.swift */,
-				3C3CF0E12920E7C800DDBE69 /* UserToken.swift */,
+				3C3CF0E12920E7C800DDBE69 /* UserDefaultsManager.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -857,11 +849,12 @@
 				3CFD6B0928EE488B0039EBAF /* PlayerView.swift in Sources */,
 				3C8A4AB4290EC89F00B7508C /* LoadAnimationView.swift in Sources */,
 				3CAEDD3B29246E8600F81AF4 /* TokenModel.swift in Sources */,
-				3C3CF0E22920E7C800DDBE69 /* UserToken.swift in Sources */,
+				3C3CF0E22920E7C800DDBE69 /* UserDefaultsManager.swift in Sources */,
 				3C3CF0EC2920EC1800DDBE69 /* ApiLogger.swift in Sources */,
 				3C2BE4EF28D8CD7B007A24FD /* gripp_ios.xcdatamodeld in Sources */,
 				3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */,
 				3CF357CB28EB5E7600646D37 /* HomeView.swift in Sources */,
+				3CAEDD3F29249F2C00F81AF4 /* UserRouter.swift in Sources */,
 				3C20772E2920C20200689B3D /* PostModel.swift in Sources */,
 				3CDDF47528EBA63000884847 /* ImageGrid.swift in Sources */,
 				3C4913692914703E00792CDF /* DanglingModal.swift in Sources */,
@@ -870,7 +863,6 @@
 				3C0D6FF52914886400C7C91B /* ModalInfoLine.swift in Sources */,
 				3C3CF0E02920C81900DDBE69 /* VideoModel.swift in Sources */,
 				3C3CF0E82920EA4A00DDBE69 /* ApiClient.swift in Sources */,
-				3C2077302920C26100689B3D /* WebService.swift in Sources */,
 				3CDDF42B28EB9D4900884847 /* Color.swift in Sources */,
 				3CDDF47E28EBB7F400884847 /* ScoreListView.swift in Sources */,
 				3CFD6AE528EC4B390039EBAF /* UploadView.swift in Sources */,

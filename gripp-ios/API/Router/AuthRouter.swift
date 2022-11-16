@@ -20,8 +20,10 @@ enum AuthRouter: URLRequestConvertible{
     }
     
     case register(username: String, password: String)
-    case login(username: String, password: String) //username이 URL의 일부 : https://gripp.dev.njw.kr/auth/accounts/aim5/tokens
-    case tokenRefresh(username: String)
+    case lookup(username: String)
+    case login(username: String, password: String)
+    case tokenRefresh(username: String, refreshToken: String)
+    case tokenTrash(username: String, refreshToken: String)
     
     var baseURL: URL{
         return URL(string: Config.baseURL)!
@@ -30,10 +32,14 @@ enum AuthRouter: URLRequestConvertible{
         switch self{
         case .register:
             return "auth/accounts/"
+        case let .lookup(username):
+            return "auth/accounts/" + username
         case let .login(username, _):
             return "auth/accounts/" + username + "/tokens"
-        case let .tokenRefresh(username):
+        case let .tokenRefresh(username, _):
             return "auth/accounts/" + username + "/tokens"
+        case let .tokenTrash(username, refreshToken):
+            return "auth/accounts/" + username + "/tokens/" + refreshToken
         }
     }
     
@@ -41,10 +47,14 @@ enum AuthRouter: URLRequestConvertible{
         switch self{
         case .register:
             return .post
+        case .lookup:
+            return .get
         case .login:
             return .post
         case .tokenRefresh:
-            return .post
+            return .patch
+        case .tokenTrash:
+            return .delete
         }
     }
     
@@ -56,15 +66,22 @@ enum AuthRouter: URLRequestConvertible{
             params["password"] = password
             return params
             
-        case let .login(username, password):
+        case .lookup(_):
             var params = Parameters()
-            params["username"] = username
+            return params
+            
+        case let .login(_, password):
+            var params = Parameters()
             params["password"] = password
             return params
             
-        case let .tokenRefresh(username):
+        case let .tokenRefresh(_, refreshToken):
             var params = Parameters()
-            params["username"] = username
+            params["refreshToken"] = refreshToken
+            return params
+            
+        case let .tokenTrash(_, _):
+            var params = Parameters()
             return params
         }
         

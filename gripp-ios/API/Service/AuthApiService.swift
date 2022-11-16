@@ -27,6 +27,10 @@ enum AuthApiService{
             .request(AuthRouter.login(username: username, password: password))
             .publishDecodable(type: Token.self)
             .value()
+            .map{received in
+                UserDefaultsManager.shared.setTokens(accessToken: received.accessToken ?? "", refreshToken: received.refreshToken ?? "")
+                return received
+            }
             .eraseToAnyPublisher()
     }
 }
