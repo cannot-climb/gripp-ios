@@ -135,7 +135,10 @@ struct MyGalleryView: View {
             
         }
         .background(Color(named:"BackgroundSubduedColor"))
-        .sheet(isPresented: $isLoginPresented){
+        .fullScreenCover(isPresented: $isLoginPresented, onDismiss: {
+            galleryViewModel.loadUserInfo()
+            galleryViewModel.loadVideoList()
+        }){
             LoginView().environmentObject(LoginViewModel())
                 .interactiveDismissDisabled(true)
         }

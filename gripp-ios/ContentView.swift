@@ -56,7 +56,10 @@ struct ContentView: View {
                 .background(.regularMaterial)
             }
         }
-        .sheet(isPresented: $isLoginPresented){
+        .fullScreenCover(isPresented: $isLoginPresented, onDismiss: {
+            homeViewModel.loadTitleInfo()
+            homeViewModel.loadVideoList()
+        }){
             LoginView().environmentObject(LoginViewModel())
                 .interactiveDismissDisabled(true)
         }

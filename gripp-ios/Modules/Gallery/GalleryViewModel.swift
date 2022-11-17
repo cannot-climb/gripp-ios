@@ -54,4 +54,8 @@ class GalleryViewModel: ObservableObject{
                 
             }.store(in: &subscription)
     }
+    
+    func loadVideoList(){
+        
+    }
 }
