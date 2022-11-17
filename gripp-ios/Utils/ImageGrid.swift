@@ -10,61 +10,81 @@ import SwiftUI
 import AVKit
 
 struct ImageGrid: View {
-    public var postItemImages : [PostGridItem]
+    @StateObject var playerViewModel = PlayerViewModel()
+    
+    public var postItemImages : [ArticleResponse]
     private var gridItemLayout = [GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3)]
     public var firstItemGiantDecoration = false
     
     @State private var isPresented = false
+    @State var videoUrl = ""
     var shouldHaveChin: Bool
     
-    init(postItemImages: [PostGridItem], firstItemGiantDecoration: Bool, shouldHaveChin: Bool?) {
+    init(postItemImages: [ArticleResponse], firstItemGiantDecoration: Bool, shouldHaveChin: Bool?) {
         self.postItemImages = postItemImages
         self.firstItemGiantDecoration = firstItemGiantDecoration
         self.shouldHaveChin = shouldHaveChin ?? false
     }
     
     var body: some View {
-        
         GeometryReader{ gr in
             ScrollView{
-                if(firstItemGiantDecoration){
-                    HStack(spacing: 3){
-                        let item = postItemImages[0..<3]
-                        ImageCell(imagePath: item[0].thumbnailPath, processing: item[0].processing, conquered: item[0].conquered, present: $isPresented, useDecoration: true)
-                            .frame(width: (gr.size.width-3)*2/3+1)
-                        VStack(spacing: 3){
-                            ImageCell(imagePath: item[1].thumbnailPath, processing: item[1].processing, conquered: item[1].conquered, present: $isPresented)
-                            ImageCell(imagePath: item[2].thumbnailPath, processing: item[2].processing, conquered: item[2].conquered, present: $isPresented)
+                if(postItemImages.count > 3){
+                    if(firstItemGiantDecoration){
+                        HStack(spacing: 3){
+                            ImageCell(articleResponse: postItemImages[0], present: $isPresented, useDecoration: true)
+                                .environmentObject(playerViewModel)
+                                .frame(width: (gr.size.width-3)*2/3+1)
+                            VStack(spacing: 3){
+                                ImageCell(articleResponse: postItemImages[1], present: $isPresented)
+                                    .environmentObject(playerViewModel)
+                                ImageCell(articleResponse: postItemImages[2], present: $isPresented)
+                                    .environmentObject(playerViewModel)
+                            }
+                            .frame(width: (gr.size.width-3)/3-1)
                         }
-                        .frame(width: (gr.size.width-3)/3-1)
+                        .padding(.bottom, -5)
                     }
-                    .padding(.bottom, -5)
+                    else{
+                        HStack(spacing: 3){
+                            ForEach(postItemImages[0..<3]) { item in
+                                ImageCell(articleResponse: item, present: $isPresented)
+                                    .environmentObject(playerViewModel)
+                            }
+                        }
+                        .padding(.bottom, -5)
+                    }
+                    LazyVGrid(columns: gridItemLayout, spacing: 3){
+                        ForEach(postItemImages[3..<postItemImages.count], id: \.self){ item in
+                            ImageCell(articleResponse: item, present: $isPresented)
+                                .environmentObject(playerViewModel)
+                                .clipped()
+                                .aspectRatio(1, contentMode: .fit)
+                        }
+                    }
                 }
                 else{
-                    HStack(spacing: 3){
-                        ForEach(postItemImages[0..<3]) { item in
-                            ImageCell(imagePath: item.thumbnailPath, processing: item.processing, conquered: item.conquered, present: $isPresented)
+                    LazyVGrid(columns: gridItemLayout, spacing: 3){
+                        ForEach(postItemImages[0..<postItemImages.count], id: \.self){ item in
+                            ImageCell(articleResponse: item, present: $isPresented)
+                                .environmentObject(playerViewModel)
+                                .clipped()
+                                .aspectRatio(1, contentMode: .fit)
                         }
-                    }
-                    .padding(.bottom, -5)
-                }
-                LazyVGrid(columns: gridItemLayout, spacing: 3){
-                    ForEach(postItemImages[3..<postItemImages.count], id: \.self){ item in
-                        ImageCell(imagePath: item.thumbnailPath, processing: item.processing, conquered: item.conquered, present: $isPresented)
-                            .clipped()
-                            .aspectRatio(1, contentMode: .fit)
                     }
                 }
                 if(shouldHaveChin){
                     Spacer().frame(height: DOCK_HEIGHT)
                 }
-            }.background(Color(named:"BackgroundMasterColor"))
-                .sheet(isPresented: $isPresented) {
-                    PlayerView(avPlayer: AVPlayer(url: URL(string: "https://objectstorage.ap-seoul-1.oraclecloud.com/n/cngzlmggdnp2/b/gripp/o/videos/sample/master.m3u8")!))
-                }
-                .scrollIndicators(.hidden)
-                .refreshable {
-                }
+            }
+            .background(Color(named:"BackgroundMasterColor"))
+            .sheet(isPresented: $isPresented) {
+                PlayerView()
+                    .environmentObject(playerViewModel)
+            }
+            .scrollIndicators(.hidden)
+            .refreshable {
+            }
         }
     }
 }
@@ -86,29 +106,29 @@ private func load(fileName: String) -> Image? {
 
 
 
-struct ImageGrid_Previews: PreviewProvider {
-    static var previews: some View {
-        let postItemImages = [
-            PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
-            PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
-            PostGridItem(thumbnailPath: "img3.jpg", processing: true, conquered: false),
-            PostGridItem(thumbnailPath: "img4.jpg", processing: true, conquered: false),
-            PostGridItem(thumbnailPath: "img5.jpg", processing: false, conquered: true),
-            PostGridItem(thumbnailPath: "img6.jpg", processing: false, conquered: true),
-            PostGridItem(thumbnailPath: "img7.jpg", processing: false, conquered: true),
-            PostGridItem(thumbnailPath: "img8.jpg", processing: false, conquered: false),
-            PostGridItem(thumbnailPath: "img9.jpg", processing: false, conquered: true),
-            PostGridItem(thumbnailPath: "img10.jpg", processing: true, conquered: true),
-            PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: false),
-            PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: false),
-            PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
-            PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
-            PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: true),
-            PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
-            PostGridItem(thumbnailPath: "img12.jpg", processing: true, conquered: false),
-            PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
-            PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
-        ]
-        ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true, shouldHaveChin: false)
-    }
-}
+//struct ImageGrid_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let postItemImages = [
+//            PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
+//            PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
+//            PostGridItem(thumbnailPath: "img3.jpg", processing: true, conquered: false),
+//            PostGridItem(thumbnailPath: "img4.jpg", processing: true, conquered: false),
+//            PostGridItem(thumbnailPath: "img5.jpg", processing: false, conquered: true),
+//            PostGridItem(thumbnailPath: "img6.jpg", processing: false, conquered: true),
+//            PostGridItem(thumbnailPath: "img7.jpg", processing: false, conquered: true),
+//            PostGridItem(thumbnailPath: "img8.jpg", processing: false, conquered: false),
+//            PostGridItem(thumbnailPath: "img9.jpg", processing: false, conquered: true),
+//            PostGridItem(thumbnailPath: "img10.jpg", processing: true, conquered: true),
+//            PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: false),
+//            PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: false),
+//            PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
+//            PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
+//            PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: true),
+//            PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
+//            PostGridItem(thumbnailPath: "img12.jpg", processing: true, conquered: false),
+//            PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
+//            PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
+//        ]
+//        ImageGrid(: postItemImages, firstItemGiantDecoration: true, shouldHaveChin: false)
+//    }
+//}

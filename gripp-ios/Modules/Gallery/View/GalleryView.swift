@@ -19,28 +19,6 @@ struct GalleryView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    let postItemImages = [
-        PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
-        PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img3.jpg", processing: true, conquered: false),
-        PostGridItem(thumbnailPath: "img4.jpg", processing: true, conquered: false),
-        PostGridItem(thumbnailPath: "img5.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img6.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img7.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img8.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img9.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img10.jpg", processing: true, conquered: true),
-        PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img12.jpg", processing: true, conquered: false),
-        PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
-    ]
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             
@@ -53,7 +31,7 @@ struct GalleryView: View {
                 }){
                     Image("ArrowLeft").foregroundColor(Color(named:"TextMasterColor"))
                 }.padding(.leading, 30).padding(.trailing, 6)
-                Text("userId").font(.large_title)
+                Text(galleryViewModel.username).font(.large_title)
             }.padding(.top, 5).padding(.bottom, 6)
             
             GeometryReader{geometry in
@@ -124,9 +102,10 @@ struct GalleryView: View {
             .padding(.bottom, 10)
             .onAppear(perform: {
                 galleryViewModel.loadUserInfo()
+                galleryViewModel.loadVideoList()
             })
             
-            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false, shouldHaveChin: shouldHaveChin)
+            ImageGrid(postItemImages: galleryViewModel.articles, firstItemGiantDecoration: false, shouldHaveChin: shouldHaveChin)
                 .cornerRadius(24, corners: shouldHaveChin ? [.topLeft, .topRight] : .allCorners)
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
             

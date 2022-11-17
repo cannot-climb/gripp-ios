@@ -27,7 +27,7 @@ enum UserApiService{
             .eraseToAnyPublisher()
     }
     
-    static func fetchArticleInfo(articleId: Int) -> AnyPublisher<Article, AFError>{
+    static func fetchArticleInfo(articleId: String) -> AnyPublisher<Article, AFError>{
         print("UAS fetchArticleInfo()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
@@ -42,7 +42,7 @@ enum UserApiService{
             .value()
             .eraseToAnyPublisher()
     }
-    static func deleteArticle(articleId: Int) -> AnyPublisher<Article, AFError>{
+    static func deleteArticle(articleId: String) -> AnyPublisher<Article, AFError>{
         print("UAS deleteArticle()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
@@ -57,7 +57,7 @@ enum UserApiService{
             .value()
             .eraseToAnyPublisher()
     }
-    static func likeArticle(articleId: Int, favorite: Bool) -> AnyPublisher<Article, AFError>{
+    static func likeArticle(articleId: String, favorite: Bool) -> AnyPublisher<Article, AFError>{
         print("UAS likeArticle()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
@@ -72,8 +72,10 @@ enum UserApiService{
             .value()
             .eraseToAnyPublisher()
     }
-    static func loadArticles(filter: Dictionary<String, Dictionary<String, String>>, pageToken: String) -> AnyPublisher<ArticleListResponse, AFError>{
+    static func loadArticles(minLevel: Int, maxLevel: Int, pageToken: String) -> AnyPublisher<ArticleListResponse, AFError>{
         print("UAS loadArticles()")
+        
+        let dict = [["type":"LEVEL", "minLevel":0, "maxLevel":19]]
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
@@ -81,11 +83,13 @@ enum UserApiService{
         let authenticator = OAuthAuthenticator()
         let authInterceptor = AuthenticationInterceptor(authenticator: authenticator, credential: credential)
         
-        return ApiClient.shared.session
-            .request(UserRouter.searchArticle(filter: filter, pageToken: pageToken), interceptor: authInterceptor)
+        let response = ApiClient.shared.session
+            .request(UserRouter.searchArticle(filters: dict, pageToken: pageToken), interceptor: authInterceptor)
             .publishDecodable(type: ArticleListResponse.self)
             .value()
             .eraseToAnyPublisher()
+        debugPrint(response)
+        return response
     }
     static func fetchUserInfo(username: String) -> AnyPublisher<User, AFError>{
         print("UAS fetchUserInfo()")
@@ -118,6 +122,4 @@ enum UserApiService{
             .value()
             .eraseToAnyPublisher()
     }
-    
-
 }

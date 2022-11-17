@@ -16,28 +16,6 @@ struct HomeView: View {
     let shouldHaveChin : Bool
     @StateObject var viewRouter: ViewRouter
     
-    let postItemImages = [
-        PostGridItem(thumbnailPath: "img1.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img3.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img4.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img5.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img6.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img7.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img8.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img9.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
-    ]
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             Text("Gripp").font(.context)
@@ -105,13 +83,14 @@ struct HomeView: View {
                 }
             }.padding(.top, 4).padding(.bottom, 16)
             
-            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: true, shouldHaveChin: shouldHaveChin)
+            ImageGrid(postItemImages: homeViewModel.articles, firstItemGiantDecoration: true, shouldHaveChin: shouldHaveChin)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
         }
         .background(Color(named:"BackgroundSubduedColor"))
         .onAppear(perform: {
             homeViewModel.loadTitleInfo()
+            homeViewModel.loadVideoList()
         })
     }
 }

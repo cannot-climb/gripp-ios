@@ -11,6 +11,9 @@ import SwiftUI
 import AVKit
 
 struct DanglingModal: View {
+    
+    @EnvironmentObject var playerViewModel: PlayerViewModel
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @Binding var isExpanded: Bool
@@ -56,6 +59,8 @@ struct DanglingModal: View {
                 currHeight = minHeight
                 isExpanded = false
                 maxHeight = geometry.size.height - 50 - 24 - 30
+                
+                galleryViewModel.username = playerViewModel.videoUser
             }
         }
     }
@@ -74,7 +79,7 @@ struct DanglingModal: View {
                         .padding(.bottom, 18)
                 }
                 
-                Text("Video Title").font(.large_title)
+                Text(playerViewModel.videoTitle).font(.large_title)
                     .padding(.top, 5).padding(.bottom, 18)
                 Spacer()
                     .contentShape(Rectangle())
@@ -126,20 +131,40 @@ struct DanglingModal: View {
                 VStack{
                     HStack{
                         Spacer()
-                        Button(action: {}){
-                            HStack{
-                                Text("18")
-                                    .font(.foot_note)
-                                    .padding(.trailing, 4)
-                                Image("HeartOutlined")
+                        Button(action: {
+                            playerViewModel.toggleFavorite()
+                        }){
+                            if(playerViewModel.videoFavorite){
+                                HStack{
+                                    Text(playerViewModel.videoFavoriteCount)
+                                        .font(.foot_note)
+                                        .padding(.trailing, 4)
+                                    Image("HeartOutlined")
+                                }
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 10)
+                                .background(.red)
+                                .foregroundColor(Color(named: "BackgroundMasterColor"))
+                                .cornerRadius(100)
+                                .padding(.trailing, 24)
+                                .padding(.top, 24)
+                                .shadow(color: .black.opacity(0.2), radius: 10)
                             }
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 10)
-                            .background(.white)
-                            .cornerRadius(100)
-                            .padding(.trailing, 24)
-                            .padding(.top, 24)
-                            .shadow(color: .black.opacity(0.2), radius: 10)
+                            else{
+                                HStack{
+                                    Text(playerViewModel.videoFavoriteCount)
+                                        .font(.foot_note)
+                                        .padding(.trailing, 4)
+                                    Image("HeartOutlined")
+                                }
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 10)
+                                .background(.white)
+                                .cornerRadius(100)
+                                .padding(.trailing, 24)
+                                .padding(.top, 24)
+                                .shadow(color: .black.opacity(0.2), radius: 10)
+                            }
                         }.foregroundColor(.black)
                     }
                     Spacer()
@@ -150,44 +175,42 @@ struct DanglingModal: View {
                         .frame(width: 50, height: 6)
                         .opacity(0.5)
                         .padding(.vertical, 10)
-                    
-//                    ScrollView{
-                        
-                        ModalInfoLine(imageString: "Angle", text: "45º / V3")
-                            .padding(.top, 4)
-                        ModalInfoLine(imageString: "Calendar", text: "2022/09/12")
-                        HStack(alignment: .top){
-                            Spacer()
-                                .frame(width: 40)
-                            Image("Person")
-                                .padding(.trailing, 8)
-                            NavigationLink(destination: GalleryView(contextString: "", shouldHaveChin: false).environmentObject(GalleryViewModel()).navigationBarBackButtonHidden(true)) {
-                                HStack{
-                                    Text("UserName").font(.player_id)
-                                        .padding(.top,3)
-                                        .foregroundColor(Color(named:"AccentMasterColor")).padding(.bottom, 1)
-                                    Text("userInfoString").font(.player_vid_info)
-                                        .foregroundColor(Color(named:"TextMasterColor"))
-                                        .padding(.top,3).padding(.bottom, 1)
-                                }
+
+                    ModalInfoLine(imageString: "Angle", text: $playerViewModel.videoAngle, post: "º")
+                        .padding(.top, 4)
+                    ModalInfoLine(imageString: "Fire", pre:"V", text: $playerViewModel.videoLevel)
+                    ModalInfoLine(imageString: "Calendar", text: $playerViewModel.videoDate)
+                    HStack(alignment: .top){
+                        Spacer()
+                            .frame(width: 40)
+                        Image("Person")
+                            .padding(.trailing, 8)
+                        NavigationLink(destination: GalleryView(contextString: "", shouldHaveChin: false).environmentObject(galleryViewModel).navigationBarBackButtonHidden(true)) {
+                            HStack{
+                                Text(playerViewModel.videoUser).font(.player_id)
+                                    .padding(.top,3)
+                                    .foregroundColor(Color(named:"AccentMasterColor")).padding(.bottom, 1)
+                                Text(playerViewModel.videoUserInfoString).font(.player_vid_info)
+                                    .foregroundColor(Color(named:"TextMasterColor"))
+                                    .padding(.top,3).padding(.bottom, 1)
                             }
-                            Spacer()
-                        }.frame(height: 30)
-                        ModalInfoLine(imageString: "Eye", text: "103회")
-                        ModalInfoLine(imageString: "Description", text: "Lorem ipsum dolor sit amet, consectetur adipiscin.Descriptionorem ipsum dolor sit amet, consectetur adipiscin.piscin.Descriptionorem ipsum dolor sit amet, consectetur adipiscin.")
-                        
-                        Button(action: {}){
-                            Image("Trash")
-                                .padding(.horizontal, 50)
-                                .padding(.vertical, 10)
-                                .background(Color("#FF4B4B"))
-                                .cornerRadius(100)
-                                .padding(.top, 30)
                         }
-                        .foregroundColor(.black)
-                        .padding(.bottom, 80)
-                        .shadow(color: .red.opacity(0.4), radius: 10)
-//                    }
+                        Spacer()
+                    }.frame(height: 30)
+                    ModalInfoLine(imageString: "Eye", text: $playerViewModel.videoViewCount, post: "회")
+                    ModalInfoLine(imageString: "Description", text: $playerViewModel.videoDescription)
+                    
+                    Button(action: {}){
+                        Image("Trash")
+                            .padding(.horizontal, 50)
+                            .padding(.vertical, 10)
+                            .background(Color("#FF4B4B"))
+                            .cornerRadius(100)
+                            .padding(.top, 30)
+                    }
+                    .foregroundColor(.black)
+                    .padding(.bottom, 80)
+                    .shadow(color: .red.opacity(0.4), radius: 10)
                 }
             }
             .frame(width: UIScreen.main.bounds.width)

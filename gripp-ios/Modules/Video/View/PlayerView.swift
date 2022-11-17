@@ -10,10 +10,7 @@ import AVKit
 
 struct PlayerView: View {
     
-    //    var playerLayer:AVPlayerLayer
-    var videoPortraitURL = URL(string: "https://objectstorage.ap-seoul-1.oraclecloud.com/n/cngzlmggdnp2/b/gripp/o/videos/sample/master.m3u8")!
-    var videoLandScapeURL = URL(string: "https://file-examples.com/storage/fea4ef07a863619cfa0b308/2017/04/file_example_MP4_1280_10MG.mp4")!
-    @State var avPlayer:AVPlayer?
+    @EnvironmentObject var playerViewModel: PlayerViewModel
     
     @State var modalExpanded: Bool = false
     
@@ -25,15 +22,17 @@ struct PlayerView: View {
     var body: some View {
         NavigationView{
             ZStack{
+                let avPlayer = AVPlayer(url: URL(string: playerViewModel.videoUrl)!)
+//                let k = avPlayer.timeControlStatus == AVPlayerTimeControlStatusPaused
                 //video
                 GeometryReader{geometry in
                     VStack{
                         VideoPlayer(player: avPlayer)
                             .onAppear(perform: {
-                                avPlayer?.playImmediately(atRate: 1.0)
+                                avPlayer.playImmediately(atRate: 1.0)
                             })
                             .onDisappear(perform: {
-                                avPlayer?.pause()
+                                avPlayer.pause()
                             })
                             .frame(width: geometry.size.width, height: geometry.size.width/9*16)
                             .allowsHitTesting(false)
@@ -45,6 +44,7 @@ struct PlayerView: View {
                 }
 
                 DanglingModal(presentationMode: _presentationMode, isExpanded: $modalExpanded, avPlayer: avPlayer)
+                    .environmentObject(playerViewModel)
                     .edgesIgnoringSafeArea(.bottom)
             }
         }
@@ -54,7 +54,7 @@ struct PlayerView: View {
 
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerView()
+        PlayerView().environmentObject(PlayerViewModel())
     }
 }
 

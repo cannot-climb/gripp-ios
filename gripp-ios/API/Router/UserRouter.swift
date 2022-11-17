@@ -18,10 +18,10 @@ enum UserRouter: URLRequestConvertible{
     }
     
     case postArticle(videoId: String, title: String, description: String, level: Int, angle: Int)
-    case fetchArticleInfo(articleId: Int)
-    case deleteArticle(articleId: Int)
-    case likeArticle(articleId: Int, favorite: Bool)
-    case searchArticle(filter: Dictionary<String, Dictionary<String, String>>, pageToken: String)
+    case fetchArticleInfo(articleId: String)
+    case deleteArticle(articleId: String)
+    case likeArticle(articleId: String, favorite: Bool)
+    case searchArticle(filters: [Dictionary<String, Any>], pageToken: String)
     case fetchUserInfo(username: String)
     case fetchLeaderBoard(username: String)
 //    case uploadVideo
@@ -86,10 +86,13 @@ enum UserRouter: URLRequestConvertible{
             var params = Parameters()
             params["favorite"] = favorite
             return params
-        case let .searchArticle(filter, pageToken):
+        case let .searchArticle(filters, pageToken):
             var params = Parameters()
-            params["filter"] = filter
-            params["order"] = "NEW"
+            
+            let jsonData = try? JSONSerialization.data(withJSONObject: filters, options: [])
+            let jsonString = String(data: jsonData!, encoding: String.Encoding.utf8)!
+
+            params["filters"] = jsonString
             params["pageToken"] = pageToken
             return params
         case .fetchUserInfo:

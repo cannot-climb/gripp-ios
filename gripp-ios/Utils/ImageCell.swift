@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct ImageCell: View {
-    var imagePath : String?
+    
+    @EnvironmentObject var playerViewModel: PlayerViewModel
+    
+    var articleResponse: ArticleResponse
+    
+    var imagePath = ""
     var processing = false
     var conquered = false
+    var videoUrl = ""
     
     var useDecoration = false
     @Binding var isPresented : Bool
     
-    init(imagePath: String, processing: Bool, conquered: Bool, present: Binding<Bool>, useDecoration: Bool? = false) {
-        self.imagePath = imagePath
-        self.processing = processing
-        self.conquered = conquered
+    init(articleResponse: ArticleResponse, present: Binding<Bool>, useDecoration: Bool? = false) {
+        self.imagePath = articleResponse.video!.thumbnailUrl!
+        self.processing = articleResponse.video!.status! == "PREPROCESSING"
+        self.conquered = articleResponse.video!.status! == "CERTIFIED"
+        self.videoUrl = articleResponse.video!.streamingUrl!
+        self.articleResponse = articleResponse
         
         self.useDecoration = useDecoration ?? false
         self._isPresented = present
@@ -64,12 +72,23 @@ struct ImageCell: View {
             else{
                 ZStack(alignment: .topTrailing){
                     GeometryReader{geometry in
-                        Image(uiImage: UIImage(named: imagePath ?? "") ?? UIImage())
-                            .resizable()
-                            .scaledToFill()
-                            .aspectRatio(1, contentMode: .fit)
-                            .frame(width: geometry.size.width, height: geometry.size.height)
-                            .contentShape(Rectangle())
+                        AsyncImage(url: URL(string: imagePath), transaction: Transaction(animation: .default)) { phase in
+                            switch phase {
+                            case .empty:
+                                LoadAnimationView(alwaysDark: false)
+                                    .padding(.all, 20)
+                            case .success(let image):
+                                image.resizable()
+                                    .scaledToFill()
+                                    .aspectRatio(1, contentMode: .fit)
+                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                    .contentShape(Rectangle())
+                            case .failure:
+                                Image(systemName: "photo")
+                            @unknown default:
+                                EmptyView()
+                            }
+                        }
                     }
                     if(conquered){
                         if(useDecoration){
@@ -108,6 +127,8 @@ struct ImageCell: View {
                     }
                 }
                 .onTapGesture {
+                    playerViewModel.setVideoUrl(videoUrl: videoUrl)
+                    playerViewModel.setVideoInfo(articleResponse: articleResponse)
                     isPresented.toggle()
                 }
                 .contextMenu{
@@ -125,23 +146,23 @@ struct ImageCell: View {
     }
 }
 
-struct ImageCell_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack{
-            HStack{
-                
-                ImageCell(imagePath: "img1.jpg", processing: false, conquered: true, present: .constant(true))
-                
-                ImageCell(imagePath: "img2.jpg", processing: true, conquered: false, present: .constant(true))
-                
-                ImageCell(imagePath: "img13.jpg", processing: false, conquered: false, present: .constant(true))
-            }
-                
-            ImageCell(imagePath: "img1.jpg", processing: false, conquered: true, present: .constant(true), useDecoration: true)
-            
-            ImageCell(imagePath: "img1.jpg", processing: true, conquered: false, present: .constant(true), useDecoration: true)
-            
-            ImageCell(imagePath: "img1.jpg", processing: false, conquered: false, present: .constant(true), useDecoration: true)
-        }
-    }
-}
+//struct ImageCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VStack{
+//            HStack{
+//                
+//                ImageCell(imagePath: "img1.jpg", processing: false, conquered: true, present: .constant(true))
+//                
+//                ImageCell(imagePath: "img2.jpg", processing: true, conquered: false, present: .constant(true))
+//                
+//                ImageCell(imagePath: "img13.jpg", processing: false, conquered: false, present: .constant(true))
+//            }
+//                
+//            ImageCell(imagePath: "img1.jpg", processing: false, conquered: true, present: .constant(true), useDecoration: true)
+//            
+//            ImageCell(imagePath: "img1.jpg", processing: true, conquered: false, present: .constant(true), useDecoration: true)
+//            
+//            ImageCell(imagePath: "img1.jpg", processing: false, conquered: false, present: .constant(true), useDecoration: true)
+//        }
+//    }
+//}

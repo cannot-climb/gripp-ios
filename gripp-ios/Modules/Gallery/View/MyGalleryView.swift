@@ -14,28 +14,6 @@ struct MyGalleryView: View {
     
     @State private var isLoginPresented = false
     
-    let postItemImages = [
-        PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
-        PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img3.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img4.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img5.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img6.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img7.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img8.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img9.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
-        PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
-        PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
-    ]
-    
     @State private var selectedItem0 = 0
     @State private var selectedItem1 = 0
     @State private var selectedItem2 = 0
@@ -127,9 +105,11 @@ struct MyGalleryView: View {
             .frame(height: 130)
             .padding(.bottom, 10)
             .onAppear(perform: {
+                galleryViewModel.username = getUserName() ?? ""
                 galleryViewModel.loadUserInfo()
+                galleryViewModel.loadVideoList()
             })
-            ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false, shouldHaveChin: shouldHaveChin)
+            ImageGrid(postItemImages: galleryViewModel.articles, firstItemGiantDecoration: false, shouldHaveChin: shouldHaveChin)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
             
