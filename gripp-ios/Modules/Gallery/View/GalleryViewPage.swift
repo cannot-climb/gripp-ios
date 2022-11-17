@@ -9,7 +9,9 @@ import SwiftUI
 
 struct GalleryViewPage: View {
     @State var title: String
-    @State var content: String
+    @State var pre: String?
+    @Binding var content: String
+    @State var post: String?
     @State var pageIndex: Int
     @State var pageCount: Int
     
@@ -41,7 +43,8 @@ struct GalleryViewPage: View {
             }
             HStack{
                 Spacer()
-                Text(content).font(.large_title)
+                Text((pre ?? "") + content + (post ?? ""))
+                    .font(.large_title)
                     .padding(.trailing, 10)
                     .padding(.bottom, 10)
             }
@@ -49,8 +52,8 @@ struct GalleryViewPage: View {
     }
 }
 
-struct GalleryViewPage_Previews: PreviewProvider {
-    static var previews: some View {
-        GalleryViewPage(title: "게시물", content: "12개",pageIndex: 2,pageCount: 3)
-    }
-}
+//struct GalleryViewPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GalleryViewPage(title: "게시물", content: "12개",pageIndex: 2,pageCount: 3)
+//    }
+//}

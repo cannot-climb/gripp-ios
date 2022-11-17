@@ -9,15 +9,18 @@ import Foundation
 
 struct Token: Codable, Hashable, Identifiable {
     var id: UUID = UUID()
+    var username: String?
     var accessToken: String?
     var refreshToken: String?
     
-    init(accessToken: String?, refreshToken: String?) {
+    init(username: String?, accessToken: String?, refreshToken: String?) {
+        self.username = username
         self.accessToken = accessToken
         self.refreshToken = refreshToken
     }
     
     enum CodingKeys: String, CodingKey {
+        case username = "username"
         case accessToken = "accessToken"
         case refreshToken = "refreshToken"
     }

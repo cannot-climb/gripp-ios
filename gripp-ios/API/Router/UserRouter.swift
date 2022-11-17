@@ -14,7 +14,6 @@ enum UserRouter: URLRequestConvertible{
         print(url)
         var request = URLRequest(url: url)
         request.method = method
-        request.httpBody = try JSONEncoding.default.encode(request, with: paramters).httpBody
         return request
     }
     
@@ -80,11 +79,9 @@ enum UserRouter: URLRequestConvertible{
             params["angle"] = angle
             return params
         case .fetchArticleInfo:
-            var params = Parameters()
-            return params
+            return Parameters()
         case .deleteArticle:
-            var params = Parameters()
-            return params
+            return Parameters()
         case let .likeArticle(_, favorite):
             var params = Parameters()
             params["favorite"] = favorite
@@ -95,11 +92,9 @@ enum UserRouter: URLRequestConvertible{
             params["pageToken"] = pageToken
             return params
         case .fetchUserInfo:
-            var params = Parameters()
-            return params
+            return Parameters()
         case .fetchLeaderBoard:
-            var params = Parameters()
-            return params
+            return Parameters()
         }
         
         

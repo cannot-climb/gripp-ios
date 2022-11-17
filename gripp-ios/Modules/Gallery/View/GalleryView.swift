@@ -57,61 +57,61 @@ struct GalleryView: View {
             
             GeometryReader{geometry in
                 HStack(alignment: .center, spacing: 6){
-                    TabView(selection: $selectedItem0){
-                        GalleryViewPage(title: "게시물", content: "20개",pageIndex: 0 ,pageCount: 3)
-                            .tag(0)
-                        GalleryViewPage(title: "성공", content: "12회",pageIndex: 1 ,pageCount: 3)
-                            .tag(1)
-                        GalleryViewPage(title: "성공율", content: "60%",pageIndex: 2 ,pageCount: 3)
-                            .tag(2)
-                    }
-                    .tabViewStyle(.page(indexDisplayMode: .never))
-                    .background(Color(named: "BackgroundMasterColor"))
-                    .cornerRadius(14)
-                    .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
-                    .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
-                    .padding(.vertical, 22)
-                    .padding(.horizontal, 8)
-                    .frame(width: (geometry.size.width-40)/3)
-                    .onTapGesture {
-                        selectedItem0 = (selectedItem0+1)%3
-                    }
-                    
-                    TabView(selection: $selectedItem1){
-                        GalleryViewPage(title: "티어", content: "V12",pageIndex: 0 ,pageCount: 2)
-                            .tag(0)
-                        GalleryViewPage(title: "점수", content: "11.54",pageIndex: 1 ,pageCount: 2)
-                            .tag(1)
-                    }
-                    .tabViewStyle(.page(indexDisplayMode: .never))
-                    .background(Color(named: "BackgroundMasterColor"))
-                    .cornerRadius(14)
-                    .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
-                    .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
-                    .padding(.vertical, 22)
-                    .padding(.horizontal, 8)
-                    .frame(width: (geometry.size.width-40)/3)
-                    .onTapGesture {
-                        selectedItem1 = (selectedItem1+1)%2
-                    }
-                    
-                    TabView(selection: $selectedItem2){
-                        GalleryViewPage(title: "전체", content: "20위",pageIndex: 0 ,pageCount: 2)
-                            .tag(0)
-                        GalleryViewPage(title: "상위", content: "90%",pageIndex: 1 ,pageCount: 2)
-                            .tag(1)
-                    }
-                    .tabViewStyle(.page(indexDisplayMode: .never))
-                    .background(Color(named: "BackgroundMasterColor"))
-                    .cornerRadius(14)
-                    .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
-                    .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
-                    .padding(.vertical, 22)
-                    .padding(.horizontal, 8)
-                    .frame(width: (geometry.size.width-40)/3)
-                    .onTapGesture {
-                        selectedItem2 = (selectedItem2+1)%2
-                    }
+//                    TabView(selection: $selectedItem0){
+//                        GalleryViewPage(title: "게시물", content: "20개",pageIndex: 0 ,pageCount: 3)
+//                            .tag(0)
+//                        GalleryViewPage(title: "성공", content: "12회",pageIndex: 1 ,pageCount: 3)
+//                            .tag(1)
+//                        GalleryViewPage(title: "성공율", content: "60%",pageIndex: 2 ,pageCount: 3)
+//                            .tag(2)
+//                    }
+//                    .tabViewStyle(.page(indexDisplayMode: .never))
+//                    .background(Color(named: "BackgroundMasterColor"))
+//                    .cornerRadius(14)
+//                    .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
+//                    .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
+//                    .padding(.vertical, 22)
+//                    .padding(.horizontal, 8)
+//                    .frame(width: (geometry.size.width-40)/3)
+//                    .onTapGesture {
+//                        selectedItem0 = (selectedItem0+1)%3
+//                    }
+//                    
+//                    TabView(selection: $selectedItem1){
+//                        GalleryViewPage(title: "티어", content: "V12",pageIndex: 0 ,pageCount: 2)
+//                            .tag(0)
+//                        GalleryViewPage(title: "점수", content: "11.54",pageIndex: 1 ,pageCount: 2)
+//                            .tag(1)
+//                    }
+//                    .tabViewStyle(.page(indexDisplayMode: .never))
+//                    .background(Color(named: "BackgroundMasterColor"))
+//                    .cornerRadius(14)
+//                    .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
+//                    .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
+//                    .padding(.vertical, 22)
+//                    .padding(.horizontal, 8)
+//                    .frame(width: (geometry.size.width-40)/3)
+//                    .onTapGesture {
+//                        selectedItem1 = (selectedItem1+1)%2
+//                    }
+//                    
+//                    TabView(selection: $selectedItem2){
+//                        GalleryViewPage(title: "전체", content: "20위",pageIndex: 0 ,pageCount: 2)
+//                            .tag(0)
+//                        GalleryViewPage(title: "상위", content: "90%",pageIndex: 1 ,pageCount: 2)
+//                            .tag(1)
+//                    }
+//                    .tabViewStyle(.page(indexDisplayMode: .never))
+//                    .background(Color(named: "BackgroundMasterColor"))
+//                    .cornerRadius(14)
+//                    .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
+//                    .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
+//                    .padding(.vertical, 22)
+//                    .padding(.horizontal, 8)
+//                    .frame(width: (geometry.size.width-40)/3)
+//                    .onTapGesture {
+//                        selectedItem2 = (selectedItem2+1)%2
+//                    }
                 }
                 .frame(width: geometry.size.width)
                 .foregroundColor(Color(named: "TextMasterColor"))

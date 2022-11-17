@@ -22,8 +22,8 @@ enum AuthRouter: URLRequestConvertible{
     case register(username: String, password: String)
     case lookup(username: String)
     case login(username: String, password: String)
-    case tokenRefresh(username: String, refreshToken: String)
-    case tokenTrash(username: String, refreshToken: String)
+    case tokenRefresh(username: String)
+    case tokenTrash(username: String)
     
     var baseURL: URL{
         return URL(string: Config.baseURL)!
@@ -36,10 +36,11 @@ enum AuthRouter: URLRequestConvertible{
             return "auth/accounts/" + username
         case let .login(username, _):
             return "auth/accounts/" + username + "/tokens"
-        case let .tokenRefresh(username, _):
+        case let .tokenRefresh(username):
             return "auth/accounts/" + username + "/tokens"
-        case let .tokenTrash(username, refreshToken):
-            return "auth/accounts/" + username + "/tokens/" + refreshToken
+        case let .tokenTrash(username):
+            let tokens = UserDefaultsManager.shared.getTokens()
+            return "auth/accounts/\(username)/tokens/\(String(describing: tokens.refreshToken))"
         }
     }
     
@@ -66,23 +67,21 @@ enum AuthRouter: URLRequestConvertible{
             params["password"] = password
             return params
             
-        case .lookup(_):
-            var params = Parameters()
-            return params
+        case .lookup:
+            return Parameters()
             
         case let .login(_, password):
             var params = Parameters()
             params["password"] = password
             return params
             
-        case let .tokenRefresh(_, refreshToken):
+        case .tokenRefresh:
             var params = Parameters()
-            params["refreshToken"] = refreshToken
+            params["refreshToken"] = String(describing: UserDefaultsManager.shared.getTokens().refreshToken)
             return params
             
-        case let .tokenTrash(_, _):
-            var params = Parameters()
-            return params
+        case .tokenTrash:
+            return Parameters()
         }
         
         

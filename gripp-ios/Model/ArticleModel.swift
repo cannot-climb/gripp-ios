@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post: Codable, Hashable, Identifiable {
+struct Article: Codable, Hashable, Identifiable {
     var id: UUID = UUID()
     var user: User?
     var video: Video?
@@ -62,4 +62,11 @@ struct Post: Codable, Hashable, Identifiable {
         case registerDateTime = "registerDateTime"
         case favorite = "favorite"
     }
+}
+
+
+struct ArticleListResponse: Codable{
+    var id: UUID = UUID()
+    var articles: [Article]
+    var nextPageToken: String
 }

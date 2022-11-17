@@ -41,7 +41,7 @@ struct HomeView: View {
                 .padding(.leading, 31).padding(.top, 6)
                 .foregroundColor(Color(named:"TextSubduedColor"))
             Button(action:{viewRouter.currentPage = .myGallery}){
-                Text("masterUserId").font(.large_title)
+                Text(getUserName() ?? "nil").font(.large_title)
                 Image("ArrowRight")
             }.padding(.leading, 30).padding(.top, 5)
                 .foregroundColor(Color(named: "TextMasterColor"))

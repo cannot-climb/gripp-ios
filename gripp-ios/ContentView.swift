@@ -17,6 +17,9 @@ struct ContentView: View {
     @State private var isLoginPresented = false
     @State private var isUploadPresented = false
     
+    @StateObject var galleryViewModel = GalleryViewModel()
+    
+    
     var body: some View {
         ZStack{
             switch viewRouter.currentPage {
@@ -25,7 +28,7 @@ struct ContentView: View {
             case .leader:
                 LeaderBoardView(shouldHaveChin: true)
             case .myGallery:
-                MyGalleryView(shouldHaveChin: true)
+                MyGalleryView(shouldHaveChin: true).environmentObject(galleryViewModel)
             }
             VStack{
                 Spacer()
@@ -57,7 +60,9 @@ struct ContentView: View {
                 .interactiveDismissDisabled(true)
         }
         .onAppear() {
-            isLoginPresented.toggle()
+            if(UserDefaultsManager.shared.getTokens().username == nil){
+                isLoginPresented.toggle()
+            }
         }
     }
 }

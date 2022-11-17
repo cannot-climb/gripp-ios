@@ -40,3 +40,8 @@ struct User: Codable, Hashable, Identifiable {
         case registerDateTime = "registerDateTime"
     }
 }
+
+
+struct LeaderboardListResponse: Codable {
+    let topBoard, defaultBoard: [User]
+}

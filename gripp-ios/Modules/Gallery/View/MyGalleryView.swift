@@ -9,7 +9,10 @@ import SwiftUI
 
 struct MyGalleryView: View {
     
+    @EnvironmentObject var galleryViewModel: GalleryViewModel
     var shouldHaveChin: Bool
+    
+    @State private var isLoginPresented = false
     
     let postItemImages = [
         PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
@@ -44,7 +47,10 @@ struct MyGalleryView: View {
                 Text("내 정보").font(.large_title)
                 Spacer()
                 Button(action:{
-                    print("asdf")
+                    galleryViewModel.logout()
+                    if(UserDefaultsManager.shared.getTokens().username == nil){
+                        isLoginPresented.toggle()
+                    }
                 }){
                     Text("로그아웃").font(.foot_note)
                     Image(systemName: "minus.circle")
@@ -57,12 +63,15 @@ struct MyGalleryView: View {
             GeometryReader{geometry in
                 HStack(alignment: .center, spacing: 6){
                     TabView(selection: $selectedItem0){
-                        GalleryViewPage(title: "게시물", content: "20개",pageIndex: 0 ,pageCount: 3)
+                        GalleryViewPage(title: "게시물", content: $galleryViewModel.userArticleCount, post: "개", pageIndex: 0 ,pageCount: 3)
                             .tag(0)
-                        GalleryViewPage(title: "성공", content: "12회",pageIndex: 1 ,pageCount: 3)
+                        GalleryViewPage(title: "성공", content: $galleryViewModel.userArticleCount, post: "회", pageIndex: 1 ,pageCount: 3)
                             .tag(1)
-                        GalleryViewPage(title: "성공율", content: "60%",pageIndex: 2 ,pageCount: 3)
-                            .tag(2)
+                        GalleryViewPage(
+                            title: "성공율",
+                            content: $galleryViewModel.userArticleCertifiedCount, post: "%",
+                            pageIndex: 2 ,pageCount: 3
+                        ).tag(2)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .background(Color(named: "BackgroundMasterColor"))
@@ -77,9 +86,9 @@ struct MyGalleryView: View {
                     }
                     
                     TabView(selection: $selectedItem1){
-                        GalleryViewPage(title: "티어", content: "V12",pageIndex: 0 ,pageCount: 2)
+                        GalleryViewPage(title: "티어", pre:"V", content: $galleryViewModel.userTier,pageIndex: 0 ,pageCount: 2)
                             .tag(0)
-                        GalleryViewPage(title: "점수", content: "11.54",pageIndex: 1 ,pageCount: 2)
+                        GalleryViewPage(title: "점수", content: $galleryViewModel.userScore, pageIndex: 1 ,pageCount: 2)
                             .tag(1)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
@@ -93,11 +102,11 @@ struct MyGalleryView: View {
                     .onTapGesture {
                         selectedItem1 = (selectedItem1+1)%2
                     }
-                    
+
                     TabView(selection: $selectedItem2){
-                        GalleryViewPage(title: "전체", content: "20위",pageIndex: 0 ,pageCount: 2)
+                        GalleryViewPage(title: "전체", content: $galleryViewModel.userRank, post: "위", pageIndex: 0 ,pageCount: 2)
                             .tag(0)
-                        GalleryViewPage(title: "상위", content: "90%",pageIndex: 1 ,pageCount: 2)
+                        GalleryViewPage(title: "상위", content: $galleryViewModel.userPercentile, post: "%", pageIndex: 1 ,pageCount: 2)
                             .tag(1)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
@@ -117,20 +126,24 @@ struct MyGalleryView: View {
             }
             .frame(height: 130)
             .padding(.bottom, 10)
-            
+            .onAppear(perform: {
+                galleryViewModel.loadUserInfo()
+            })
             ImageGrid(postItemImages: postItemImages, firstItemGiantDecoration: false, shouldHaveChin: shouldHaveChin)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
             
         }
         .background(Color(named:"BackgroundSubduedColor"))
-        
+        .sheet(isPresented: $isLoginPresented){
+            LoginView().environmentObject(LoginViewModel())
+                .interactiveDismissDisabled(true)
+        }
     }
 }
 
-
 struct MyGalleryView_Previews: PreviewProvider {
     static var previews: some View {
-        MyGalleryView(shouldHaveChin: false)
+        MyGalleryView(shouldHaveChin: false).environmentObject(GalleryViewModel())
     }
 }
