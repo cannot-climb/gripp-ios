@@ -13,9 +13,9 @@ import Combine
 class GalleryViewModel: ObservableObject{
     var subscription = Set<AnyCancellable>()
     
-    var fetchUserSuccess = PassthroughSubject<(), Never>()
-    
-    @Published var userInfo: User? = nil
+//    var fetchUserSuccess = PassthroughSubject<(), Never>()
+//
+//    @Published var userInfo: User? = nil
     
     @Published var userArticleCount = ""
     @Published var userArticleCertifiedCount = ""
@@ -41,8 +41,8 @@ class GalleryViewModel: ObservableObject{
                 print("GVM completion \(completion)")
             }
             receiveValue: { (received: User) in
-                self.userInfo = received
-                self.fetchUserSuccess.send()
+//                self.userInfo = received
+//                self.fetchUserSuccess.send()
                 
                 self.userArticleCount = String(received.articleCount ?? -2)
                 self.userArticleCertifiedCount = String(received.articleCertifiedCount ?? -2)

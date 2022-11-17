@@ -86,6 +86,7 @@
 		3CFD6B0528ECB5910039EBAF /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF728ECB5910039EBAF /* img1.jpg */; };
 		3CFD6B0628ECB5910039EBAF /* img3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF828ECB5910039EBAF /* img3.jpg */; };
 		3CFD6B0928EE488B0039EBAF /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFD6B0828EE488B0039EBAF /* PlayerView.swift */; };
+		3CFE18FE292665D5005A44A2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE18FD292665D5005A44A2 /* HomeViewModel.swift */; };
 		BDCB942D2CB3B7A8087FD5EC /* Pods_gripp_ios_gripp_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F689AA517D07AB83D850C6 /* Pods_gripp_ios_gripp_iosUITests.framework */; };
 		C876AA86E518B084950945FE /* Pods_gripp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3D4E74320BD39D2342E3EE /* Pods_gripp_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -191,6 +192,7 @@
 		3CFD6AF728ECB5910039EBAF /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
 		3CFD6AF828ECB5910039EBAF /* img3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img3.jpg; sourceTree = "<group>"; };
 		3CFD6B0828EE488B0039EBAF /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		3CFE18FD292665D5005A44A2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3FF9E6070CD64904AF6CC7B6 /* Pods-gripp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-ios.debug.xcconfig"; path = "Target Support Files/Pods-gripp-ios/Pods-gripp-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		6BBC698D32C48B3D2DE4ED4B /* Pods-gripp-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gripp-iosTests/Pods-gripp-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		73DFB0D2A38862808A610522 /* Pods_gripp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gripp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -384,6 +386,7 @@
 		3CDDF40D28EB9D4900884847 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3CFE18FD292665D5005A44A2 /* HomeViewModel.swift */,
 				3CDDF40E28EB9D4900884847 /* View */,
 			);
 			path = Home;
@@ -863,6 +866,7 @@
 				3C3CF0DE2920C40F00DDBE69 /* Config.swift in Sources */,
 				3CDDF46928EB9E4200884847 /* Roboto.swift in Sources */,
 				3CAEDD4C292607BB00F81AF4 /* GetUserName.swift in Sources */,
+				3CFE18FE292665D5005A44A2 /* HomeViewModel.swift in Sources */,
 				3C8A4AAE290DC4C100B7508C /* SignupSheet.swift in Sources */,
 				3C8A4AB0290DD0F100B7508C /* ImageCell.swift in Sources */,
 				3C3CF0F12920F1C700DDBE69 /* AuthApiService.swift in Sources */,

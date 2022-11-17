@@ -22,6 +22,8 @@ struct DanglingModal: View {
     @State var avPlayer:AVPlayer?
     @State var videoPlaying: Bool = true
     
+    @StateObject var galleryViewModel = GalleryViewModel()
+    
     var dragPercentage: Double {
         let res = Double ((currHeight - minHeight) / (maxHeight - minHeight))
         return max(0, min(1, res))
@@ -159,7 +161,7 @@ struct DanglingModal: View {
                                 .frame(width: 40)
                             Image("Person")
                                 .padding(.trailing, 8)
-                            NavigationLink(destination: GalleryView(contextString: "", shouldHaveChin: false).navigationBarBackButtonHidden(true)) {
+                            NavigationLink(destination: GalleryView(contextString: "", shouldHaveChin: false).environmentObject(GalleryViewModel()).navigationBarBackButtonHidden(true)) {
                                 HStack{
                                     Text("UserName").font(.player_id)
                                         .padding(.top,3)
