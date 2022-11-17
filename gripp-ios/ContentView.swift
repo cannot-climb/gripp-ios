@@ -18,13 +18,14 @@ struct ContentView: View {
     @State private var isUploadPresented = false
     
     @StateObject var galleryViewModel = GalleryViewModel()
+    @StateObject var homeViewModel = HomeViewModel()
     
     
     var body: some View {
         ZStack{
             switch viewRouter.currentPage {
             case .home:
-                HomeView(shouldHaveChin: true, viewRouter: viewRouter)
+                HomeView(shouldHaveChin: true, viewRouter: viewRouter).environmentObject(homeViewModel)
             case .leader:
                 LeaderBoardView(shouldHaveChin: true)
             case .myGallery:

@@ -110,8 +110,9 @@ struct UploadView: View {
                     
                     Spacer().frame(width: 40)
                 }
-            }.padding(.top, 20).onChange(of: selectedItems) {
-                newValue in
+            }
+            .padding(.top, 20)
+            .onChange(of: selectedItems) { newValue in
                 guard let item = selectedItems.first else { return }
                 item.loadTransferable(type: Movie.self) { result in
                     switch result {
