@@ -49,7 +49,7 @@ struct HomeView: View {
             }.padding(.leading, 30).padding(.top, 5)
                 .foregroundColor(Color(named: "TextMasterColor"))
             HStack(alignment: .center){
-                Text("userInfoString").font(.foot_note)
+                Text(homeViewModel.titleUserInfoString).font(.foot_note)
                     .padding(.leading, 32)
                 
                 Spacer()

@@ -72,8 +72,8 @@ enum UserApiService{
             .value()
             .eraseToAnyPublisher()
     }
-    static func searchArticle(filter: Dictionary<String, Dictionary<String, String>>, pageToken: String) -> AnyPublisher<ArticleListResponse, AFError>{
-        print("UAS searchArticle()")
+    static func loadArticles(filter: Dictionary<String, Dictionary<String, String>>, pageToken: String) -> AnyPublisher<ArticleListResponse, AFError>{
+        print("UAS loadArticles()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")

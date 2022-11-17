@@ -14,10 +14,14 @@ class HomeViewModel: ObservableObject{
     var subscription = Set<AnyCancellable>()
     
     var fetchUserSuccess = PassthroughSubject<(), Never>()
+    var loadVideoListSuccess = PassthroughSubject<(), Never>()
     
     @Published var titleUserName = ""
     @Published var titleUserInfoString = ""
     @Published var selectedDifficulties = [true, true, true, true]
+    
+    @Published var articles: [Article] = []
+    @Published var nextPageToken = ""
     
     
     func loadTitleInfo(){
@@ -39,7 +43,16 @@ class HomeViewModel: ObservableObject{
     }
     
     func loadVideoList(){
-        
+        UserApiService.loadArticles(filter: ["filter":["":""]], pageToken: "")
+            .sink{
+                (completion: Subscribers.Completion<AFError>) in
+                print("GVM completion \(completion)")
+            }
+            receiveValue: { (received: ArticleListResponse) in
+                self.loadVideoListSuccess.send()
+                self.nextPageToken = received.nextPageToken
+                self.articles = received.articles
+            }.store(in: &subscription)
     }
     
     func refreshVideoList(){
