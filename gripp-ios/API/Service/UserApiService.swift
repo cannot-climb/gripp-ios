@@ -107,7 +107,7 @@ enum UserApiService{
             .eraseToAnyPublisher()
     }
     
-    static func fetchLeaderBoard(username: String) -> AnyPublisher<LeaderboardListResponse, AFError>{
+    static func fetchLeaderBoard(username: String) -> AnyPublisher<LeaderResponse, AFError>{
         print("UAS fetchLeaderBoard()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
@@ -118,7 +118,7 @@ enum UserApiService{
         
         return ApiClient.shared.session
             .request(UserRouter.fetchLeaderBoard(username: username), interceptor: authInterceptor)
-            .publishDecodable(type: LeaderboardListResponse.self)
+            .publishDecodable(type: LeaderResponse.self)
             .value()
             .eraseToAnyPublisher()
     }

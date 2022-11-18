@@ -38,7 +38,7 @@ class HomeViewModel: ObservableObject{
             }
             receiveValue: { (received: User) in
                 self.fetchUserSuccess.send()
-                self.titleUserInfoString = "V\(String(received.tier ?? -1)), 상위 \(String(received.percentile ?? -1))%"
+                self.titleUserInfoString = "V\(String(received.tier ?? -1)), 상위 \(String(100 - (received.percentile ?? -1)))%"
             }.store(in: &subscription)
     }
     

@@ -22,7 +22,7 @@ struct DanglingModal: View {
     @State var minHeight: CGFloat = 0
     @State var maxHeight: CGFloat = 10
     
-    @State var avPlayer:AVPlayer?
+    @Binding var avPlayer:AVPlayer
     @State var videoPlaying: Bool = true
     
     @StateObject var galleryViewModel = GalleryViewModel()
@@ -84,7 +84,7 @@ struct DanglingModal: View {
                 Spacer()
                     .contentShape(Rectangle())
                 Button(action: {
-                    avPlayer!.seek(to: .zero)
+                    avPlayer.seek(to: .zero)
                 }){
                     Image("Refresh")
                         .padding(.horizontal, 10)
@@ -93,12 +93,12 @@ struct DanglingModal: View {
                         .contentShape(Rectangle())
                 }
                 Button(action: {
-                    if(avPlayer!.timeControlStatus == AVPlayer.TimeControlStatus.playing){
-                        avPlayer!.pause()
+                    if(avPlayer.timeControlStatus == AVPlayer.TimeControlStatus.playing){
+                        avPlayer.pause()
                         videoPlaying = false
                     }
                     else{
-                        avPlayer!.play()
+                        avPlayer.play()
                         videoPlaying = true
                     }
                 }){
@@ -186,14 +186,9 @@ struct DanglingModal: View {
                         Image("Person")
                             .padding(.trailing, 8)
                         NavigationLink(destination: GalleryView(contextString: "", shouldHaveChin: false).environmentObject(galleryViewModel).navigationBarBackButtonHidden(true)) {
-                            HStack{
-                                Text(playerViewModel.videoUser).font(.player_id)
-                                    .padding(.top,3)
-                                    .foregroundColor(Color(named:"AccentMasterColor")).padding(.bottom, 1)
-                                Text(playerViewModel.videoUserInfoString).font(.player_vid_info)
-                                    .foregroundColor(Color(named:"TextMasterColor"))
-                                    .padding(.top,3).padding(.bottom, 1)
-                            }
+                            Text(playerViewModel.videoUser).font(.player_id)
+                                .padding(.top,3)
+                                .foregroundColor(Color(named:"AccentMasterColor")).padding(.bottom, 1)
                         }
                         Spacer()
                     }.frame(height: 30)
@@ -263,12 +258,12 @@ struct DanglingModal: View {
             }
     }
 }
-
-struct DanglingModal_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack{
-            Image(uiImage: UIImage(named: "img1.jpg") ?? UIImage())
-            DanglingModal(isExpanded: .constant(false))
-        }
-    }
-}
+//
+//struct DanglingModal_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ZStack{
+//            Image(uiImage: UIImage(named: "img1.jpg") ?? UIImage())
+//            DanglingModal(isExpanded: .constant(false), )
+//        }
+//    }
+//}

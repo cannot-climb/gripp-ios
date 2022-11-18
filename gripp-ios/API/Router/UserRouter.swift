@@ -84,7 +84,7 @@ enum UserRouter: URLRequestConvertible{
             return Parameters()
         case let .likeArticle(_, favorite):
             var params = Parameters()
-            params["favorite"] = favorite
+            params["favorite"] = NSNumber(value: favorite)
             return params
         case let .searchArticle(filters, pageToken):
             var params = Parameters()

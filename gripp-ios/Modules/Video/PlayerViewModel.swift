@@ -37,7 +37,6 @@ class PlayerViewModel: ObservableObject{
         self.videoDescription = articleResponse.description!
         self.videoFavoriteCount = String(articleResponse.favoriteCount!)
         self.videoLevel = String(articleResponse.level!)
-        self.videoUserInfoString = ""
         
         UserApiService.fetchArticleInfo(articleId: articleResponse.articleId!)
             .sink{

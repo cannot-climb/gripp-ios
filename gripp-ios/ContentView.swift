@@ -19,6 +19,7 @@ struct ContentView: View {
     
     @StateObject var galleryViewModel = GalleryViewModel()
     @StateObject var homeViewModel = HomeViewModel()
+    @StateObject var leaderboardViewModel = LeaderboardViewModel()
     
     
     var body: some View {
@@ -27,7 +28,7 @@ struct ContentView: View {
             case .home:
                 HomeView(shouldHaveChin: true, viewRouter: viewRouter).environmentObject(homeViewModel)
             case .leader:
-                LeaderBoardView(shouldHaveChin: true)
+                LeaderBoardView(shouldHaveChin: true).environmentObject(leaderboardViewModel)
             case .myGallery:
                 MyGalleryView(shouldHaveChin: true).environmentObject(galleryViewModel)
             }

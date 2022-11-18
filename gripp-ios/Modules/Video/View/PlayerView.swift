@@ -14,6 +14,8 @@ struct PlayerView: View {
     
     @State var modalExpanded: Bool = false
     
+    @State var avPlayer: AVPlayer = AVPlayer()
+    
     @Environment(\.presentationMode) var presentationMode
     
     @State var title:String = ""
@@ -22,18 +24,12 @@ struct PlayerView: View {
     var body: some View {
         NavigationView{
             ZStack{
-                let avPlayer = AVPlayer(url: URL(string: playerViewModel.videoUrl)!)
+
 //                let k = avPlayer.timeControlStatus == AVPlayerTimeControlStatusPaused
                 //video
                 GeometryReader{geometry in
                     VStack{
                         VideoPlayer(player: avPlayer)
-                            .onAppear(perform: {
-                                avPlayer.playImmediately(atRate: 1.0)
-                            })
-                            .onDisappear(perform: {
-                                avPlayer.pause()
-                            })
                             .frame(width: geometry.size.width, height: geometry.size.width/9*16)
                             .allowsHitTesting(false)
                         
@@ -42,8 +38,15 @@ struct PlayerView: View {
                     }
                     .background(.black)
                 }
+                .onAppear(perform: {
+                    avPlayer = AVPlayer(url: URL(string: playerViewModel.videoUrl)!)
+                    avPlayer.playImmediately(atRate: 1.0)
+                })
+                .onDisappear(perform: {
+                    avPlayer.pause()
+                })
 
-                DanglingModal(presentationMode: _presentationMode, isExpanded: $modalExpanded, avPlayer: avPlayer)
+                DanglingModal(presentationMode: _presentationMode, isExpanded: $modalExpanded, avPlayer: $avPlayer)
                     .environmentObject(playerViewModel)
                     .edgesIgnoringSafeArea(.bottom)
             }
