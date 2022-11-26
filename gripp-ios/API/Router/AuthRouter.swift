@@ -12,10 +12,9 @@ import Alamofire
 enum AuthRouter: URLRequestConvertible{
     func asURLRequest ( ) throws -> URLRequest {
         let url = baseURL.appendingPathComponent(endPoint)
-        print(url)
         var request = URLRequest(url: url)
         request.method = method
-        request.httpBody = try JSONEncoding.default.encode(request, with: paramters).httpBody
+        request.httpBody = try JSONEncoding.default.encode(request, with: parameters).httpBody
         return request
     }
     
@@ -59,7 +58,7 @@ enum AuthRouter: URLRequestConvertible{
         }
     }
     
-    var paramters: Parameters{
+    var parameters: Parameters{
         switch self{
         case let .register(username, password):
             var params = Parameters()

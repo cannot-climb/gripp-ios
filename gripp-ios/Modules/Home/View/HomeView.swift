@@ -97,6 +97,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(shouldHaveChin: false, viewRouter: ViewRouter())
+        HomeView(shouldHaveChin: false, viewRouter: ViewRouter()).environmentObject(HomeViewModel())
     }
 }

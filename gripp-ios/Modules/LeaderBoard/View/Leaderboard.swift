@@ -68,7 +68,6 @@ struct LeaderBoardView: View {
             .navigationBarHidden(true)
             .onAppear(perform: {
                 leaderboardViewModel.loadLeaderboard()
-                print(leaderboardViewModel.topBoard)
             })
         }
         .navigationBarBackButtonHidden(true)

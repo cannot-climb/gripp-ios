@@ -64,7 +64,6 @@ class PlayerViewModel: ObservableObject{
                 print("PVM completion \(completion)")
             }
             receiveValue: { (received: Article) in
-                print(received)
                 if(received.favorite == nil){
                     print("PVM favorite fail")
                 }

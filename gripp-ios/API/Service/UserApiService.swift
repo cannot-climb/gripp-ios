@@ -75,8 +75,6 @@ enum UserApiService{
     static func loadArticles(minLevel: Int, maxLevel: Int, pageToken: String) -> AnyPublisher<ArticleListResponse, AFError>{
         print("UAS loadArticles()")
         
-        let dict = [["type":"LEVEL", "minLevel":0, "maxLevel":19]]
-        
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
         
@@ -84,11 +82,10 @@ enum UserApiService{
         let authInterceptor = AuthenticationInterceptor(authenticator: authenticator, credential: credential)
         
         let response = ApiClient.shared.session
-            .request(UserRouter.searchArticle(filters: dict, pageToken: pageToken), interceptor: authInterceptor)
+            .request(UserRouter.searchArticle(filters: ["type":"LEVEL", "minLevel":minLevel, "maxLevel":maxLevel], pageToken: pageToken), interceptor: authInterceptor)
             .publishDecodable(type: ArticleListResponse.self)
             .value()
             .eraseToAnyPublisher()
-        debugPrint(response)
         return response
     }
     static func fetchUserInfo(username: String) -> AnyPublisher<User, AFError>{

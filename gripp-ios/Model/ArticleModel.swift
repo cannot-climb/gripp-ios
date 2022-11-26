@@ -97,8 +97,13 @@ struct ArticleResponse: Codable, Hashable, Identifiable {
 }
 
 
-struct ArticleListResponse: Codable{
+struct ArticleListResponse: Codable, Hashable, Identifiable {
     var id: UUID = UUID()
     var articles: [ArticleResponse]
     var nextPageToken: String
+    
+    enum CodingKeys: String, CodingKey {
+        case articles = "articles"
+        case nextPageToken = "nextPageToken"
+    }
 }

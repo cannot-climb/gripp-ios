@@ -11,9 +11,17 @@ import Alamofire
 enum UserRouter: URLRequestConvertible{
     func asURLRequest ( ) throws -> URLRequest {
         let url = baseURL.appendingPathComponent(endPoint)
-        print(url)
         var request = URLRequest(url: url)
         request.method = method
+        if request.method == .get{
+            request.httpBody = try URLEncoding.default.encode(request, with: parameters).httpBody
+        }
+        else if request.method == .post{
+            request.httpBody = try JSONEncoding.default.encode(request, with: parameters).httpBody
+        }
+        else if request.method == .patch{
+            request.httpBody = try JSONEncoding.default.encode(request, with: parameters).httpBody
+        }
         return request
     }
     
@@ -21,7 +29,7 @@ enum UserRouter: URLRequestConvertible{
     case fetchArticleInfo(articleId: String)
     case deleteArticle(articleId: String)
     case likeArticle(articleId: String, favorite: Bool)
-    case searchArticle(filters: [Dictionary<String, Any>], pageToken: String)
+    case searchArticle(filters: Dictionary<String, Any>, pageToken: String)
     case fetchUserInfo(username: String)
     case fetchLeaderBoard(username: String)
 //    case uploadVideo
@@ -48,7 +56,7 @@ enum UserRouter: URLRequestConvertible{
             return "users/\(username)/leaderboard"
         }
     }
-    
+
     var method: HTTPMethod{
         switch self{
         case .postArticle:
@@ -68,7 +76,7 @@ enum UserRouter: URLRequestConvertible{
         }
     }
     
-    var paramters: Parameters{
+    var parameters: Parameters{
         switch self{
         case let .postArticle(videoId, title, description, level, angle):
             var params = Parameters()
@@ -88,12 +96,13 @@ enum UserRouter: URLRequestConvertible{
             return params
         case let .searchArticle(filters, pageToken):
             var params = Parameters()
-            
-            let jsonData = try? JSONSerialization.data(withJSONObject: filters, options: [])
-            let jsonString = String(data: jsonData!, encoding: String.Encoding.utf8)!
 
-            params["filters"] = jsonString
+//            let jsonData = try? JSONSerialization.data(withJSONObject: filters[0], options: [])
+//            let jsonString = String(data: jsonData!, encoding: String.Encoding.utf8)!
+
+            params["filters"] = [filters]
             params["pageToken"] = pageToken
+            print(params)
             return params
         case .fetchUserInfo:
             return Parameters()

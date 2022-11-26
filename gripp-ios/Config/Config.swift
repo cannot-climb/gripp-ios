@@ -9,6 +9,4 @@ import Foundation
 
 class Config {
     static let baseURL = "https://gripp.dev.njw.kr/"
-    static let header = ["accept": "application/json" , "Content-Type": "application/json"]
-    static let headerValue = "application/json; charset=UTF-8"
 }

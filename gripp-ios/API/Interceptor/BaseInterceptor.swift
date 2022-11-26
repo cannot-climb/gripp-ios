@@ -12,8 +12,8 @@ class BaseInterceptor: RequestInterceptor{
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         
         var request = urlRequest
-        request.addValue(Config.headerValue, forHTTPHeaderField: "Content-Type")
-        request.addValue(Config.headerValue, forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("*/*", forHTTPHeaderField: "Accept")
         
         completion(.success(request))
     }

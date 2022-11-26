@@ -35,7 +35,9 @@ struct UploadView: View {
         VStack(alignment: .leading, spacing: 0){
             //top bar
             HStack{
-                Button(action: {self.presentationMode.wrappedValue.dismiss()}){
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }){
                     Image("ArrowLeft").foregroundColor(Color(named: "TextMasterColor"))
                         .padding(.leading, 10).padding(.trailing, 6)
                 }
@@ -125,7 +127,6 @@ struct UploadView: View {
                             videoSize.width = abs(videoAssetSource.videoSize!.width)
                             videoSize.height = abs(videoAssetSource.videoSize!.height)
                             zoomFactor = Float(UIScreen.main.bounds.size.height / videoSize.height)
-                            print(videoSize)
                         } else {
                             print("movie is nil")
                         }
