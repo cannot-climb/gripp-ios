@@ -84,8 +84,6 @@ enum UserApiService{
             filter.append(["type":"LEVEL", "minLevel":minLevel!, "maxLevel":maxLevel!])
         }
         
-        print(filter)
-        
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
         

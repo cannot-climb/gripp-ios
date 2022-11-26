@@ -26,7 +26,7 @@ struct ScoreListView: View {
                 }
                 .onAppear(perform:{
                     galleryViewModel.username = item.username!
-                    galleryViewModel.loadUserInfo()
+//                    galleryViewModel.loadUserInfo()
                 })
             }
             if(shouldHaveChin){

@@ -61,6 +61,8 @@ class LeaderboardViewModel: ObservableObject{
     }
 }
 
-struct Podium{
-    var username: String, level: String, rank: String
+struct Podium :Equatable{
+    var username: String
+    var level: String
+    var rank: String
 }

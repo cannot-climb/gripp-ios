@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct GalleryViewPage: View {
-    @State var title: String
-    @State var pre: String?
+    var title: String
+    var pre: String?
     @Binding var content: String
-    @State var post: String?
-    @State var pageIndex: Int
-    @State var pageCount: Int
+    var post: String?
+    var pageIndex: Int
+    var pageCount: Int
     
     var body: some View {
         VStack(spacing: 4){
