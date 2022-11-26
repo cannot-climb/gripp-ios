@@ -72,8 +72,19 @@ enum UserApiService{
             .value()
             .eraseToAnyPublisher()
     }
-    static func loadArticles(minLevel: Int, maxLevel: Int, pageToken: String) -> AnyPublisher<ArticleListResponse, AFError>{
+    static func loadArticles(minLevel: Int? = nil, maxLevel: Int? = nil, username: String? = nil, pageToken: String) -> AnyPublisher<ArticleListResponse, AFError>{
         print("UAS loadArticles()")
+        
+        var filter: [Dictionary<String, Any>] = []
+        
+        if(username != nil){
+            filter.append(["type":"USER", "username":username!])
+        }
+        if(minLevel != nil && maxLevel != nil){
+            filter.append(["type":"LEVEL", "minLevel":minLevel!, "maxLevel":maxLevel!])
+        }
+        
+        print(filter)
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
@@ -82,7 +93,7 @@ enum UserApiService{
         let authInterceptor = AuthenticationInterceptor(authenticator: authenticator, credential: credential)
         
         let response = ApiClient.shared.session
-            .request(UserRouter.searchArticle(filters: ["type":"LEVEL", "minLevel":minLevel, "maxLevel":maxLevel], pageToken: pageToken), interceptor: authInterceptor)
+            .request(UserRouter.searchArticle(filters: filter, pageToken: pageToken), interceptor: authInterceptor)
             .publishDecodable(type: ArticleListResponse.self)
             .value()
             .eraseToAnyPublisher()
