@@ -13,6 +13,7 @@ struct GalleryView: View {
     @State var contextString: String
     
     let shouldHaveChin: Bool
+    
     @State private var selectedItem0 = 0
     @State private var selectedItem1 = 0
     @State private var selectedItem2 = 0
@@ -105,7 +106,7 @@ struct GalleryView: View {
                 galleryViewModel.loadVideoList()
             })
             
-            ImageGrid(postItemImages: galleryViewModel.articles, firstItemGiantDecoration: false, shouldHaveChin: shouldHaveChin, refreshAction: galleryViewModel.loadVideoList, moreAction: galleryViewModel.loadMoreVideoList)
+            ImageGrid(postItemImages: galleryViewModel.articles, firstItemGiantDecoration: false,noMoreData: $galleryViewModel.noMoreData,  shouldHaveChin: shouldHaveChin, refreshAction: galleryViewModel.refresh, moreAction: galleryViewModel.loadVideoList)
                 .cornerRadius(24, corners: shouldHaveChin ? [.topLeft, .topRight] : .allCorners)
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
             

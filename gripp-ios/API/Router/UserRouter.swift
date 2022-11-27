@@ -97,6 +97,7 @@ enum UserRouter: URLRequestConvertible{
         case let .searchArticle(filters, pageToken):
             var params = Parameters()
             params["filters"] = filters
+            params["order"] = "NEW"
             params["pageToken"] = pageToken
             return params
         case .fetchUserInfo:

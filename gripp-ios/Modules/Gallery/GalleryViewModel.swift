@@ -27,15 +27,27 @@ class GalleryViewModel: ObservableObject{
     @Published var userRank = ""
     @Published var userPercentile = ""
     
+    @Published var noMoreData = false
     @Published var articles: [ArticleResponse] = []
     @Published var nextPageToken = ""
+    var currPageToken = ""
     
     func logout(){
         UserDefaultsManager.shared.clearAll()
     }
     
+    func refresh(){
+        self.articles = []
+        self.nextPageToken = ""
+        self.currPageToken = ""
+        self.noMoreData = false
+        loadUserInfo()
+        loadVideoList()
+    }
+    
     func loadUserInfo(){
 //        print("GVM loadUserInfo()")
+        
         UserApiService.fetchUserInfo(username: self.username)
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
@@ -59,20 +71,41 @@ class GalleryViewModel: ObservableObject{
     func loadVideoList(){
 //        print("HVM loadVideoList()")
         
-        UserApiService.loadArticles(username: self.username, pageToken: "")
-            .sink{
-                (completion: Subscribers.Completion<AFError>) in
-//                print("HVM completion \(completion)")
-            }
-            receiveValue: { (received: ArticleListResponse) in
-                print("Next Page Token : " + received.nextPageToken)
-                self.loadVideoListSuccess.send()
-                self.nextPageToken = received.nextPageToken
-                self.articles = received.articles
-            }.store(in: &subscription)
-    }
-    
-    func loadMoreVideoList(more: String){
-        
+        if(currPageToken == "" && nextPageToken == ""){
+            print("brand new")
+            UserApiService.loadArticles(username: self.username, pageToken: self.nextPageToken)
+                .sink{
+                    (completion: Subscribers.Completion<AFError>) in
+    //                print("HVM completion \(completion)")
+                }
+                receiveValue: { (received: ArticleListResponse) in
+                    self.loadVideoListSuccess.send()
+                    self.currPageToken = self.nextPageToken
+                    self.nextPageToken = received.nextPageToken
+                    if(self.nextPageToken != self.currPageToken){
+                        self.articles.append(contentsOf: received.articles)
+                    }
+                }.store(in: &subscription)
+        }
+        else if((currPageToken != "" && nextPageToken == "") || (currPageToken == nextPageToken)){
+            noMoreData = true
+            print("no more videos")
+        }
+        else if(nextPageToken != ""){
+            print("normal")
+            UserApiService.loadArticles(username: self.username, pageToken: self.nextPageToken)
+                .sink{
+                    (completion: Subscribers.Completion<AFError>) in
+    //                print("HVM completion \(completion)")
+                }
+                receiveValue: { (received: ArticleListResponse) in
+                    self.loadVideoListSuccess.send()
+                    self.currPageToken = self.nextPageToken
+                    self.nextPageToken = received.nextPageToken
+                    if(self.nextPageToken != self.currPageToken){
+                        self.articles.append(contentsOf: received.articles)
+                    }
+                }.store(in: &subscription)
+        }
     }
 }

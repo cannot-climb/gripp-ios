@@ -12,24 +12,18 @@ import AVKit
 struct ImageGrid: View {
     @StateObject var playerViewModel = PlayerViewModel()
     
-    public var postItemImages : [ArticleResponse]
-    private var gridItemLayout = [GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3)]
+    public var postItemImages: [ArticleResponse]
     public var firstItemGiantDecoration = false
     
+    @State public var videoUrl = ""
+    @Binding public var noMoreData: Bool
+    public var shouldHaveChin: Bool
+    
+    public var refreshAction: ()->()
+    public var moreAction: ()->()
+    
     @State private var isPresented = false
-    @State var videoUrl = ""
-    var shouldHaveChin: Bool
-    
-    var refreshAction: ()->()
-    var moreAction:(String)->()
-    
-    init(postItemImages: [ArticleResponse], firstItemGiantDecoration: Bool, shouldHaveChin: Bool?, refreshAction: @escaping ()->(), moreAction: @escaping (String)->()) {
-        self.postItemImages = postItemImages
-        self.firstItemGiantDecoration = firstItemGiantDecoration
-        self.shouldHaveChin = shouldHaveChin ?? false
-        self.refreshAction = refreshAction
-        self.moreAction = moreAction
-    }
+    private let gridItemLayout = [GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3)]
     
     var body: some View {
         GeometryReader{ gr in
@@ -40,7 +34,7 @@ struct ImageGrid: View {
                             ImageCell(articleResponse: postItemImages[0], present: $isPresented, useDecoration: true)
                                 .environmentObject(playerViewModel)
                                 .frame(width: (gr.size.width-3)*2/3+1)
-                            VStack(spacing: 3){
+                            LazyVStack(spacing: 3){
                                 ImageCell(articleResponse: postItemImages[1], present: $isPresented)
                                     .environmentObject(playerViewModel)
                                 ImageCell(articleResponse: postItemImages[2], present: $isPresented)
@@ -68,7 +62,7 @@ struct ImageGrid: View {
                         }
                     }
                 }
-                else{
+                else if(postItemImages.count > 0){
                     LazyVGrid(columns: gridItemLayout, spacing: 3){
                         ForEach(postItemImages[0..<postItemImages.count], id: \.self){ item in
                             ImageCell(articleResponse: item, present: $isPresented)
@@ -78,12 +72,27 @@ struct ImageGrid: View {
                         }
                     }
                 }
+                else{
+                    Text("\n\n게시물이 없어요!")
+                        .frame(width: gr.size.width)
+                }
+                if(postItemImages.count > 0 && !noMoreData){
+                    ProgressView()
+                        .scaleEffect(1.3)
+                        .frame(height: 50)
+                        .onAppear(perform: {
+                            moreAction()
+                        })
+                        .onTapGesture {
+                            moreAction()
+                        }
+                }
                 if(shouldHaveChin){
                     Spacer().frame(height: DOCK_HEIGHT)
                 }
             }
             .background(Color(named:"BackgroundMasterColor"))
-            .sheet(isPresented: $isPresented) {
+            .fullScreenCover(isPresented: $isPresented) {
                 PlayerView()
                     .environmentObject(playerViewModel)
             }

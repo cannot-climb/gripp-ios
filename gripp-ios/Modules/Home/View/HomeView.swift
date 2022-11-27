@@ -83,7 +83,7 @@ struct HomeView: View {
                 }
             }.padding(.top, 4).padding(.bottom, 16)
             
-            ImageGrid(postItemImages: homeViewModel.articles, firstItemGiantDecoration: true, shouldHaveChin: shouldHaveChin, refreshAction: homeViewModel.loadVideoList, moreAction: homeViewModel.loadMoreVideoList)
+            ImageGrid(postItemImages: homeViewModel.articles, firstItemGiantDecoration: true, noMoreData: $homeViewModel.noMoreData, shouldHaveChin: shouldHaveChin, refreshAction: homeViewModel.refresh, moreAction: homeViewModel.loadVideoList)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
         }

@@ -22,6 +22,21 @@ class HomeViewModel: ObservableObject{
     
     @Published var articles: [ArticleResponse] = []
     @Published var nextPageToken = ""
+    @Published var noMoreData = false
+    
+    var currPageToken = ""
+    
+    var minLevel = 0
+    var maxLevel = 19
+    
+    func refresh(){
+        self.articles = []
+        self.nextPageToken = ""
+        self.currPageToken = ""
+        self.noMoreData = false
+        loadTitleInfo()
+        loadVideoList()
+    }
     
     
     func loadTitleInfo(){
@@ -45,24 +60,44 @@ class HomeViewModel: ObservableObject{
     func loadVideoList(){
 //        print("HVM loadVideoList()")
         
-        UserApiService.loadArticles(minLevel:0,maxLevel:19, pageToken: "")
-            .sink{
-                (completion: Subscribers.Completion<AFError>) in
-//                print("HVM completion \(completion)")
-            }
-            receiveValue: { (received: ArticleListResponse) in
-                print("Next Page Token : " + received.nextPageToken)
-                self.loadVideoListSuccess.send()
-                self.nextPageToken = received.nextPageToken
-                self.articles = received.articles
-            }.store(in: &subscription)
-    }
-    
-    func refreshVideoList(){
+        print(currPageToken, nextPageToken)
+        if(currPageToken == "" && nextPageToken == ""){
+            print("brand new")
+            UserApiService.loadArticles(minLevel:self.minLevel,maxLevel:self.maxLevel, pageToken: self.nextPageToken)
+                .sink{
+                    (completion: Subscribers.Completion<AFError>) in
+    //                print("HVM completion \(completion)")
+                }
+                receiveValue: { (received: ArticleListResponse) in
+                    self.loadVideoListSuccess.send()
+                    self.currPageToken = self.nextPageToken
+                    self.nextPageToken = received.nextPageToken
+                    if(self.nextPageToken != self.currPageToken){
+                        self.articles.append(contentsOf: received.articles)
+                    }
+                }.store(in: &subscription)
+        }
+        else if((currPageToken != "" && nextPageToken == "") || (currPageToken == nextPageToken)){
+            noMoreData = true
+            print("no more videos")
+        }
+        else if(nextPageToken != ""){
+            print("normal")
+            UserApiService.loadArticles(minLevel:self.minLevel,maxLevel:self.maxLevel, pageToken: self.nextPageToken)
+                .sink{
+                    (completion: Subscribers.Completion<AFError>) in
+    //                print("HVM completion \(completion)")
+                }
+                receiveValue: { (received: ArticleListResponse) in
+                    self.loadVideoListSuccess.send()
+                    self.currPageToken = self.nextPageToken
+                    self.nextPageToken = received.nextPageToken
+                    if(self.nextPageToken != self.currPageToken){
+                        self.articles.append(contentsOf: received.articles)
+                    }
+                }.store(in: &subscription)
+        }
         
-    }
-    
-    func loadMoreVideoList(more: String){
         
     }
 }
