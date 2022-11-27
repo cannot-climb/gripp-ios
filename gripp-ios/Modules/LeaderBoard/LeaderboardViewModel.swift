@@ -24,11 +24,11 @@ class LeaderboardViewModel: ObservableObject{
         UserApiService.fetchLeaderBoard(username: getUserName() ?? "")
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
-                print("LVM completion \(completion)")
+//                print("LVM completion \(completion)")
             }
             receiveValue: { (received: LeaderResponse) in
                 if(received.defaultBoard == nil || received.topBoard == nil){
-                    print("LVM fail")
+//                    print("LVM fail")
                 }
                 else{
                     self.topBoard = received.topBoard!

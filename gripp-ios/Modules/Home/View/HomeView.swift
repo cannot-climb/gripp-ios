@@ -20,7 +20,7 @@ struct HomeView: View {
         VStack(alignment: .leading, spacing: 0){
             Text("Gripp").font(.context)
                 .padding(.leading, 31).padding(.top, 6)
-                .foregroundColor(Color(named:"TextSubduedColor"))
+                .foregroundColor(Color(named: "TextSubduedColor"))
             Button(action:{viewRouter.currentPage = .myGallery}){
                 Text(homeViewModel.titleUserName).font(.large_title)
                 Image("ArrowRight")
@@ -83,7 +83,7 @@ struct HomeView: View {
                 }
             }.padding(.top, 4).padding(.bottom, 16)
             
-            ImageGrid(postItemImages: homeViewModel.articles, firstItemGiantDecoration: true, shouldHaveChin: shouldHaveChin)
+            ImageGrid(postItemImages: homeViewModel.articles, firstItemGiantDecoration: true, shouldHaveChin: shouldHaveChin, refreshAction: homeViewModel.loadVideoList, moreAction: homeViewModel.loadMoreVideoList)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
         }

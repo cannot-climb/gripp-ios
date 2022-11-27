@@ -19,7 +19,7 @@ final class ApiClient{
     var session: Session
     
     init(){
-        print("ApiClient init()")
+//        print("ApiClient init()")
         session = Session(interceptor: interceptors, eventMonitors: monitors)
     }
 }

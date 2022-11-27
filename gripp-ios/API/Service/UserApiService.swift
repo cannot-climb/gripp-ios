@@ -12,7 +12,7 @@ import Combine
 enum UserApiService{
 
     static func postArticle(videoId: String, title: String, description: String, level: Int, angle: Int) -> AnyPublisher<Article, AFError>{
-        print("UAS postArticle()")
+//        print("UAS postArticle()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
@@ -28,7 +28,7 @@ enum UserApiService{
     }
     
     static func fetchArticleInfo(articleId: String) -> AnyPublisher<Article, AFError>{
-        print("UAS fetchArticleInfo()")
+//        print("UAS fetchArticleInfo()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
@@ -43,7 +43,7 @@ enum UserApiService{
             .eraseToAnyPublisher()
     }
     static func deleteArticle(articleId: String) -> AnyPublisher<Article, AFError>{
-        print("UAS deleteArticle()")
+//        print("UAS deleteArticle()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
@@ -58,7 +58,7 @@ enum UserApiService{
             .eraseToAnyPublisher()
     }
     static func likeArticle(articleId: String, favorite: Bool) -> AnyPublisher<Article, AFError>{
-        print("UAS likeArticle()")
+//        print("UAS likeArticle()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
@@ -73,7 +73,7 @@ enum UserApiService{
             .eraseToAnyPublisher()
     }
     static func loadArticles(minLevel: Int? = nil, maxLevel: Int? = nil, username: String? = nil, pageToken: String) -> AnyPublisher<ArticleListResponse, AFError>{
-        print("UAS loadArticles()")
+//        print("UAS loadArticles()")
         
         var filter: [Dictionary<String, Any>] = []
         
@@ -98,7 +98,7 @@ enum UserApiService{
         return response
     }
     static func fetchUserInfo(username: String) -> AnyPublisher<User, AFError>{
-        print("UAS fetchUserInfo()")
+//        print("UAS fetchUserInfo()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
@@ -114,7 +114,7 @@ enum UserApiService{
     }
     
     static func fetchLeaderBoard(username: String) -> AnyPublisher<LeaderResponse, AFError>{
-        print("UAS fetchLeaderBoard()")
+//        print("UAS fetchLeaderBoard()")
         
         let storedTokenData = UserDefaultsManager.shared.getTokens()
         let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")

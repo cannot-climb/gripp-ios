@@ -17,13 +17,13 @@ class UserDefaultsManager{
     }()
     
     func clearAll(){
-        print("UDM clearAll()")
+//        print("UDM clearAll()")
         let defaults = UserDefaults.standard
         defaults.dictionaryRepresentation().keys.forEach(defaults.removeObject(forKey:))
     }
     
     func setTokens(username: String, accessToken: String, refreshToken: String){
-        print("UDM setTokens()")
+//        print("UDM setTokens()")
         UserDefaults.standard.set(username, forKey: Key.username.rawValue)
         UserDefaults.standard.set(accessToken, forKey: Key.accessToken.rawValue)
         UserDefaults.standard.set(refreshToken, forKey: Key.refreshToken.rawValue)
@@ -31,7 +31,7 @@ class UserDefaultsManager{
     }
     
     func setTokens(accessToken: String, refreshToken: String){
-        print("UDM setTokens() without username")
+//        print("UDM setTokens() without username")
         UserDefaults.standard.set(accessToken, forKey: Key.accessToken.rawValue)
         UserDefaults.standard.set(refreshToken, forKey: Key.refreshToken.rawValue)
         UserDefaults.standard.synchronize()

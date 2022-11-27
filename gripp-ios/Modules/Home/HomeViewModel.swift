@@ -25,16 +25,16 @@ class HomeViewModel: ObservableObject{
     
     
     func loadTitleInfo(){
-        print("HVM loadUserInfo()")
+//        print("HVM loadUserInfo()")
         guard let username = getUserName() else{
-            print("HVM failed - username empty")
+//            print("HVM failed - username empty")
             return
         }
         self.titleUserName = username
         UserApiService.fetchUserInfo(username: username)
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
-                print("HVM completion \(completion)")
+//                print("HVM completion \(completion)")
             }
             receiveValue: { (received: User) in
                 self.fetchUserSuccess.send()
@@ -43,12 +43,12 @@ class HomeViewModel: ObservableObject{
     }
     
     func loadVideoList(){
-        print("HVM loadVideoList()")
+//        print("HVM loadVideoList()")
         
         UserApiService.loadArticles(minLevel:0,maxLevel:19, pageToken: "")
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
-                print("HVM completion \(completion)")
+//                print("HVM completion \(completion)")
             }
             receiveValue: { (received: ArticleListResponse) in
                 print("Next Page Token : " + received.nextPageToken)

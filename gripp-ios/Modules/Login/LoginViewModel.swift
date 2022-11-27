@@ -19,15 +19,15 @@ class LoginViewModel: ObservableObject{
     @Published var loginToken: Token? = nil
     
     func register(username: String, password: String){
-        print("LVM register()")
+//        print("LVM register()")
         AuthApiService.register(username: username, password: password)
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
-                print("LVM completion \(completion)")
+//                print("LVM completion \(completion)")
             }
             receiveValue: { (received: User) in
                 if(received.username == nil){
-                    print("LVM registration fail")
+//                    print("LVM registration fail")
                 }
                 else{
                     self.loggedInUser = received
@@ -37,15 +37,15 @@ class LoginViewModel: ObservableObject{
     }
     
     func login(username: String, password: String){
-        print("LVM login()")
+//        print("LVM login()")
         AuthApiService.login(username: username, password: password)
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
-                print("LVM completion \(completion)")
+//                print("LVM completion \(completion)")
             }
             receiveValue: { (received: Token) in
                 if(received.accessToken == nil || received.refreshToken == nil){
-                    print("LVM login fail")
+//                    print("LVM login fail")
                 }
                 else{
                     self.loginToken = received

@@ -11,7 +11,7 @@ import Combine
 
 enum AuthApiService{
     static func register(username: String, password: String) -> AnyPublisher<User, AFError>{
-        print("AAS register()")
+//        print("AAS register()")
         
         return ApiClient.shared.session
             .request(AuthRouter.register(username: username, password: password))
@@ -20,7 +20,7 @@ enum AuthApiService{
             .eraseToAnyPublisher()
     }
     static func lookup(username: String) -> AnyPublisher<User, AFError>{
-        print("AAS lookup()")
+//        print("AAS lookup()")
         
         return ApiClient.shared.session
             .request(AuthRouter.lookup(username: username))
@@ -30,7 +30,7 @@ enum AuthApiService{
     }
     
     static func login(username: String, password: String) -> AnyPublisher<Token, AFError>{
-        print("AAS login()")
+//        print("AAS login()")
         
         return ApiClient.shared.session
             .request(AuthRouter.login(username: username, password: password))
@@ -44,7 +44,7 @@ enum AuthApiService{
     }
     
     static func tokenRefresh(username: String) -> AnyPublisher<Token, AFError>{
-        print("AAS tokenRefresh()")
+//        print("AAS tokenRefresh()")
         
         return ApiClient.shared.session
             .request(AuthRouter.tokenRefresh(username: username))
@@ -54,7 +54,7 @@ enum AuthApiService{
     }
     
     static func tokenTrash(username: String) -> AnyPublisher<User, AFError>{
-        print("AAS tokenTrash()")
+//        print("AAS tokenTrash()")
         
         return ApiClient.shared.session
             .request(AuthRouter.tokenTrash(username: username))

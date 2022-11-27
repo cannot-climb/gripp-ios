@@ -35,11 +35,11 @@ class GalleryViewModel: ObservableObject{
     }
     
     func loadUserInfo(){
-        print("GVM loadUserInfo()")
+//        print("GVM loadUserInfo()")
         UserApiService.fetchUserInfo(username: self.username)
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
-                print("GVM completion \(completion)")
+//                print("GVM completion \(completion)")
             }
             receiveValue: { (received: User) in
 //                self.userInfo = received
@@ -57,12 +57,12 @@ class GalleryViewModel: ObservableObject{
     }
     
     func loadVideoList(){
-        print("HVM loadVideoList()")
+//        print("HVM loadVideoList()")
         
         UserApiService.loadArticles(username: self.username, pageToken: "")
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
-                print("HVM completion \(completion)")
+//                print("HVM completion \(completion)")
             }
             receiveValue: { (received: ArticleListResponse) in
                 print("Next Page Token : " + received.nextPageToken)
@@ -70,5 +70,9 @@ class GalleryViewModel: ObservableObject{
                 self.nextPageToken = received.nextPageToken
                 self.articles = received.articles
             }.store(in: &subscription)
+    }
+    
+    func loadMoreVideoList(more: String){
+        
     }
 }

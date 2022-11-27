@@ -47,7 +47,6 @@
 		3CAEDD462925E10E00F81AF4 /* OAuthAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD452925E10E00F81AF4 /* OAuthAuthenticator.swift */; };
 		3CAEDD4A2925FEB700F81AF4 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD492925FEB700F81AF4 /* GalleryViewModel.swift */; };
 		3CAEDD4C292607BB00F81AF4 /* GetUserName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD4B292607BB00F81AF4 /* GetUserName.swift */; };
-		3CBE8EC82926A54B005512B0 /* CustomEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBE8EC72926A54B005512B0 /* CustomEncoder.swift */; };
 		3CC529AF2926C42E0081CC47 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC529AE2926C42E0081CC47 /* PlayerViewModel.swift */; };
 		3CC529B12926F3990081CC47 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC529B02926F3990081CC47 /* LeaderboardViewModel.swift */; };
 		3CC529B32926F4400081CC47 /* LeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC529B22926F4400081CC47 /* LeaderModel.swift */; };
@@ -155,7 +154,6 @@
 		3CAEDD452925E10E00F81AF4 /* OAuthAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAuthenticator.swift; sourceTree = "<group>"; };
 		3CAEDD492925FEB700F81AF4 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		3CAEDD4B292607BB00F81AF4 /* GetUserName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserName.swift; sourceTree = "<group>"; };
-		3CBE8EC72926A54B005512B0 /* CustomEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEncoder.swift; sourceTree = "<group>"; };
 		3CC529AE2926C42E0081CC47 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		3CC529B02926F3990081CC47 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
 		3CC529B22926F4400081CC47 /* LeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderModel.swift; sourceTree = "<group>"; };
@@ -439,7 +437,6 @@
 			children = (
 				3CDDF47428EBA63000884847 /* ImageGrid.swift */,
 				3C8A4AAF290DD0F100B7508C /* ImageCell.swift */,
-				3CBE8EC72926A54B005512B0 /* CustomEncoder.swift */,
 				3C8A4AB3290EC89F00B7508C /* LoadAnimationView.swift */,
 				3CAEDD4B292607BB00F81AF4 /* GetUserName.swift */,
 			);
@@ -910,7 +907,6 @@
 				3C8A4AA4290DC35A00B7508C /* LoginView.swift in Sources */,
 				3CC529AF2926C42E0081CC47 /* PlayerViewModel.swift in Sources */,
 				3C20772C2920C1EC00689B3D /* UserModel.swift in Sources */,
-				3CBE8EC82926A54B005512B0 /* CustomEncoder.swift in Sources */,
 				3CAEDD462925E10E00F81AF4 /* OAuthAuthenticator.swift in Sources */,
 				3C3CF0EE2920ED5B00DDBE69 /* AuthRouter.swift in Sources */,
 				3CAEDD412924D15A00F81AF4 /* UserApiService.swift in Sources */,

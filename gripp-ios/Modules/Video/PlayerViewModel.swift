@@ -41,11 +41,11 @@ class PlayerViewModel: ObservableObject{
         UserApiService.fetchArticleInfo(articleId: articleResponse.articleId!)
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
-                print("PVM completion \(completion)")
+//                print("PVM completion \(completion)")
             }
             receiveValue: { (received: Article) in
                 if(received.favorite == nil){
-                    print("PVM login fail")
+//                    print("PVM login fail")
                 }
                 else{
                     self.videoFavorite = received.favorite!
@@ -61,11 +61,11 @@ class PlayerViewModel: ObservableObject{
         UserApiService.likeArticle(articleId: self.articleId, favorite: !self.videoFavorite)
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
-                print("PVM completion \(completion)")
+//                print("PVM completion \(completion)")
             }
             receiveValue: { (received: Article) in
                 if(received.favorite == nil){
-                    print("PVM favorite fail")
+//                    print("PVM favorite fail")
                 }
                 else{
                     if(self.videoFavorite){

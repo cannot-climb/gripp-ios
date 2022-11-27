@@ -10,7 +10,7 @@ import Alamofire
 
 class OAuthAuthenticator: Authenticator {
     func didRequest(_ urlRequest: URLRequest, with response: HTTPURLResponse, failDueToAuthenticationError error: Error) -> Bool {
-        print("OAA didRequest()")
+//        print("OAA didRequest()")
         switch response.statusCode{
         case 401: return true
         default: return false
@@ -28,7 +28,7 @@ class OAuthAuthenticator: Authenticator {
     func refresh(_ credential: OAuthCredential,
                  for session: Session,
                  completion: @escaping (Result<OAuthCredential, Error>) -> Void) {
-        print("OAA refresh()")
+//        print("OAA refresh()")
         
         let request = session.request(AuthRouter.tokenRefresh(username:UserDefaultsManager.shared.getTokens().username ?? "-1"))
         

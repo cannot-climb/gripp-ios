@@ -20,10 +20,15 @@ struct ImageGrid: View {
     @State var videoUrl = ""
     var shouldHaveChin: Bool
     
-    init(postItemImages: [ArticleResponse], firstItemGiantDecoration: Bool, shouldHaveChin: Bool?) {
+    var refreshAction: ()->()
+    var moreAction:(String)->()
+    
+    init(postItemImages: [ArticleResponse], firstItemGiantDecoration: Bool, shouldHaveChin: Bool?, refreshAction: @escaping ()->(), moreAction: @escaping (String)->()) {
         self.postItemImages = postItemImages
         self.firstItemGiantDecoration = firstItemGiantDecoration
         self.shouldHaveChin = shouldHaveChin ?? false
+        self.refreshAction = refreshAction
+        self.moreAction = moreAction
     }
     
     var body: some View {
@@ -84,6 +89,7 @@ struct ImageGrid: View {
             }
             .scrollIndicators(.hidden)
             .refreshable {
+                refreshAction()
             }
         }
     }
@@ -99,7 +105,7 @@ private func load(fileName: String) -> Image? {
         let imageData = try Data(contentsOf: fileURL)
         return Image(uiImage: UIImage(data: imageData)!)
     } catch {
-        print("Error loading image : \(error)")
+//        print("Error loading image : \(error)")
     }
     return nil
 }
