@@ -15,6 +15,9 @@ struct ImageGrid: View {
     public var postItemImages: [ArticleResponse]
     public var firstItemGiantDecoration = false
     
+    @StateObject var galleryViewModel = GalleryViewModel()
+    @State var username: String = ""
+    
     @State public var videoUrl = ""
     @Binding public var noMoreData: Bool
     public var shouldHaveChin: Bool
@@ -22,22 +25,27 @@ struct ImageGrid: View {
     public var refreshAction: ()->()
     public var moreAction: ()->()
     
-    @State private var isPresented = false
+    @State private var isPlayerPresented = false
+    @State private var isGalleryPresented = false
     private let gridItemLayout = [GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3)]
     
     var body: some View {
+//        ImageCell(articleResponse: postItemImages[0], username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented, useDecoration: true)
+//            .onTapGesture {
+//                galleryViewModel.username = username
+//            }
         GeometryReader{ gr in
             ScrollView{
                 if(postItemImages.count > 3){
                     if(firstItemGiantDecoration){
                         HStack(spacing: 3){
-                            ImageCell(articleResponse: postItemImages[0], present: $isPresented, useDecoration: true)
+                            ImageCell(articleResponse: postItemImages[0], username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented, useDecoration: true)
                                 .environmentObject(playerViewModel)
                                 .frame(width: (gr.size.width-3)*2/3+1)
                             LazyVStack(spacing: 3){
-                                ImageCell(articleResponse: postItemImages[1], present: $isPresented)
+                                ImageCell(articleResponse: postItemImages[1], username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented)
                                     .environmentObject(playerViewModel)
-                                ImageCell(articleResponse: postItemImages[2], present: $isPresented)
+                                ImageCell(articleResponse: postItemImages[2], username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented)
                                     .environmentObject(playerViewModel)
                             }
                             .frame(width: (gr.size.width-3)/3-1)
@@ -47,7 +55,7 @@ struct ImageGrid: View {
                     else{
                         HStack(spacing: 3){
                             ForEach(postItemImages[0..<3]) { item in
-                                ImageCell(articleResponse: item, present: $isPresented)
+                                ImageCell(articleResponse: item, username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented)
                                     .environmentObject(playerViewModel)
                             }
                         }
@@ -55,7 +63,7 @@ struct ImageGrid: View {
                     }
                     LazyVGrid(columns: gridItemLayout, spacing: 3){
                         ForEach(postItemImages[3..<postItemImages.count], id: \.self){ item in
-                            ImageCell(articleResponse: item, present: $isPresented)
+                            ImageCell(articleResponse: item, username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented)
                                 .environmentObject(playerViewModel)
                                 .clipped()
                                 .aspectRatio(1, contentMode: .fit)
@@ -65,7 +73,7 @@ struct ImageGrid: View {
                 else if(postItemImages.count > 0){
                     LazyVGrid(columns: gridItemLayout, spacing: 3){
                         ForEach(postItemImages[0..<postItemImages.count], id: \.self){ item in
-                            ImageCell(articleResponse: item, present: $isPresented)
+                            ImageCell(articleResponse: item, username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented)
                                 .environmentObject(playerViewModel)
                                 .clipped()
                                 .aspectRatio(1, contentMode: .fit)
@@ -92,9 +100,17 @@ struct ImageGrid: View {
                 }
             }
             .background(Color(named:"BackgroundMasterColor"))
-            .fullScreenCover(isPresented: $isPresented) {
+            .fullScreenCover(isPresented: $isPlayerPresented) {
                 PlayerView()
                     .environmentObject(playerViewModel)
+            }
+            .fullScreenCover(isPresented: $isGalleryPresented) {
+                GalleryView(contextString: "", shouldHaveChin: false)
+                    .environmentObject(galleryViewModel)
+                    .onAppear(perform: {
+                        galleryViewModel.username = username
+                        galleryViewModel.refresh()
+                    })
             }
             .scrollIndicators(.hidden)
             .refreshable {

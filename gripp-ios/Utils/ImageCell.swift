@@ -18,18 +18,24 @@ struct ImageCell: View {
     var conquered = false
     var videoUrl = ""
     
-    var useDecoration = false
-    @Binding var isPresented : Bool
+    @Binding var username: String
     
-    init(articleResponse: ArticleResponse, present: Binding<Bool>, useDecoration: Bool? = false) {
+    var useDecoration = false
+    @Binding var isPlayerPresented : Bool
+    @Binding var isGalleryPresented : Bool
+    
+    init(articleResponse: ArticleResponse, username: Binding<String>, isPlayerPresented: Binding<Bool>, isGalleryPresented: Binding<Bool>, useDecoration: Bool? = false) {
         self.imagePath = articleResponse.video!.thumbnailUrl!
         self.processing = articleResponse.video!.status! == "PREPROCESSING"
         self.conquered = articleResponse.video!.status! == "CERTIFIED"
         self.videoUrl = articleResponse.video!.streamingUrl!
         self.articleResponse = articleResponse
         
+        self._username = username
+        
         self.useDecoration = useDecoration ?? false
-        self._isPresented = present
+        self._isPlayerPresented = isPlayerPresented
+        self._isGalleryPresented = isGalleryPresented
     }
     
     var body: some View {
@@ -129,13 +135,14 @@ struct ImageCell: View {
                 .onTapGesture {
                     playerViewModel.setVideoUrl(videoUrl: videoUrl)
                     playerViewModel.setVideoInfo(articleResponse: articleResponse)
-                    isPresented.toggle()
+                    isPlayerPresented.toggle()
                 }
                 .contextMenu{
-                    Button {} label: {
-                        Label("좋아요", systemImage: "heart")
-                    }
-                    Button {} label: {
+                    Button {
+                        playerViewModel.setVideoInfo(articleResponse: articleResponse)
+                        username = playerViewModel.videoUser
+                        isGalleryPresented.toggle()
+                    } label: {
                         Label("프로필 보기", systemImage: "person.circle")
                     }
                 }

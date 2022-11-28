@@ -109,7 +109,7 @@ struct MyGalleryView: View {
                 galleryViewModel.loadUserInfo()
                 galleryViewModel.loadVideoList()
             })
-            ImageGrid(postItemImages: galleryViewModel.articles, firstItemGiantDecoration: false,noMoreData: $galleryViewModel.noMoreData, shouldHaveChin: shouldHaveChin, refreshAction: galleryViewModel.refresh, moreAction: galleryViewModel.loadVideoList)
+            ImageGrid(postItemImages: galleryViewModel.articles,firstItemGiantDecoration: false, noMoreData: $galleryViewModel.noMoreData, shouldHaveChin: shouldHaveChin, refreshAction: galleryViewModel.refresh, moreAction: galleryViewModel.loadVideoList)
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
             
