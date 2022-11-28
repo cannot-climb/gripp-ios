@@ -96,6 +96,8 @@ struct RangeSeekSliderWrapper: UIViewRepresentable {
     func makeUIView(context: Context) -> UIViewType {
         let view = CustomRangeSeekSlider()
         
+        view.selectedMinValue = CGFloat(homeViewModel.minLevel)
+        view.selectedMaxValue = CGFloat(homeViewModel.maxLevel)
         view.delegate = context.coordinator
         
         return view
