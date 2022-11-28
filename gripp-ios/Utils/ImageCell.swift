@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct ImageCell: View {
     
@@ -78,7 +79,7 @@ struct ImageCell: View {
             else{
                 ZStack(alignment: .topTrailing){
                     GeometryReader{geometry in
-                        AsyncImage(url: URL(string: imagePath), transaction: Transaction(animation: .default)) { phase in
+                        CachedAsyncImage(url: URL(string: imagePath), urlCache: .imageCache, transaction: Transaction(animation: .default)) { phase in
                             switch phase {
                             case .empty:
                                 LoadAnimationView(alwaysDark: false)
@@ -173,3 +174,8 @@ struct ImageCell: View {
 //        }
 //    }
 //}
+
+extension URLCache {
+    
+    static let imageCache = URLCache(memoryCapacity: 512*1000*1000, diskCapacity: 10*1000*1000*1000)
+}

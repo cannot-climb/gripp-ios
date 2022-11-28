@@ -30,10 +30,6 @@ struct ImageGrid: View {
     private let gridItemLayout = [GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3),GridItem(.flexible(minimum: 40), spacing: 3)]
     
     var body: some View {
-//        ImageCell(articleResponse: postItemImages[0], username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented, useDecoration: true)
-//            .onTapGesture {
-//                galleryViewModel.username = username
-//            }
         GeometryReader{ gr in
             ScrollView{
                 if(postItemImages.count > 3){
