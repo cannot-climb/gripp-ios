@@ -16,6 +16,7 @@ struct gripp_iosApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(viewRouter: viewRouter)
+                .background(Color(named: "BackgroundSubduedColor"))
         }
     }
 }

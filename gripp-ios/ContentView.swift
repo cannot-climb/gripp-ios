@@ -28,10 +28,13 @@ struct ContentView: View {
             switch viewRouter.currentPage {
             case .home:
                 HomeView(shouldHaveChin: true, viewRouter: viewRouter).environmentObject(homeViewModel)
+                    .transition(.offset(CGSize(width: 0, height: 20)).combined(with: .opacity))
             case .leader:
                 LeaderBoardView(shouldHaveChin: true).environmentObject(leaderboardViewModel)
+                    .transition(.offset(CGSize(width: 0, height: 20)).combined(with: .opacity))
             case .myGallery:
                 MyGalleryView(shouldHaveChin: true).environmentObject(galleryViewModel)
+                    .transition(.offset(CGSize(width: 0, height: 20)).combined(with: .opacity))
             }
             VStack{
                 Spacer()
