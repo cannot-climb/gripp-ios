@@ -50,9 +50,6 @@ struct ContentView: View {
                             .font(.tabbar_item)
                     }
                     .frame(width: 60, height: 60)
-                    .sheet(isPresented: $isUploadPresented){
-                        UploadView()
-                    }
                     .onTapGesture {
                         isUploadPresented.toggle()
                     }
@@ -60,6 +57,9 @@ struct ContentView: View {
                 .frame(width: UIScreen.main.bounds.width, height: DOCK_HEIGHT)
                 .background(.regularMaterial)
             }
+        }
+        .sheet(isPresented: $isUploadPresented){
+            UploadView().environmentObject(galleryViewModel)
         }
         .fullScreenCover(isPresented: $isLoginPresented, onDismiss: {
             homeViewModel.loadTitleInfo()

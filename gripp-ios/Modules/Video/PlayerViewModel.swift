@@ -25,6 +25,11 @@ class PlayerViewModel: ObservableObject{
     @Published var videoLevel = ""
     @Published var videoUserInfoString = ""
     @Published var videoFavorite = false
+    @Published var videoThumbnail = ""
+    
+    func setVideoThumbnail(url: String){
+        self.videoThumbnail = url
+    }
     
     func setVideoInfo(articleResponse: ArticleResponse){
         self.articleId = articleResponse.articleId!
@@ -35,7 +40,6 @@ class PlayerViewModel: ObservableObject{
         self.videoViewCount = String(articleResponse.viewCount!)
         self.videoUrl = articleResponse.video!.streamingUrl!
         self.videoDescription = articleResponse.description!
-        self.videoFavoriteCount = String(articleResponse.favoriteCount!)
         self.videoLevel = String(articleResponse.level!)
         
         UserApiService.fetchArticleInfo(articleId: articleResponse.articleId!)
@@ -49,6 +53,7 @@ class PlayerViewModel: ObservableObject{
                 }
                 else{
                     self.videoFavorite = received.favorite!
+                    self.videoFavoriteCount = String(received.favoriteCount!)
                 }
             }.store(in: &subscription)
     }
@@ -76,6 +81,17 @@ class PlayerViewModel: ObservableObject{
                     }
                     self.videoFavorite.toggle()
                 }
+            }.store(in: &subscription)
+    }
+    
+    func deleteVideo(){
+        UserApiService.deleteArticle(articleId: self.articleId)
+            .sink{
+                (completion: Subscribers.Completion<AFError>) in
+//                print("PVM completion \(completion)")
+            }
+            receiveValue: { (received: Article) in
+                self.articleId = received.articleId ?? ""
             }.store(in: &subscription)
     }
 }

@@ -144,7 +144,7 @@ struct DanglingModal: View {
                                 .padding(.horizontal, 14)
                                 .padding(.vertical, 10)
                                 .background(.red)
-                                .foregroundColor(Color(named: "BackgroundMasterColor"))
+                                .foregroundColor(Color(named: "TextMasterColor"))
                                 .cornerRadius(100)
                                 .padding(.trailing, 24)
                                 .padding(.top, 24)
@@ -160,12 +160,13 @@ struct DanglingModal: View {
                                 .padding(.horizontal, 14)
                                 .padding(.vertical, 10)
                                 .background(.white)
+                                .foregroundColor(.black)
                                 .cornerRadius(100)
                                 .padding(.trailing, 24)
                                 .padding(.top, 24)
                                 .shadow(color: .black.opacity(0.2), radius: 10)
                             }
-                        }.foregroundColor(.black)
+                        }
                     }
                     Spacer()
                 }
@@ -195,17 +196,21 @@ struct DanglingModal: View {
                     ModalInfoLine(imageString: "Eye", text: $playerViewModel.videoViewCount, post: "회")
                     ModalInfoLine(imageString: "Description", text: $playerViewModel.videoDescription)
                     
-                    Button(action: {}){
-                        Image("Trash")
-                            .padding(.horizontal, 50)
-                            .padding(.vertical, 10)
-                            .background(Color("#FF4B4B"))
-                            .cornerRadius(100)
-                            .padding(.top, 30)
+                    if(playerViewModel.videoUser == getUserName()!){
+                        Button(action: {
+                            playerViewModel.deleteVideo()
+                        }){
+                            Image("Trash")
+                                .padding(.horizontal, 50)
+                                .padding(.vertical, 10)
+                                .background(Color("#FF4B4B"))
+                                .cornerRadius(100)
+                                .padding(.top, 30)
+                        }
+                        .foregroundColor(.black)
+                        .padding(.bottom, 80)
+                        .shadow(color: .red.opacity(0.4), radius: 10)
                     }
-                    .foregroundColor(.black)
-                    .padding(.bottom, 80)
-                    .shadow(color: .red.opacity(0.4), radius: 10)
                 }
             }
             .frame(width: UIScreen.main.bounds.width)
