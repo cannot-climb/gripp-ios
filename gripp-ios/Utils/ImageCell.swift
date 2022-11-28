@@ -134,11 +134,22 @@ struct ImageCell: View {
                     }
                 }
                 .onTapGesture {
+                    playerViewModel.setVideoThumbnail(url: self.imagePath)
                     playerViewModel.setVideoUrl(videoUrl: videoUrl)
                     playerViewModel.setVideoInfo(articleResponse: articleResponse)
                     isPlayerPresented.toggle()
                 }
                 .contextMenu{
+                    Button {
+                        playerViewModel.toggleFavorite()
+                    } label: {
+                        if(playerViewModel.videoFavorite){
+                            Label("좋아요 해제", systemImage: "heart.fill")
+                        }
+                        else{
+                            Label("좋아요", systemImage: "heart")
+                        }
+                    }
                     Button {
                         playerViewModel.setVideoInfo(articleResponse: articleResponse)
                         username = playerViewModel.videoUser
