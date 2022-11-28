@@ -7,6 +7,7 @@ target 'gripp-ios' do
 
   # Pods for gripp-ios
   pod 'Alamofire'
+  pod 'RangeSeekSlider'
 
   target 'gripp-iosTests' do
     inherit! :search_paths

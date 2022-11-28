@@ -26,8 +26,8 @@ class HomeViewModel: ObservableObject{
     
     var currPageToken = ""
     
-    var minLevel = 0
-    var maxLevel = 19
+    @Published var minLevel = 0
+    @Published var maxLevel = 19
     
     func refresh(){
         self.articles = []

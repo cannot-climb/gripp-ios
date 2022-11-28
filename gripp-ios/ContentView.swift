@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import RangeSeekSlider
 
 struct ContentView: View {
     @StateObject var viewRouter: ViewRouter

@@ -9,12 +9,14 @@
 
 import Foundation
 import SwiftUI
+import RangeSeekSlider
 
 struct HomeView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
     
     let shouldHaveChin : Bool
     @StateObject var viewRouter: ViewRouter
+    @State var showSlider = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -32,47 +34,11 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Menu {
-                    let bind0 = Binding<Bool>(
-                        get:{homeViewModel.selectedDifficulties[0]},
-                        set:{
-                            homeViewModel.selectedDifficulties[0] = $0
-                            homeViewModel.loadVideoList()
-                    })
-                    Toggle(isOn: bind0) {
-                        Text("V16 - V20")
+                Button(action:{
+                    withAnimation {
+                        showSlider.toggle()
                     }
-                    
-                    let bind1 = Binding<Bool>(
-                        get:{homeViewModel.selectedDifficulties[1]},
-                        set:{
-                            homeViewModel.selectedDifficulties[1] = $0
-                            homeViewModel.loadVideoList()
-                    })
-                    Toggle(isOn: bind1) {
-                        Text("V11 - V15")
-                    }
-                    
-                    let bind2 = Binding<Bool>(
-                        get:{homeViewModel.selectedDifficulties[2]},
-                        set:{
-                            homeViewModel.selectedDifficulties[2] = $0
-                            homeViewModel.loadVideoList()
-                    })
-                    Toggle(isOn: bind2) {
-                        Text("V6 - V10")
-                    }
-                    
-                    let bind3 = Binding<Bool>(
-                        get:{homeViewModel.selectedDifficulties[3]},
-                        set:{
-                            homeViewModel.selectedDifficulties[3] = $0
-                            homeViewModel.loadVideoList()
-                    })
-                    Toggle(isOn: bind3) {
-                        Text("V0 - V5")
-                    }
-                } label: {
+                }){
                     Text("난이도").font(.foot_note)
                         .foregroundColor(Color(named: "TextMasterColor"))
                     Image("Sort")
@@ -81,16 +47,33 @@ struct HomeView: View {
                         .padding(.trailing, 32)
                         .foregroundColor(Color(named: "TextMasterColor"))
                 }
+                
             }.padding(.top, 4).padding(.bottom, 16)
             
-            ImageGrid(postItemImages: homeViewModel.articles, firstItemGiantDecoration: true,noMoreData: $homeViewModel.noMoreData, shouldHaveChin: shouldHaveChin, refreshAction: homeViewModel.refresh, moreAction: homeViewModel.loadVideoList)
-                .cornerRadius(24, corners: [.topLeft, .topRight])
-                .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
+            
+            ZStack(alignment: .topTrailing){
+                RangeSeekSliderWrapper(homeViewModel: homeViewModel)
+                    .shadow(color: .black.opacity(0.3),radius: 10, y: 3)
+                    .padding(.bottom,20)
+                    .padding(.horizontal, 20)
+                    .background(Color(named: "TextMasterColor").opacity(0.05))
+                    .frame(height: 100)
+                    .cornerRadius(20)
+                    .contentShape(Rectangle())
+                    .padding(.top,5)
+                    .padding(.horizontal, 14)
+                    .shadow(color: .black.opacity(0.05),radius: 1, y: 3)
+                
+                ImageGrid(postItemImages: homeViewModel.articles, firstItemGiantDecoration: true,noMoreData: $homeViewModel.noMoreData, shouldHaveChin: shouldHaveChin, refreshAction: homeViewModel.refresh, moreAction: homeViewModel.loadVideoList)
+                    .cornerRadius(24, corners: [.topLeft, .topRight])
+                    .shadow(color: Color(named:"ShadowSheetColor"), radius: 20)
+                    .padding(.top, showSlider ? 130 : 0)
+            }
+            
         }
         .background(Color(named:"BackgroundSubduedColor"))
         .onAppear(perform: {
-            homeViewModel.loadTitleInfo()
-            homeViewModel.loadVideoList()
+            homeViewModel.refresh()
         })
     }
 }
@@ -98,5 +81,53 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(shouldHaveChin: false, viewRouter: ViewRouter()).environmentObject(HomeViewModel())
+    }
+}
+
+
+struct RangeSeekSliderWrapper: UIViewRepresentable {
+    typealias UIViewType = UIView
+    
+    @ObservedObject var homeViewModel: HomeViewModel
+    
+    func makeUIView(context: Context) -> UIViewType {
+        let view = CustomRangeSeekSlider()
+        
+        view.delegate = context.coordinator
+        
+        return view
+    }
+    
+     func makeCoordinator() -> Coordinator {
+         return Coordinator(self)
+     }
+    
+    class Coordinator: NSObject, RangeSeekSliderDelegate {
+        var parent: RangeSeekSliderWrapper
+        
+        init(_ parent: RangeSeekSliderWrapper){
+            self.parent = parent
+        }
+        
+        func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+            parent.homeViewModel.minLevel = Int(minValue)
+            parent.homeViewModel.maxLevel = Int(maxValue)
+        }
+        func rangeSeekSlider(_ slider: RangeSeekSlider, stringForMinValue minValue: CGFloat) -> String? {
+            return "V\(Int(minValue))"
+        }
+
+        func rangeSeekSlider(_ slider: RangeSeekSlider, stringForMaxValue maxValue: CGFloat) -> String? {
+            return "V\(Int(maxValue))"
+        }
+
+        func didEndTouches(in slider: RangeSeekSlider) {
+            parent.homeViewModel.refresh()
+        }
+    }
+       
+    
+    func updateUIView(_ view: UIViewType, context: Context) {
+        
     }
 }

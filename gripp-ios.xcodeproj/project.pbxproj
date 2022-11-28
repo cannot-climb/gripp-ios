@@ -28,6 +28,7 @@
 		3C3CF0EC2920EC1800DDBE69 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0EB2920EC1800DDBE69 /* ApiLogger.swift */; };
 		3C3CF0EE2920ED5B00DDBE69 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0ED2920ED5B00DDBE69 /* AuthRouter.swift */; };
 		3C3CF0F12920F1C700DDBE69 /* AuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0F02920F1C700DDBE69 /* AuthApiService.swift */; };
+		3C48D2F22935228C00D348EB /* CustomRangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48D2F12935228C00D348EB /* CustomRangeSeekSlider.swift */; };
 		3C4913522913529900792CDF /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913512913529900792CDF /* TabBarItem.swift */; };
 		3C491354291354C500792CDF /* CustomIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C491353291354C500792CDF /* CustomIcons.xcassets */; };
 		3C4913652914087600792CDF /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913642914087600792CDF /* ViewRouter.swift */; };
@@ -135,6 +136,7 @@
 		3C3CF0EB2920EC1800DDBE69 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
 		3C3CF0ED2920ED5B00DDBE69 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		3C3CF0F02920F1C700DDBE69 /* AuthApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApiService.swift; sourceTree = "<group>"; };
+		3C48D2F12935228C00D348EB /* CustomRangeSeekSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRangeSeekSlider.swift; sourceTree = "<group>"; };
 		3C4913512913529900792CDF /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		3C491353291354C500792CDF /* CustomIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CustomIcons.xcassets; sourceTree = "<group>"; };
 		3C4913642914087600792CDF /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 		3CDDF42828EB9D4900884847 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3C48D2F12935228C00D348EB /* CustomRangeSeekSlider.swift */,
 				3CDDF47428EBA63000884847 /* ImageGrid.swift */,
 				3C8A4AAF290DD0F100B7508C /* ImageCell.swift */,
 				3C8A4AB3290EC89F00B7508C /* LoadAnimationView.swift */,
@@ -903,6 +906,7 @@
 				3CDDF42B28EB9D4900884847 /* Color.swift in Sources */,
 				3CDDF47E28EBB7F400884847 /* ScoreListView.swift in Sources */,
 				3CFD6AE528EC4B390039EBAF /* UploadView.swift in Sources */,
+				3C48D2F22935228C00D348EB /* CustomRangeSeekSlider.swift in Sources */,
 				3C2BE4EC28D8CD7B007A24FD /* Persistence.swift in Sources */,
 				3C8A4AA4290DC35A00B7508C /* LoginView.swift in Sources */,
 				3CC529AF2926C42E0081CC47 /* PlayerViewModel.swift in Sources */,
