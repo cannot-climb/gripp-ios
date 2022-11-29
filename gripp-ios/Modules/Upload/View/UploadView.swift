@@ -13,18 +13,23 @@ import PhotosUI
 import AVKit
 
 struct UploadView: View {
+    @EnvironmentObject var uploadViewModel: UploadViewModel
+    
     @State var title = ""
     @State var description = ""
     @State var angle = ""
     @State var difficulty = ""
     
-    let angles = Array(0...14).map({"\($0*5)º"})
-    let difficulties = Array(0...20).map({"V\($0)"})
+    let angles = Array(0...14).map({"\($0*5)º "})
+    let difficulties = Array(0...20).map({"V\($0) "})
     
     //    private var playerLayer:AVPlayerLayer
     @State private var zoomFactor:Float = 1.0
     @State private var avPlayer:AVPlayer?
     @State private var videoSize:CGSize = CGSize(width: 1, height: 0)
+    
+    @State var movieURL: URL?
+    @State var movieFileName: String?
     
     @State var selectedItems: [PhotosPickerItem] = []
     
@@ -43,13 +48,26 @@ struct UploadView: View {
                 }
                 Text("영상 올리기").font(.large_title)
                 Spacer()
-                Button(action: {}){
+                if(movieURL != nil && movieFileName != nil){
+                    Button(action: {
+                        uploadViewModel.uploadVideo(videoUrl: movieURL!, filename: movieFileName!)
+                    }){
+                        Image("Pencil")
+                            .foregroundColor(.white)
+                            .frame(width: 48, height: 48)
+                            .background(Color(named:"AccentMasterColor"))
+                            .cornerRadius(40)
+                            .shadow(color: Color(named:"AccentMasterColor").opacity(0.4), radius: 10)
+                    }
+                }
+                else{
                     Image("Pencil")
                         .foregroundColor(.white)
                         .frame(width: 48, height: 48)
-                        .background(Color("#BE1F00"))
+                        .background(Color(named:"AccentMasterColor"))
                         .cornerRadius(40)
-                        .shadow(color: Color("#FF0000").opacity(0.25), radius: 12)
+                        .shadow(color: Color(named:"AccentMasterColor").opacity(0.4), radius: 10)
+                        .opacity(0.4)
                 }
             }.padding(.leading, 30).padding(.top, 24).padding(.trailing, 20)
             
@@ -123,6 +141,9 @@ struct UploadView: View {
                             avPlayer = AVPlayer(url: movie.url)
                             avPlayer!.playImmediately(atRate: 1.0)
                             
+                            movieURL = movie.url
+                            movieFileName = movie.url.lastPathComponent
+                            
                             let videoAssetSource = AVAsset.init(url: movie.url)
                             videoSize.width = abs(videoAssetSource.videoSize!.width)
                             videoSize.height = abs(videoAssetSource.videoSize!.height)
@@ -152,7 +173,7 @@ struct UploadView: View {
                 Picker("Angle", selection: $angle){
                     ForEach(angles, id: \.self){
                         Text($0)
-                            .lineLimit(1)
+                            .tag($0)
                     }
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
@@ -165,14 +186,18 @@ struct UploadView: View {
                 Picker("Difficulty", selection: $difficulty){
                     ForEach(difficulties, id: \.self){
                         Text($0)
+                            .tag($0)
                     }
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .pickerStyle(.menu)
                 .tint(Color(named: "TextMasterColor"))
                 .overlay(VStack{Divider().offset(x: 0, y: 15)})
-            }.padding(.top, 30).padding(.leading, 30).padding(.trailing, 30)
-                .frame(height: 50)
+            }
+            .padding(.top, 30)
+            .padding(.leading, 30)
+            .padding(.trailing, 30)
+            .frame(height: 50)
             
             
             Spacer()
@@ -185,7 +210,7 @@ struct UploadView: View {
 
 struct UploadView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadView()
+        UploadView().environmentObject(UploadViewModel())
     }
 }
 
