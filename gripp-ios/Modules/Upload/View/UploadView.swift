@@ -75,8 +75,8 @@ struct UploadView: View {
             ZStack{
                 HStack(alignment: .center){
                     Spacer().frame(width: 20)
-                    
-                    
+
+
                     //background blurry video
                     GeometryReader{geometry in
                         if(selectedItems.count != 0){
@@ -94,9 +94,9 @@ struct UploadView: View {
                 }
                 HStack(alignment: .center){
                     Spacer().frame(width: 40)
-                    
+
                     if(selectedItems.count == 0){
-                        PhotosPicker(selection: $selectedItems, maxSelectionCount: 1, matching: .videos){
+                        PhotosPicker(selection: $selectedItems, maxSelectionCount: 1, matching: .videos, preferredItemEncoding: .current){
                             Image(systemName: "video.badge.plus")
                                 .resizable()
                                 .scaledToFit()
@@ -105,8 +105,8 @@ struct UploadView: View {
                                 .padding(.horizontal, (UIScreen.main.bounds.width - 90 - 20)/2)
                                 .foregroundColor(Color(named: "TextMasterColor"))
                         }
-                        
-                        
+
+
                     }
                     else{
                         //main video
@@ -114,20 +114,20 @@ struct UploadView: View {
                             ZStack{
                                 LoadAnimationView(alwaysDark: false)
                                     .frame(width: max(geometry.size.height/4, 120), height: max(geometry.size.width/4, 120))
-                                
-                                
+
+
                                 VStack{
                                     VideoPlayer(player: avPlayer)
                                         .frame(width: min(geometry.size.height / videoSize.height * videoSize.width, geometry.size.width), height: min(geometry.size.width / videoSize.width * videoSize.height, geometry.size.height))
                                         .clipped()
                                         .cornerRadius(20)
                                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                                
+
                             }
                             .contentShape(Rectangle())
                         }
                     }
-                    
+
                     Spacer().frame(width: 40)
                 }
             }
