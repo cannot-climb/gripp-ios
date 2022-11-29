@@ -57,7 +57,7 @@ struct ImageCell: View {
                         }
                         .padding(.vertical, 10)
                         .padding(.horizontal, 14)
-                        .background(Color(named: "BackgroundMasterColor").opacity(0.8))
+                        .background(Color(named: "TextMasterColor").opacity(0.2))
                         .background(.ultraThinMaterial)
                         .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
                         .padding(.horizontal, 8)
@@ -67,8 +67,8 @@ struct ImageCell: View {
                             .resizable()
                             .foregroundColor(.white)
                             .frame(width: 24, height: 18)
-                            .padding(.top, 8)
-                            .padding(.trailing, 6)
+                            .padding(.top, 12)
+                            .padding(.trailing, 10)
                             .shadow(radius: 10)
                     }
                 }

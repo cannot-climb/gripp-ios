@@ -13,7 +13,7 @@ import RangeSeekSlider
 
 
     override func setupStyle() {
-        let accent: UIColor = UIColor(named: "AccentMasterColor")!
+        let accent: UIColor = UIColor(named: "AccentBrighterColor")!
         let base: UIColor = UIColor(named: "BackgroundMasterColor")!
 
         minValue = 0
