@@ -17,11 +17,11 @@ struct UploadView: View {
     
     @State var title = ""
     @State var description = ""
-    @State var angle = ""
-    @State var difficulty = ""
+    @State var angle = 0
+    @State var difficulty = 0
     
-    let angles = Array(0...14).map({"\($0*5)º "})
-    let difficulties = Array(0...20).map({"V\($0) "})
+    let angles = Array(0...14).map({$0*5})
+    let difficulties = Array(0...20)
     
     //    private var playerLayer:AVPlayerLayer
     @State private var zoomFactor:Float = 1.0
@@ -48,9 +48,9 @@ struct UploadView: View {
                 }
                 Text("영상 올리기").font(.large_title)
                 Spacer()
-                if(movieURL != nil && movieFileName != nil){
+                if(movieURL != nil && movieFileName != nil && title != "" && description != ""){
                     Button(action: {
-                        uploadViewModel.uploadVideo(videoUrl: movieURL!, filename: movieFileName!)
+                        uploadViewModel.uploadVideo(videoUrl: movieURL!, filename: movieFileName!, title: title, description: description, difficulty: difficulty, angle: angle)
                     }){
                         Image("Pencil")
                             .foregroundColor(.white)
@@ -172,8 +172,7 @@ struct UploadView: View {
                 Text("각도").font(.textfield_leading)
                 Picker("Angle", selection: $angle){
                     ForEach(angles, id: \.self){
-                        Text($0)
-                            .tag($0)
+                        Text("\($0)º ")
                     }
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
@@ -185,8 +184,7 @@ struct UploadView: View {
                     .padding(.leading, 5)
                 Picker("Difficulty", selection: $difficulty){
                     ForEach(difficulties, id: \.self){
-                        Text($0)
-                            .tag($0)
+                        Text("V\($0) ")
                     }
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)

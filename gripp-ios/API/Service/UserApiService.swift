@@ -128,4 +128,19 @@ enum UserApiService{
             .value()
             .eraseToAnyPublisher()
     }
+    
+//    static func uploadVideo(url: URL, filename: String) -> AnyPublisher<Video, AFError>{
+//        
+//        let storedTokenData = UserDefaultsManager.shared.getTokens()
+//        let credential = OAuthCredential(accessToken: storedTokenData.accessToken ?? "", refreshToken: storedTokenData.refreshToken ?? "")
+//        
+//        let authenticator = OAuthAuthenticator()
+//        let authInterceptor = AuthenticationInterceptor(authenticator: authenticator, credential: credential)
+//        
+//        return ApiClient.shared.session
+//            .upload(UserRouter.fetchLeaderBoard(username: username), interceptor: authInterceptor)
+//            .publishDecodable(type: Video.self)
+//            .value()
+//            .eraseToAnyPublisher()
+//    }
 }
