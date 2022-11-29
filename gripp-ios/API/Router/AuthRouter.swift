@@ -76,7 +76,7 @@ enum AuthRouter: URLRequestConvertible{
             
         case .tokenRefresh:
             var params = Parameters()
-            params["refreshToken"] = String(describing: UserDefaultsManager.shared.getTokens().refreshToken)
+            params["refreshToken"] = String(describing: UserDefaultsManager.shared.getTokens().refreshToken!)
             return params
             
         case .tokenTrash:

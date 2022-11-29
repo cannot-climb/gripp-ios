@@ -29,6 +29,9 @@
 		3C3CF0EE2920ED5B00DDBE69 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0ED2920ED5B00DDBE69 /* AuthRouter.swift */; };
 		3C3CF0F12920F1C700DDBE69 /* AuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0F02920F1C700DDBE69 /* AuthApiService.swift */; };
 		3C48D2F22935228C00D348EB /* CustomRangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48D2F12935228C00D348EB /* CustomRangeSeekSlider.swift */; };
+		3C48D2F42935358D00D348EB /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48D2F32935358D00D348EB /* UploadViewModel.swift */; };
+		3C48D2F7293543FC00D348EB /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3C48D2F6293543FC00D348EB /* CachedAsyncImage */; };
+		3C48D2F9293552A400D348EB /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48D2F8293552A400D348EB /* UserRouter.swift */; };
 		3C4913522913529900792CDF /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913512913529900792CDF /* TabBarItem.swift */; };
 		3C491354291354C500792CDF /* CustomIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C491353291354C500792CDF /* CustomIcons.xcassets */; };
 		3C4913652914087600792CDF /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4913642914087600792CDF /* ViewRouter.swift */; };
@@ -42,7 +45,6 @@
 		3C8A4AB8290EFE1100B7508C /* MyGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A4AB7290EFE1100B7508C /* MyGalleryView.swift */; };
 		3CAEDD392924629800F81AF4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD382924629800F81AF4 /* LoginViewModel.swift */; };
 		3CAEDD3B29246E8600F81AF4 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD3A29246E8600F81AF4 /* TokenModel.swift */; };
-		3CAEDD3F29249F2C00F81AF4 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD3E29249F2C00F81AF4 /* UserRouter.swift */; };
 		3CAEDD412924D15A00F81AF4 /* UserApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD402924D15A00F81AF4 /* UserApiService.swift */; };
 		3CAEDD442925DFD400F81AF4 /* OAuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD432925DFD400F81AF4 /* OAuthCredential.swift */; };
 		3CAEDD462925E10E00F81AF4 /* OAuthAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAEDD452925E10E00F81AF4 /* OAuthAuthenticator.swift */; };
@@ -137,6 +139,8 @@
 		3C3CF0ED2920ED5B00DDBE69 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		3C3CF0F02920F1C700DDBE69 /* AuthApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApiService.swift; sourceTree = "<group>"; };
 		3C48D2F12935228C00D348EB /* CustomRangeSeekSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRangeSeekSlider.swift; sourceTree = "<group>"; };
+		3C48D2F32935358D00D348EB /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
+		3C48D2F8293552A400D348EB /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		3C4913512913529900792CDF /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		3C491353291354C500792CDF /* CustomIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CustomIcons.xcassets; sourceTree = "<group>"; };
 		3C4913642914087600792CDF /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
@@ -150,7 +154,6 @@
 		3C8A4AB7290EFE1100B7508C /* MyGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGalleryView.swift; sourceTree = "<group>"; };
 		3CAEDD382924629800F81AF4 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3CAEDD3A29246E8600F81AF4 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
-		3CAEDD3E29249F2C00F81AF4 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		3CAEDD402924D15A00F81AF4 /* UserApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApiService.swift; sourceTree = "<group>"; };
 		3CAEDD432925DFD400F81AF4 /* OAuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthCredential.swift; sourceTree = "<group>"; };
 		3CAEDD452925E10E00F81AF4 /* OAuthAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAuthenticator.swift; sourceTree = "<group>"; };
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C2077312920C2C400689B3D /* Pods_gripp_ios.framework in Frameworks */,
+				3C48D2F7293543FC00D348EB /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				3C3CF0ED2920ED5B00DDBE69 /* AuthRouter.swift */,
-				3CAEDD3E29249F2C00F81AF4 /* UserRouter.swift */,
+				3C48D2F8293552A400D348EB /* UserRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -491,6 +495,7 @@
 		3CDDF47728EBA70800884847 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				3C48D2F32935358D00D348EB /* UploadViewModel.swift */,
 				3CFD6AE328EC4B2F0039EBAF /* View */,
 			);
 			path = Upload;
@@ -622,6 +627,9 @@
 			dependencies = (
 			);
 			name = "gripp-ios";
+			packageProductDependencies = (
+				3C48D2F6293543FC00D348EB /* CachedAsyncImage */,
+			);
 			productName = "gripp-ios";
 			productReference = 3C2BE4E628D8CD7B007A24FD /* gripp-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -697,6 +705,9 @@
 				Base,
 			);
 			mainGroup = 3C2BE4DD28D8CD7B007A24FD;
+			packageReferences = (
+				3C48D2F5293543FC00D348EB /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+			);
 			productRefGroup = 3C2BE4E728D8CD7B007A24FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -873,6 +884,7 @@
 				3C4913652914087600792CDF /* ViewRouter.swift in Sources */,
 				3C3CF0DE2920C40F00DDBE69 /* Config.swift in Sources */,
 				3CDDF46928EB9E4200884847 /* Roboto.swift in Sources */,
+				3C48D2F42935358D00D348EB /* UploadViewModel.swift in Sources */,
 				3CAEDD4C292607BB00F81AF4 /* GetUserName.swift in Sources */,
 				3CFE18FE292665D5005A44A2 /* HomeViewModel.swift in Sources */,
 				3C8A4AAE290DC4C100B7508C /* SignupSheet.swift in Sources */,
@@ -891,7 +903,6 @@
 				3C2BE4EF28D8CD7B007A24FD /* gripp_ios.xcdatamodeld in Sources */,
 				3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */,
 				3CF357CB28EB5E7600646D37 /* HomeView.swift in Sources */,
-				3CAEDD3F29249F2C00F81AF4 /* UserRouter.swift in Sources */,
 				3CC529B12926F3990081CC47 /* LeaderboardViewModel.swift in Sources */,
 				3CC529B32926F4400081CC47 /* LeaderModel.swift in Sources */,
 				3C20772E2920C20200689B3D /* ArticleModel.swift in Sources */,
@@ -900,6 +911,7 @@
 				3CFD6AE928EC8F720039EBAF /* GalleryView.swift in Sources */,
 				3C2BE4F128D8CD7B007A24FD /* ContentView.swift in Sources */,
 				3C0D6FF52914886400C7C91B /* ModalInfoLine.swift in Sources */,
+				3C48D2F9293552A400D348EB /* UserRouter.swift in Sources */,
 				3C3CF0E02920C81900DDBE69 /* VideoModel.swift in Sources */,
 				3C3CF0E82920EA4A00DDBE69 /* ApiClient.swift in Sources */,
 				3CAEDD4A2925FEB700F81AF4 /* GalleryViewModel.swift in Sources */,
@@ -1295,6 +1307,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3C48D2F5293543FC00D348EB /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C48D2F6293543FC00D348EB /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C48D2F5293543FC00D348EB /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3C2BE4ED28D8CD7B007A24FD /* gripp_ios.xcdatamodeld */ = {

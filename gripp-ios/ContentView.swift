@@ -21,6 +21,7 @@ struct ContentView: View {
     @StateObject var galleryViewModel = GalleryViewModel()
     @StateObject var homeViewModel = HomeViewModel()
     @StateObject var leaderboardViewModel = LeaderboardViewModel()
+    @StateObject var uploadViewModel = UploadViewModel()
     
     
     var body: some View {
@@ -59,7 +60,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isUploadPresented){
-            UploadView().environmentObject(galleryViewModel)
+            UploadView().environmentObject(uploadViewModel)
         }
         .fullScreenCover(isPresented: $isLoginPresented, onDismiss: {
             homeViewModel.loadTitleInfo()

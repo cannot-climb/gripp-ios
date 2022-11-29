@@ -50,6 +50,10 @@ enum AuthApiService{
             .request(AuthRouter.tokenRefresh(username: username))
             .publishDecodable(type: Token.self)
             .value()
+            .map{received in
+                UserDefaultsManager.shared.setTokens(username: username, accessToken: received.accessToken ?? "", refreshToken: received.refreshToken ?? "")
+                return received
+            }
             .eraseToAnyPublisher()
     }
     
