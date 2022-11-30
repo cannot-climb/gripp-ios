@@ -59,7 +59,11 @@ struct LoginView: View {
         }
         .ignoresSafeArea(.container)
         .background(.black)
-        
+        .alert(loginViewModel.alertMessage, isPresented: $loginViewModel.shouldAlert){
+            Button("닫기", role: .cancel) {
+                loginViewModel.shouldAlert.toggle()
+            }
+        }
     }
         
 }
