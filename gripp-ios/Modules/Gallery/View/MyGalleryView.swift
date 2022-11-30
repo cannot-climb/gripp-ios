@@ -43,11 +43,11 @@ struct MyGalleryView: View {
                     TabView(selection: $selectedItem0){
                         GalleryViewPage(title: "게시물", content: $galleryViewModel.userArticleCount, post: "개", pageIndex: 0 ,pageCount: 3)
                             .tag(0)
-                        GalleryViewPage(title: "성공", content: $galleryViewModel.userArticleCount, post: "회", pageIndex: 1 ,pageCount: 3)
+                        GalleryViewPage(title: "성공", content: $galleryViewModel.userArticleCertifiedCount, post: "회", pageIndex: 1 ,pageCount: 3)
                             .tag(1)
                         GalleryViewPage(
                             title: "성공율",
-                            content: $galleryViewModel.userArticleCertifiedCount, post: "%",
+                            content: $galleryViewModel.userSuccessRate, post: "%",
                             pageIndex: 2 ,pageCount: 3
                         ).tag(2)
                     }

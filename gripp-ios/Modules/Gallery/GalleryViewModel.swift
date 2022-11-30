@@ -59,7 +59,7 @@ class GalleryViewModel: ObservableObject{
                 
                 self.userArticleCount = String(received.articleCount ?? -2)
                 self.userArticleCertifiedCount = String(received.articleCertifiedCount ?? -2)
-                self.userSuccessRate = String(format: "%.0f", ceil(Double(received.articleCertifiedCount ?? 0) / Double(received.articleCount ?? 100)))
+                self.userSuccessRate = String(format: "%.0f", Double(received.articleCertifiedCount ?? 0) / Double(received.articleCount ?? 100)*100)
                 self.userPercentile = String(100 - (received.percentile ?? -1))
                 self.userScore = String(received.score ?? -1)
                 self.userTier = String(received.tier ?? -1)
