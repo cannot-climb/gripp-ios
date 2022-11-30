@@ -14,7 +14,9 @@ enum AuthRouter: URLRequestConvertible{
         let url = baseURL.appendingPathComponent(endPoint)
         var request = URLRequest(url: url)
         request.method = method
-        request.httpBody = try JSONEncoding.default.encode(request, with: parameters).httpBody
+        if(parameters != nil){
+            request.httpBody = try JSONEncoding.default.encode(request, with: parameters).httpBody
+        }
         return request
     }
     
@@ -58,7 +60,7 @@ enum AuthRouter: URLRequestConvertible{
         }
     }
     
-    var parameters: Parameters{
+    var parameters: Parameters?{
         switch self{
         case let .register(username, password):
             var params = Parameters()
@@ -67,7 +69,7 @@ enum AuthRouter: URLRequestConvertible{
             return params
             
         case .lookup:
-            return Parameters()
+            return nil
             
         case let .login(_, password):
             var params = Parameters()
@@ -76,7 +78,7 @@ enum AuthRouter: URLRequestConvertible{
             
         case .tokenRefresh:
             var params = Parameters()
-            params["refreshToken"] = String(describing: UserDefaultsManager.shared.getTokens().refreshToken!)
+            params["refreshToken"] = String(describing: UserDefaultsManager.shared.getTokens().refreshToken ?? "")
             return params
             
         case .tokenTrash:
