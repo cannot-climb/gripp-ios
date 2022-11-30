@@ -18,7 +18,7 @@ struct DanglingModal: View {
     
     @Binding var isExpanded: Bool
     @State private var isDragging: Bool = false
-    @State private var currHeight: CGFloat = 0
+    @State private var currHeight: CGFloat = -300
     @State var minHeight: CGFloat = 0
     @State var maxHeight: CGFloat = 10
     

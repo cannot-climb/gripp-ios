@@ -30,17 +30,20 @@ class UploadViewModel: ObservableObject{
             } receiveValue: { (received: Article) in
                 if(received.articleId == nil){
                     self.uploadingNow = false
+                    self.progressPercentile = 0
                 }
                 else{
                     print("upload final success!")
                     self.shouldDismissView = true
                     self.uploadingNow = false
+                    self.progressPercentile = 0
                 }
             }.store(in: &subscription)
     }
     
     func uploadVideo(videoUrl: URL, filename: String, title: String, description:String, difficulty: Int, angle: Int) {
         uploadingNow = true
+        self.progressPercentile = 0
         AuthApiService.tokenRefresh(username: getUserName()!)
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
@@ -48,6 +51,8 @@ class UploadViewModel: ObservableObject{
             } receiveValue: { (received: Token) in
                 if(received.refreshToken == nil){
                     self.uploadingNow = false
+                    print(received)
+                    self.progressPercentile = 0
                 }
                 else{
                     AF.upload(multipartFormData: { (multipartFormData) in
@@ -70,9 +75,13 @@ class UploadViewModel: ObservableObject{
                             }
                             catch{
                                 self.uploadingNow = false
+                                print(response.result)
+                                self.progressPercentile = 0
                             }
                         case .failure:
                             self.uploadingNow = false
+                            print(response.result)
+                            self.progressPercentile = 0
                         }
                     }
                 }
