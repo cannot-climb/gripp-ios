@@ -70,7 +70,7 @@ struct LeaderBoardView: View {
                 ZStack{
                     Spacer()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    ScoreListView(shouldHaveChin: shouldHaveChin, users: $leaderboardViewModel.combinedBoard)
+                    ScoreListView(shouldHaveChin: shouldHaveChin, users: $leaderboardViewModel.defaultBoard)
                         .environmentObject(leaderboardViewModel)
                 }
                 .background(Color(named: "BackgroundMasterColor"))

@@ -14,11 +14,10 @@ class LeaderboardViewModel: ObservableObject{
     var subscription = Set<AnyCancellable>()
     
     var topBoard: [User] = []
-    var defaultBoard: [User] = []
+    @Published var defaultBoard: [User] = []
     
     
     @Published var podiums: [Podium] = Array(repeating: Podium(username: "", level: "", rank: ""), count: 3)
-    @Published var combinedBoard: [User] = []
     
     func loadLeaderboard(){
         UserApiService.fetchLeaderBoard(username: getUserName() ?? "")
@@ -54,7 +53,6 @@ class LeaderboardViewModel: ObservableObject{
                         let t1 = self.topBoard[1]
                         let t2 = self.topBoard[2]
                         self.podiums = [Podium(username: t0.username!, level: "V\(t0.tier!)", rank: "1위"), Podium(username: t1.username!, level: "V\(t1.tier!)", rank: "2위"), Podium(username: t2.username!, level: "V\(t2.tier!)", rank: "3위") ]
-                        self.combinedBoard = self.topBoard[3..<self.topBoard.count] + self.defaultBoard
                     }
                 }
             }.store(in: &subscription)
