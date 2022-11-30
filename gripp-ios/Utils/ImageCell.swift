@@ -103,7 +103,6 @@ struct ImageCell: View {
                             HStack(alignment: .center){
                                 Text("등반 성공!").font(.foot_note)
                                 Image("ConquerOutlined")
-                                    .padding(.horizontal, -2)
                             }
                             .padding(.vertical, 10)
                             .padding(.horizontal, 14)
@@ -124,7 +123,7 @@ struct ImageCell: View {
                                             .foregroundColor(.white)
                                             .frame(width: 30, height: 30)
                                             .padding(.top, 8)
-                                            .padding(.trailing, 6)
+                                            .padding(.trailing, 8)
                                             .shadow(radius: 10)
                                     }
                                     Spacer()

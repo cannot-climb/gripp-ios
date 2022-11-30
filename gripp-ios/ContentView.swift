@@ -45,12 +45,9 @@ struct ContentView: View {
                     TabBarItem(title: "내 정보", iconString: "Person", viewRouter: viewRouter, assignedPage: .myGallery)
                     Image(systemName: "square.fill").resizable().frame(width: 1, height: 30)
                     VStack(alignment: .center){
-                        Image("Video").padding(.top, 6)
-                        Spacer().frame(height: 5)
-                        Text("영상 올리기")
-                            .font(.tabbar_item)
+                        TabBarItem(title: "영상 올리기", iconString: "Video", viewRouter: viewRouter)
+                            .disabled(true)
                     }
-                    .frame(width: 60, height: 60)
                     .onTapGesture {
                         isUploadPresented.toggle()
                     }
