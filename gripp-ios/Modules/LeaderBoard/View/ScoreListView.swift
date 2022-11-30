@@ -18,9 +18,9 @@ struct ScoreListView: View {
                 let galleryViewModel = GalleryViewModel()
                 NavigationLink(destination: GalleryView(contextString: "리더보드", shouldHaveChin: shouldHaveChin).environmentObject(galleryViewModel).navigationBarBackButtonHidden(true)) {
                     HStack(alignment: .center, spacing: 15){
-                        Text(item.username!).font(.head_line).foregroundColor(Color(named:"TextMasterColor"))
+                        Text("\(item.username!) | V\(String(item.tier ?? -1))").font(.head_line).foregroundColor(Color(named:"TextMasterColor"))
                         Spacer()
-                        Text("V\(String(item.tier ?? -1)), 상위 \(String(100 - (item.percentile ?? -1)))%").font(.subheadline).foregroundColor(Color(named:"TextMasterColor"))
+                        Text("\(item.rank!)위, 상위 \(String(100 - (item.percentile ?? -1)))%").font(.subheadline).foregroundColor(Color(named:"TextMasterColor"))
                         Image("ArrowRight").foregroundColor(Color(named:"TextMasterColor"))
                     }.padding(.leading, 23).padding(.trailing, 31).padding(.top, 16).padding(.bottom, 16)
                 }

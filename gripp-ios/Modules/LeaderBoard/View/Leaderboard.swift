@@ -82,7 +82,7 @@ struct LeaderBoardView: View {
             .onAppear(perform: {
                 leaderboardViewModel.loadLeaderboard()
             })
-            .onChange(of: leaderboardViewModel.podiums, perform: { podium in
+            .onChange(of: leaderboardViewModel.topBoard, perform: { podium in
                 galleryViewModel0.username = leaderboardViewModel.podiums[0].username
                 galleryViewModel1.username = leaderboardViewModel.podiums[1].username
                 galleryViewModel2.username = leaderboardViewModel.podiums[2].username
@@ -94,6 +94,6 @@ struct LeaderBoardView: View {
 
 struct LeaderBoard_Previews: PreviewProvider {
     static var previews: some View {
-        LeaderBoardView(shouldHaveChin: false)
+        LeaderBoardView(shouldHaveChin: false).environmentObject(LeaderboardViewModel())
     }
 }

@@ -13,7 +13,7 @@ import Combine
 class LeaderboardViewModel: ObservableObject{
     var subscription = Set<AnyCancellable>()
     
-    var topBoard: [User] = []
+    @Published var topBoard: [User] = []
     @Published var defaultBoard: [User] = []
     
     
@@ -43,11 +43,6 @@ class LeaderboardViewModel: ObservableObject{
                         let t0 = self.topBoard[0]
                         let t1 = self.topBoard[1]
                         self.podiums = [Podium(username: t0.username!, level: "V\(t0.tier!)", rank: "1위"), Podium(username: t1.username!, level: "V\(t1.tier!)", rank: "2위"), Podium(username: "", level: "", rank: "")]
-                    case 3:
-                        let t0 = self.topBoard[0]
-                        let t1 = self.topBoard[1]
-                        let t2 = self.topBoard[2]
-                        self.podiums = [Podium(username: t0.username!, level: "V\(t0.tier!)", rank: "1위"), Podium(username: t1.username!, level: "V\(t1.tier!)", rank: "2위"), Podium(username: t2.username!, level: "V\(t2.tier!)", rank: "3위") ]
                     default:
                         let t0 = self.topBoard[0]
                         let t1 = self.topBoard[1]
@@ -59,7 +54,7 @@ class LeaderboardViewModel: ObservableObject{
     }
 }
 
-struct Podium :Equatable{
+struct Podium: Equatable{
     var username: String
     var level: String
     var rank: String

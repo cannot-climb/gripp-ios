@@ -41,7 +41,7 @@ struct TabBarItem: View {
                 
             }
         }
-        .frame(width: 60, height: 100)
+        .frame(width: 60, height: 80)
         .contentShape(Rectangle())
         .onTapGesture {
             if(assignedPage != nil){
