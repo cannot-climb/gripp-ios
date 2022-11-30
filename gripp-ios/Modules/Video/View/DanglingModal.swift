@@ -199,6 +199,7 @@ struct DanglingModal: View {
                     if(playerViewModel.videoUser == getUserName()!){
                         Button(action: {
                             playerViewModel.deleteVideo()
+                            presentationMode.wrappedValue.dismiss()
                         }){
                             Image("Trash")
                                 .padding(.horizontal, 50)

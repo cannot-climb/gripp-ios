@@ -58,6 +58,10 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isUploadPresented){
             UploadView().environmentObject(uploadViewModel)
+                .onDisappear(perform: {
+                    homeViewModel.refresh()
+                    galleryViewModel.refresh()
+                })
         }
         .fullScreenCover(isPresented: $isLoginPresented, onDismiss: {
             homeViewModel.loadTitleInfo()
