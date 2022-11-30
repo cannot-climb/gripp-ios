@@ -131,7 +131,7 @@ struct UploadView: View {
                             GeometryReader{geometry in
                                 ZStack{
                                     LoadAnimationView(alwaysDark: false)
-                                        .frame(width: max(geometry.size.height/4, 120), height: max(geometry.size.width/4, 120))
+                                        .frame(width: max(geometry.size.height/4, 100), height: max(geometry.size.width/4, 100))
                                     
                                     
                                     VStack{

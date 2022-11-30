@@ -13,34 +13,27 @@ struct TabBarItem: View {
     
     @StateObject var viewRouter: ViewRouter
     let assignedPage: Page?
-
+    
     var body: some View {
-        VStack{
-            if(viewRouter.currentPage == assignedPage){
-                ZStack {
-                    Image(iconString)
-                        .resizable()
-                        .frame(width: 28, height: 28)
-                        .foregroundColor(Color(named: "TabBarIconForegroundColor"))
-                        
-                }
-                .padding(10)
-                .background(Color(named: "TabBarIconBackgroundColor"))
-                .cornerRadius(40)
-                .padding(.vertical, 12)
-                .shadow(color: Color(named: "TabBarIconBackgroundLTShadowColor"), radius: 5, x:-5, y:-5)
-                .shadow(color: Color(named: "TabBarIconBackgroundRBShadowColor"), radius: 5, x:5, y:5)
+        VStack(alignment: .center){
+            Image(iconString)
+                .resizable()
+                .frame(width: viewRouter.currentPage == assignedPage ? 28 : 24, height: viewRouter.currentPage == assignedPage ? 28 : 24)
+                .foregroundColor(viewRouter.currentPage == assignedPage ? Color(named: "TabBarIconForegroundColor") : Color(named: "TextMasterColor"))
+            Spacer().frame(height: viewRouter.currentPage == assignedPage ? 0 : 5)
+            if(viewRouter.currentPage != assignedPage){
+                Text(title)
+                    .font(.tabbar_item)
             }
-            else{
-                VStack(alignment: .center){
-                    Image(iconString).padding(.top, 6)
-                    Spacer().frame(height: 5)
-                    Text(title)
-                        .font(.tabbar_item)
-                }
-                
-            }
+            
         }
+        .padding(10)
+        .background(viewRouter.currentPage == assignedPage ? Color(named: "TabBarIconBackgroundColor") : Color(named: "BackgroundMasterColor").opacity(0))
+        .cornerRadius(40)
+        .padding(.vertical, viewRouter.currentPage == assignedPage ? 12 : 10)
+        .shadow(color: viewRouter.currentPage == assignedPage ? Color(named: "TabBarIconBackgroundLTShadowColor") : .black.opacity(0), radius: 5, x:-5, y:-5)
+        .shadow(color: viewRouter.currentPage == assignedPage ? Color(named: "TabBarIconBackgroundRBShadowColor") : .black.opacity(0), radius: 5, x:5, y:5)
+        
         .frame(width: 60, height: 80)
         .contentShape(Rectangle())
         .onTapGesture {
