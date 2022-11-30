@@ -78,7 +78,12 @@ enum UserApiService{
         var filter: [Dictionary<String, Any>] = []
         
         if(username != nil){
-            filter.append(["type":"USER", "username":username!])
+            let usernameWithoutEmoji = username!.unicodeScalars
+                .filter { !$0.properties.isEmojiPresentation }
+                .reduce("") { $0 + String($1) }
+                .replacingOccurrences(of: " ", with: "")
+//            print(usernameWithoutEmoji)
+            filter.append(["type":"USER", "username":usernameWithoutEmoji])
         }
         if(minLevel != nil && maxLevel != nil){
             filter.append(["type":"LEVEL", "minLevel":minLevel!, "maxLevel":maxLevel!])

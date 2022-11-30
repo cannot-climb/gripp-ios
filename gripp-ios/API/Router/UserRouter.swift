@@ -99,6 +99,8 @@ enum UserRouter: URLRequestConvertible{
             params["filters"] = filters
             params["order"] = "NEW"
             params["pageToken"] = pageToken
+//            print(params)
+
             return params
         case .fetchUserInfo:
             return Parameters()
@@ -110,3 +112,4 @@ enum UserRouter: URLRequestConvertible{
     }
     
 }
+

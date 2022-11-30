@@ -76,7 +76,7 @@ class GalleryViewModel: ObservableObject{
             UserApiService.loadArticles(username: self.username, pageToken: self.nextPageToken)
                 .sink{
                     (completion: Subscribers.Completion<AFError>) in
-    //                print("HVM completion \(completion)")
+                    print("HVM completion \(completion)")
                 }
                 receiveValue: { (received: ArticleListResponse) in
                     self.loadVideoListSuccess.send()

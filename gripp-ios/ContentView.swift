@@ -69,6 +69,10 @@ struct ContentView: View {
         }){
             LoginView().environmentObject(LoginViewModel())
                 .interactiveDismissDisabled(true)
+                .onDisappear(perform: {
+                    homeViewModel.refresh()
+                    galleryViewModel.refresh()
+                })
         }
         .onAppear() {
             if(UserDefaultsManager.shared.getTokens().username == nil){
