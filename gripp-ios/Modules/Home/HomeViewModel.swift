@@ -60,7 +60,6 @@ class HomeViewModel: ObservableObject{
     func loadVideoList(){
 //        print("HVM loadVideoList()")
         
-        print(currPageToken, nextPageToken)
         if(currPageToken == "" && nextPageToken == ""){
             print("brand new")
             UserApiService.loadArticles(minLevel:self.minLevel,maxLevel:self.maxLevel, pageToken: self.nextPageToken)
@@ -91,6 +90,7 @@ class HomeViewModel: ObservableObject{
                 receiveValue: { (received: ArticleListResponse) in
                     self.loadVideoListSuccess.send()
                     self.currPageToken = self.nextPageToken
+                    self.noMoreData = true
                     self.nextPageToken = received.nextPageToken
                     if(self.nextPageToken != self.currPageToken){
                         self.articles.append(contentsOf: received.articles)

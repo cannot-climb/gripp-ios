@@ -81,15 +81,21 @@ struct ImageGrid: View {
                         .frame(width: gr.size.width)
                 }
                 if(postItemImages.count > 0 && !noMoreData){
-                    ProgressView()
-                        .scaleEffect(1.3)
-                        .frame(height: 50)
-                        .onAppear(perform: {
-                            moreAction()
-                        })
-                        .onTapGesture {
-                            moreAction()
-                        }
+                    Button(action: {
+                        moreAction()
+                    }){
+                        Text("더 보기").font(.login_button)
+                            .padding(.all, 10)
+                            .frame(width: gr.size.width - 40)
+                            .background(Color("#005DDD"))
+                            .cornerRadius(14)
+                            .shadow(color: Color(.black).opacity(0.16), radius: 10)
+                            .foregroundColor(.white)
+                            .padding(.bottom, 10)
+                    }
+                    .onAppear(perform: {
+                        moreAction()
+                    })
                 }
                 if(shouldHaveChin){
                     Spacer().frame(height: DOCK_HEIGHT)
