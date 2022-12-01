@@ -54,7 +54,7 @@ struct GalleryView: View {
                     .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
                     .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
                     .padding(.vertical, 22)
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
                         selectedItem0 = (selectedItem0+1)%3
@@ -72,7 +72,7 @@ struct GalleryView: View {
                     .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
                     .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
                     .padding(.vertical, 22)
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
                         selectedItem1 = (selectedItem1+1)%2
@@ -90,7 +90,7 @@ struct GalleryView: View {
                     .shadow(color: Color(named: "NeuShadowLT"), radius: 6, x:-6, y:-6)
                     .shadow(color: Color(named: "NeuShadowRB"), radius: 6, x: 6, y:6)
                     .padding(.vertical, 22)
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
                         selectedItem2 = (selectedItem2+1)%2
