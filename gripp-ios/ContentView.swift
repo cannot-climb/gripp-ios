@@ -41,6 +41,12 @@ struct ContentView: View {
                 Spacer()
                 HStack(spacing: UIScreen.main.bounds.width/18){
                     TabBarItem(title: "홈", iconString: "Home", viewRouter: viewRouter, assignedPage: .home)
+                        .onTapGesture {
+                            homeViewModel.refresh()
+                            withAnimation(.easeInOut(duration: 0.25)){
+                                viewRouter.currentPage = .home
+                            }
+                        }
                     TabBarItem(title: "리더보드", iconString: "Leaderboard", viewRouter: viewRouter, assignedPage: .leader)
                     TabBarItem(title: "내 정보", iconString: "Person", viewRouter: viewRouter, assignedPage: .myGallery)
                     Image(systemName: "square.fill").resizable().frame(width: 1, height: 30)

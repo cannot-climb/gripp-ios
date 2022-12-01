@@ -78,9 +78,6 @@ struct HomeView: View {
             
         }
         .background(Color(named:"BackgroundSubduedColor"))
-        .onAppear(perform: {
-            homeViewModel.refresh()
-        })
     }
 }
 
