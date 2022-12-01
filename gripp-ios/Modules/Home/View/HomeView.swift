@@ -24,7 +24,9 @@ struct HomeView: View {
                 .padding(.leading, 31).padding(.top, 6)
                 .foregroundColor(Color(named: "TextSubduedColor"))
             Button(action:{
-                viewRouter.currentPage = .myGallery
+                withAnimation(.easeInOut(duration: 0.25)){
+                    viewRouter.currentPage = .myGallery
+                }
             }){
                 Text(homeViewModel.titleUserName).font(.large_title)
                 Image("ArrowRight")
@@ -43,9 +45,10 @@ struct HomeView: View {
                 }){
                     Text("난이도").font(.foot_note)
                         .foregroundColor(Color(named: "TextMasterColor"))
-                    Image("Sort")
+                    Image("ArrowRight")
                         .resizable()
-                        .frame(width: 24, height: 24)
+                        .frame(width: 20, height: 20)
+                        .rotationEffect(Angle(degrees: showSlider ? 270 : 90))
                         .padding(.trailing, 32)
                         .foregroundColor(Color(named: "TextMasterColor"))
                 }
