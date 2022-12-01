@@ -106,8 +106,7 @@ struct MyGalleryView: View {
             .padding(.bottom, 10)
             .onAppear(perform: {
                 galleryViewModel.username = getUserName() ?? ""
-                galleryViewModel.loadUserInfo()
-                galleryViewModel.loadVideoList()
+                galleryViewModel.refresh()
             })
             ImageGrid(postItemImages: galleryViewModel.articles,firstItemGiantDecoration: false, noMoreData: $galleryViewModel.noMoreData, shouldHaveChin: shouldHaveChin, refreshAction: galleryViewModel.refresh, moreAction: galleryViewModel.loadVideoList)
                 .cornerRadius(24, corners: [.topLeft, .topRight])

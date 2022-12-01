@@ -102,8 +102,7 @@ struct GalleryView: View {
             .frame(height: 130)
             .padding(.bottom, 10)
             .onAppear(perform: {
-                galleryViewModel.loadUserInfo()
-                galleryViewModel.loadVideoList()
+                galleryViewModel.refresh()
             })
             
             ImageGrid(postItemImages: galleryViewModel.articles, firstItemGiantDecoration: false, noMoreData: $galleryViewModel.noMoreData,  shouldHaveChin: shouldHaveChin, refreshAction: galleryViewModel.refresh, moreAction: galleryViewModel.loadVideoList)

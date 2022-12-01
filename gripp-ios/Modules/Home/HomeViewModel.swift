@@ -30,12 +30,11 @@ class HomeViewModel: ObservableObject{
     @Published var maxLevel = 19
     
     func refresh(){
-        self.articles = []
         self.nextPageToken = ""
         self.currPageToken = ""
         self.noMoreData = false
         loadTitleInfo()
-        loadVideoList()
+        refreshVideoList()
     }
     
     
@@ -56,27 +55,29 @@ class HomeViewModel: ObservableObject{
                 self.titleUserInfoString = "V\(String(received.tier ?? -1)), 상위 \(String(100 - (received.percentile ?? -1)))%"
             }.store(in: &subscription)
     }
+    func refreshVideoList(){
+//        print("HVM loadVideoList()")
+        
+
+        UserApiService.loadArticles(minLevel:self.minLevel,maxLevel:self.maxLevel, pageToken: self.nextPageToken)
+            .sink{
+                (completion: Subscribers.Completion<AFError>) in
+//                print("HVM completion \(completion)")
+            }
+            receiveValue: { (received: ArticleListResponse) in
+                self.loadVideoListSuccess.send()
+                self.currPageToken = self.nextPageToken
+                self.nextPageToken = received.nextPageToken
+                self.articles = received.articles
+            }.store(in: &subscription)
+        
+        
+    }
     
     func loadVideoList(){
 //        print("HVM loadVideoList()")
         
-        if(currPageToken == "" && nextPageToken == ""){
-            print("brand new")
-            UserApiService.loadArticles(minLevel:self.minLevel,maxLevel:self.maxLevel, pageToken: self.nextPageToken)
-                .sink{
-                    (completion: Subscribers.Completion<AFError>) in
-    //                print("HVM completion \(completion)")
-                }
-                receiveValue: { (received: ArticleListResponse) in
-                    self.loadVideoListSuccess.send()
-                    self.currPageToken = self.nextPageToken
-                    self.nextPageToken = received.nextPageToken
-                    if(self.nextPageToken != self.currPageToken){
-                        self.articles.append(contentsOf: received.articles)
-                    }
-                }.store(in: &subscription)
-        }
-        else if((currPageToken != "" && nextPageToken == "") || (currPageToken == nextPageToken)){
+        if((currPageToken != "" && nextPageToken == "") || (currPageToken == nextPageToken)){
             noMoreData = true
             print("no more videos")
         }

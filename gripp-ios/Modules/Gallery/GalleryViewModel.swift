@@ -37,12 +37,11 @@ class GalleryViewModel: ObservableObject{
     }
     
     func refresh(){
-        self.articles = []
         self.nextPageToken = ""
         self.currPageToken = ""
         self.noMoreData = false
         loadUserInfo()
-        loadVideoList()
+        refreshVideoList()
     }
     
     func loadUserInfo(){
@@ -71,23 +70,7 @@ class GalleryViewModel: ObservableObject{
     func loadVideoList(){
 //        print("HVM loadVideoList()")
         
-        if(currPageToken == "" && nextPageToken == ""){
-            print("brand new")
-            UserApiService.loadArticles(username: self.username, pageToken: self.nextPageToken)
-                .sink{
-                    (completion: Subscribers.Completion<AFError>) in
-                    print("HVM completion \(completion)")
-                }
-                receiveValue: { (received: ArticleListResponse) in
-                    self.loadVideoListSuccess.send()
-                    self.currPageToken = self.nextPageToken
-                    self.nextPageToken = received.nextPageToken
-                    if(self.nextPageToken != self.currPageToken){
-                        self.articles.append(contentsOf: received.articles)
-                    }
-                }.store(in: &subscription)
-        }
-        else if((currPageToken != "" && nextPageToken == "") || (currPageToken == nextPageToken)){
+        if((currPageToken != "" && nextPageToken == "") || (currPageToken == nextPageToken)){
             noMoreData = true
             print("no more videos")
         }
@@ -108,5 +91,24 @@ class GalleryViewModel: ObservableObject{
                     }
                 }.store(in: &subscription)
         }
+    }
+    
+    func refreshVideoList(){
+//        print("HVM loadVideoList()")
+        UserApiService.loadArticles(username: self.username, pageToken: self.nextPageToken)
+            .sink{
+                (completion: Subscribers.Completion<AFError>) in
+//                print("HVM completion \(completion)")
+            }
+            receiveValue: { (received: ArticleListResponse) in
+                self.loadVideoListSuccess.send()
+                self.currPageToken = self.nextPageToken
+                self.nextPageToken = received.nextPageToken
+                
+                self.articles = received.articles
+            
+            }.store(in: &subscription)
+        
+        
     }
 }
