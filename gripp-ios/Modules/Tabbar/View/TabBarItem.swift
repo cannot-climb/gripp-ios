@@ -38,7 +38,7 @@ struct TabBarItem: View {
         .frame(width: 60, height: 80)
         .contentShape(Rectangle())
         .onTapGesture {
-            if(assignedPage != nil){
+            if(assignedPage != nil && viewRouter.currentPage != assignedPage){
                 withAnimation(.easeInOut(duration: 0.25)){
                     viewRouter.currentPage = assignedPage!
                 }
