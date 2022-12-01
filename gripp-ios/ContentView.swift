@@ -36,6 +36,8 @@ struct ContentView: View {
             case .myGallery:
                 MyGalleryView(shouldHaveChin: true).environmentObject(galleryViewModel)
                     .transition(.offset(CGSize(width: 0, height: 20)).combined(with: .opacity))
+            case .initial:
+                InitialView(homeViewModel: homeViewModel, initialViewModel: InitialViewModel(), viewRouter: viewRouter)
             }
             VStack{
                 Spacer()

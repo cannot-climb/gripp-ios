@@ -9,11 +9,18 @@ import SwiftUI
 
 
 class ViewRouter: ObservableObject {
-    @Published var currentPage: Page = .home
+    @Published var currentPage: Page = .initial
+    
+    func apply(page: Page) {
+        withAnimation{
+            currentPage = page
+        }
+    }
 }
 
 enum Page {
     case home
     case leader
     case myGallery
+    case initial
 }
