@@ -26,6 +26,7 @@ struct MyGalleryView: View {
                 Spacer()
                 Button(action:{
                     galleryViewModel.logout()
+                    impactLight.impactOccurred()
                     if(UserDefaultsManager.shared.getTokens().username == nil){
                         isLoginPresented.toggle()
                     }
@@ -60,6 +61,7 @@ struct MyGalleryView: View {
                     .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
+                        impactLight.impactOccurred()
                         withAnimation{
                             selectedItem0 = (selectedItem0+1)%3
                         }
@@ -80,6 +82,7 @@ struct MyGalleryView: View {
                     .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
+                        impactLight.impactOccurred()
                         withAnimation{
                             selectedItem1 = (selectedItem1+1)%2
                         }
@@ -100,6 +103,7 @@ struct MyGalleryView: View {
                     .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
+                        impactLight.impactOccurred()
                         withAnimation{
                             selectedItem2 = (selectedItem2+1)%2
                         }

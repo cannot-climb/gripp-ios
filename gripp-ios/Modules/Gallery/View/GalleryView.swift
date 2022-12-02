@@ -57,6 +57,7 @@ struct GalleryView: View {
                     .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
+                        impactLight.impactOccurred()
                         withAnimation{
                             selectedItem0 = (selectedItem0+1)%3
                         }
@@ -77,6 +78,7 @@ struct GalleryView: View {
                     .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
+                        impactLight.impactOccurred()
                         withAnimation{
                             selectedItem1 = (selectedItem1+1)%2
                         }
@@ -97,6 +99,7 @@ struct GalleryView: View {
                     .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
+                        impactLight.impactOccurred()
                         withAnimation{
                             selectedItem2 = (selectedItem2+1)%2
                         }

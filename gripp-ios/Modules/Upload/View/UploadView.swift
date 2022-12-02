@@ -267,6 +267,7 @@ struct UploadView: View {
         .background(Color(named: "BackgroundMasterColor"))
         .onReceive(uploadViewModel.viewDismissalModePublisher) { shouldDismiss in
                     if shouldDismiss {
+                        impactRigid.impactOccurred()
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }

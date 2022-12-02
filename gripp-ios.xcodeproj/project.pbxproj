@@ -20,6 +20,7 @@
 		3C2BE50128D8CD7C007A24FD /* gripp_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50028D8CD7C007A24FD /* gripp_iosTests.swift */; };
 		3C2BE50B28D8CD7C007A24FD /* gripp_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50A28D8CD7C007A24FD /* gripp_iosUITests.swift */; };
 		3C2BE50D28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */; };
+		3C335464293A89B600B970CB /* Taptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C335463293A89B600B970CB /* Taptic.swift */; };
 		3C3CF0DE2920C40F00DDBE69 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0DD2920C40F00DDBE69 /* Config.swift */; };
 		3C3CF0E02920C81900DDBE69 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0DF2920C81900DDBE69 /* VideoModel.swift */; };
 		3C3CF0E22920E7C800DDBE69 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3CF0E12920E7C800DDBE69 /* UserDefaultsManager.swift */; };
@@ -132,6 +133,7 @@
 		3C2BE50628D8CD7C007A24FD /* gripp-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gripp-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2BE50A28D8CD7C007A24FD /* gripp_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosUITests.swift; sourceTree = "<group>"; };
 		3C2BE50C28D8CD7C007A24FD /* gripp_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gripp_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3C335463293A89B600B970CB /* Taptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taptic.swift; sourceTree = "<group>"; };
 		3C3CF0DD2920C40F00DDBE69 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3C3CF0DF2920C81900DDBE69 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		3C3CF0E12920E7C800DDBE69 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				3CFD6AEA28ECB5170039EBAF /* DemoImages */,
 				3C4913662914196800792CDF /* Dimensions.swift */,
 				3C3CF0DD2920C40F00DDBE69 /* Config.swift */,
+				3C335463293A89B600B970CB /* Taptic.swift */,
 				3C3CF0E12920E7C800DDBE69 /* UserDefaultsManager.swift */,
 			);
 			path = Config;
@@ -931,6 +934,7 @@
 				3C8A4AA4290DC35A00B7508C /* LoginView.swift in Sources */,
 				3CC529AF2926C42E0081CC47 /* PlayerViewModel.swift in Sources */,
 				3C20772C2920C1EC00689B3D /* UserModel.swift in Sources */,
+				3C335464293A89B600B970CB /* Taptic.swift in Sources */,
 				3CAEDD462925E10E00F81AF4 /* OAuthAuthenticator.swift in Sources */,
 				3C3CF0EE2920ED5B00DDBE69 /* AuthRouter.swift in Sources */,
 				3CAEDD412924D15A00F81AF4 /* UserApiService.swift in Sources */,

@@ -12,7 +12,8 @@ class ViewRouter: ObservableObject {
     @Published var currentPage: Page = .initial
     
     func apply(page: Page) {
-        withAnimation{
+        withAnimation(.easeInOut(duration: 0.25)){
+            impactLight.impactOccurred()
             currentPage = page
         }
     }

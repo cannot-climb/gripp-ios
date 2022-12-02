@@ -138,6 +138,7 @@ struct SignupSheet: View {
                 }
             }
             .onReceive(loginViewModel.registrationSuccess, perform: {
+                impactRigid.impactOccurred()
                 loginViewModel.login(username: id, password: pw)
             })
             

@@ -137,6 +137,7 @@ struct DanglingModal: View {
                     HStack{
                         Spacer()
                         Button(action: {
+                            impactSoft.impactOccurred()
                             playerViewModel.toggleFavorite()
                         }){
                             if(playerViewModel.videoFavorite){
@@ -206,10 +207,10 @@ struct DanglingModal: View {
                             shouldShowDeleteDialog.toggle()
                         }){
                             HStack(spacing: 20){
-                                Text("삭제")
+                                Text("삭제").font(.player_id)
                                 Image("Trash")
                             }
-                            .padding(.horizontal, 50)
+                            .padding(.horizontal, 35)
                             .padding(.vertical, 10)
                             .foregroundColor(.white)
                             .background(Color("#D02010"))
@@ -238,6 +239,7 @@ struct DanglingModal: View {
         .frame(width: UIScreen.main.bounds.width)
         .animation(isDragging ? nil : .easeInOut(duration: 0.2))
         .onReceive(playerViewModel.deleteSuccessPublisher, perform: {
+            impactRigid.impactOccurred()
             removeAction()
             presentationMode.wrappedValue.dismiss()
         })

@@ -74,6 +74,7 @@ struct LoginSheet: View {
             .padding(.horizontal, 28)
         }
         .onReceive(loginViewModel.loginSuccess, perform: {
+            impactRigid.impactOccurred()
             presentationMode.wrappedValue.dismiss()
         })
     }

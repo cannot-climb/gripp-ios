@@ -44,6 +44,7 @@ struct HomeView: View {
                 Spacer()
                 
                 Button(action:{
+                    impactLight.impactOccurred()
                     withAnimation {
                         showSlider.toggle()
                     }
