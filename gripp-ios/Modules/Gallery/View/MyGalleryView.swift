@@ -60,7 +60,9 @@ struct MyGalleryView: View {
                     .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
-                        selectedItem0 = (selectedItem0+1)%3
+                        withAnimation{
+                            selectedItem0 = (selectedItem0+1)%3
+                        }
                     }
                     
                     TabView(selection: $selectedItem1){
@@ -78,7 +80,9 @@ struct MyGalleryView: View {
                     .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
-                        selectedItem1 = (selectedItem1+1)%2
+                        withAnimation{
+                            selectedItem1 = (selectedItem1+1)%2
+                        }
                     }
 
                     TabView(selection: $selectedItem2){
@@ -96,7 +100,9 @@ struct MyGalleryView: View {
                     .padding(.horizontal, 5)
                     .frame(width: (geometry.size.width-40)/3)
                     .onTapGesture {
-                        selectedItem2 = (selectedItem2+1)%2
+                        withAnimation{
+                            selectedItem2 = (selectedItem2+1)%2
+                        }
                     }
                 }
                 .frame(width: geometry.size.width)
