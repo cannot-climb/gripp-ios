@@ -21,12 +21,11 @@ struct PlayerView: View {
     @State var title:String = ""
     @State var description:String = ""
     
+    public var removeAction: ()->()
+    
     var body: some View {
         NavigationView{
             ZStack{
-
-//                let k = avPlayer.timeControlStatus == AVPlayerTimeControlStatusPaused
-                //video
                 GeometryReader{geometry in
                     VStack{
                         VideoPlayer(player: avPlayer)
@@ -46,7 +45,7 @@ struct PlayerView: View {
                     avPlayer.pause()
                 })
 
-                DanglingModal(presentationMode: _presentationMode, isExpanded: $modalExpanded, avPlayer: $avPlayer)
+                DanglingModal(presentationMode: _presentationMode, isExpanded: $modalExpanded, avPlayer: $avPlayer, removeAction: removeAction)
                     .environmentObject(playerViewModel)
                     .edgesIgnoringSafeArea(.bottom)
             }
@@ -56,8 +55,16 @@ struct PlayerView: View {
 
 
 struct PlayerView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        PlayerView().environmentObject(PlayerViewModel())
+        let pvm = PlayerViewModel()
+        PlayerView(removeAction: {
+            
+        }).environmentObject(pvm).onAppear(perform: {
+            pvm.videoUrl = "https://joy.videvo.net/videvo_files/video/free/2020-05/large_watermarked/3d_ocean_1590675653_preview.mp4"
+            pvm.videoUser = getUserName()!
+            
+        })
     }
 }
 

@@ -21,11 +21,14 @@ struct DanglingModal: View {
     @State private var currHeight: CGFloat = -300
     @State var minHeight: CGFloat = 0
     @State var maxHeight: CGFloat = 10
+    @State var shouldShowDeleteDialog = false
     
     @Binding var avPlayer:AVPlayer
     @State var videoPlaying: Bool = true
     
     @StateObject var galleryViewModel = GalleryViewModel()
+    
+    public var removeAction: ()->()
     
     var dragPercentage: Double {
         let res = Double ((currHeight - minHeight) / (maxHeight - minHeight))
@@ -200,19 +203,30 @@ struct DanglingModal: View {
                     
                     if(playerViewModel.videoUser == getUserName()!){
                         Button(action: {
-                            playerViewModel.deleteVideo()
-                            presentationMode.wrappedValue.dismiss()
+                            shouldShowDeleteDialog.toggle()
                         }){
-                            Image("Trash")
-                                .padding(.horizontal, 50)
-                                .padding(.vertical, 10)
-                                .background(Color("#FF4B4B"))
-                                .cornerRadius(100)
-                                .padding(.top, 30)
+                            HStack(spacing: 20){
+                                Text("삭제")
+                                Image("Trash")
+                            }
+                            .padding(.horizontal, 50)
+                            .padding(.vertical, 10)
+                            .foregroundColor(.white)
+                            .background(Color("#D02010"))
+                            .cornerRadius(100)
+                            .padding(.top, 30)
                         }
                         .foregroundColor(.black)
                         .padding(.bottom, 80)
-                        .shadow(color: .red.opacity(0.4), radius: 10)
+                        .shadow(color: .red.opacity(0.2), radius: 10)
+                        .confirmationDialog("정말 삭제할까요?",isPresented: $shouldShowDeleteDialog, titleVisibility: .visible){
+                            Button("삭제", role: .destructive) {
+                                playerViewModel.deleteVideo()
+                            }
+                            Button("취소", role: .cancel) {
+                                
+                            }
+                        }
                     }
                 }
             }
@@ -223,6 +237,10 @@ struct DanglingModal: View {
         }
         .frame(width: UIScreen.main.bounds.width)
         .animation(isDragging ? nil : .easeInOut(duration: 0.2))
+        .onReceive(playerViewModel.deleteSuccessPublisher, perform: {
+            removeAction()
+            presentationMode.wrappedValue.dismiss()
+        })
     }
     
     @State private var prevDragTranslation = CGSize.zero
@@ -267,12 +285,3 @@ struct DanglingModal: View {
             }
     }
 }
-//
-//struct DanglingModal_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ZStack{
-//            Image(uiImage: UIImage(named: "img1.jpg") ?? UIImage())
-//            DanglingModal(isExpanded: .constant(false), )
-//        }
-//    }
-//}

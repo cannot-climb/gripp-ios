@@ -12,6 +12,7 @@ import Combine
 
 class PlayerViewModel: ObservableObject{
     var subscription = Set<AnyCancellable>()
+    var deleteSuccessPublisher = PassthroughSubject<(), Never>()
     
     @Published var articleId = ""
     @Published var videoTitle = ""
@@ -92,6 +93,7 @@ class PlayerViewModel: ObservableObject{
             }
             receiveValue: { (received: Article) in
                 self.articleId = received.articleId ?? ""
+                self.deleteSuccessPublisher.send()
             }.store(in: &subscription)
     }
 }

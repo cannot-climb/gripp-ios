@@ -103,8 +103,11 @@ struct ImageGrid: View {
             }
             .background(Color(named:"BackgroundMasterColor"))
             .fullScreenCover(isPresented: $isPlayerPresented) {
-                PlayerView()
+                PlayerView(removeAction: refreshAction)
                     .environmentObject(playerViewModel)
+                    .onDisappear(perform: {
+                        refreshAction()
+                    })
             }
             .fullScreenCover(isPresented: $isGalleryPresented) {
                 GalleryView(contextString: "", shouldHaveChin: false)
@@ -136,32 +139,3 @@ private func load(fileName: String) -> Image? {
     }
     return nil
 }
-
-
-
-//struct ImageGrid_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let postItemImages = [
-//            PostGridItem(thumbnailPath: "img1.jpg", processing: true, conquered: false),
-//            PostGridItem(thumbnailPath: "img2.jpg", processing: false, conquered: true),
-//            PostGridItem(thumbnailPath: "img3.jpg", processing: true, conquered: false),
-//            PostGridItem(thumbnailPath: "img4.jpg", processing: true, conquered: false),
-//            PostGridItem(thumbnailPath: "img5.jpg", processing: false, conquered: true),
-//            PostGridItem(thumbnailPath: "img6.jpg", processing: false, conquered: true),
-//            PostGridItem(thumbnailPath: "img7.jpg", processing: false, conquered: true),
-//            PostGridItem(thumbnailPath: "img8.jpg", processing: false, conquered: false),
-//            PostGridItem(thumbnailPath: "img9.jpg", processing: false, conquered: true),
-//            PostGridItem(thumbnailPath: "img10.jpg", processing: true, conquered: true),
-//            PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: false),
-//            PostGridItem(thumbnailPath: "img12.jpg", processing: false, conquered: false),
-//            PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
-//            PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
-//            PostGridItem(thumbnailPath: "img10.jpg", processing: false, conquered: true),
-//            PostGridItem(thumbnailPath: "img11.jpg", processing: false, conquered: true),
-//            PostGridItem(thumbnailPath: "img12.jpg", processing: true, conquered: false),
-//            PostGridItem(thumbnailPath: "img13.jpg", processing: false, conquered: false),
-//            PostGridItem(thumbnailPath: "img14.jpg", processing: false, conquered: true),
-//        ]
-//        ImageGrid(: postItemImages, firstItemGiantDecoration: true, shouldHaveChin: false)
-//    }
-//}
