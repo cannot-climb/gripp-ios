@@ -121,11 +121,10 @@ struct MyGalleryView: View {
         }
         .background(Color(named:"BackgroundSubduedColor"))
         .fullScreenCover(isPresented: $isLoginPresented, onDismiss: {
-            galleryViewModel.loadUserInfo()
-            galleryViewModel.loadVideoList()
+            galleryViewModel.username = getUserName() ?? ""
+            galleryViewModel.refresh()
         }){
             LoginView().environmentObject(LoginViewModel())
-                .interactiveDismissDisabled(true)
         }
     }
 }

@@ -40,7 +40,7 @@ struct ScoreListView: View {
             if(shouldHaveChin){
                 Spacer().frame(height: DOCK_HEIGHT)
             }
-        }.padding(.vertical, 16)
+        }
         .background(Color(named:"BackgroundMasterColor"))
         .scrollIndicators(.hidden)
     }
