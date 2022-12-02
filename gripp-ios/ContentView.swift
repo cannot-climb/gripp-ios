@@ -45,9 +45,7 @@ struct ContentView: View {
                         .disabled(true)
                         .onTapGesture {
                             homeViewModel.refresh()
-                            withAnimation(.easeInOut(duration: 0.25)){
-                                viewRouter.currentPage = .home
-                            }
+                            viewRouter.apply(page: .home)
                         }
                     TabBarItem(title: "리더보드", iconString: "Leaderboard", viewRouter: viewRouter, assignedPage: .leader)
                     TabBarItem(title: "내 정보", iconString: "Person", viewRouter: viewRouter, assignedPage: .myGallery)

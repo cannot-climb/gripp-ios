@@ -24,9 +24,7 @@ struct HomeView: View {
                 .padding(.leading, 31).padding(.top, 6)
                 .foregroundColor(Color(named: "TextSubduedColor"))
             Button(action:{
-                withAnimation(.easeInOut(duration: 0.25)){
-                    viewRouter.currentPage = .myGallery
-                }
+                viewRouter.apply(page: .myGallery)
             }){
                 Text("V\(homeViewModel.tier)").font(.player_tier_pill)
                     .padding(.vertical, 5)
