@@ -23,7 +23,6 @@ struct ContentView: View {
     @StateObject var leaderboardViewModel = LeaderboardViewModel()
     @StateObject var uploadViewModel = UploadViewModel()
     
-    
     var body: some View {
         ZStack{
             switch viewRouter.currentPage {
@@ -43,6 +42,7 @@ struct ContentView: View {
                 Spacer()
                 HStack(spacing: UIScreen.main.bounds.width/18){
                     TabBarItem(title: "홈", iconString: "Home", viewRouter: viewRouter, assignedPage: .home)
+                        .disabled(true)
                         .onTapGesture {
                             homeViewModel.refresh()
                             withAnimation(.easeInOut(duration: 0.25)){
@@ -71,18 +71,15 @@ struct ContentView: View {
                     galleryViewModel.refresh()
                 })
         }
-        .fullScreenCover(isPresented: $isLoginPresented, onDismiss: {
-            homeViewModel.loadTitleInfo()
-            homeViewModel.loadVideoList()
-        }){
+        .fullScreenCover(isPresented: $isLoginPresented){
             LoginView().environmentObject(LoginViewModel())
-                .interactiveDismissDisabled(true)
                 .onDisappear(perform: {
                     homeViewModel.refresh()
                     galleryViewModel.refresh()
                     viewRouter.apply(page: .home)
                 })
         }
+        .interactiveDismissDisabled(true)
         .onAppear() {
             if(UserDefaultsManager.shared.getTokens().username == nil){
                 isLoginPresented.toggle()
