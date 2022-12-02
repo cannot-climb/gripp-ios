@@ -20,9 +20,10 @@ class LoginViewModel: ObservableObject{
     
     @Published var shouldAlert = false
     @Published var alertMessage = ""
-    @Published var shouldCheckUserName = true
+    @Published var userNameAvailable = true
     
     func checkUser(username: String){
+        self.userNameAvailable = false
         AuthApiService.lookup(username: username)
             .sink{
                 (completion: Subscribers.Completion<AFError>) in
@@ -30,12 +31,10 @@ class LoginViewModel: ObservableObject{
             }
             receiveValue: { (received: User) in
                 if(received.username == nil){
-                    self.shouldCheckUserName = false
-                    print("LVM checkUser fail")
+                    self.userNameAvailable = true
                 }
                 else{
-                    self.alertMessage = "이미 사용 중인 아이디입니다."
-                    self.shouldAlert = true
+                    self.userNameAvailable = false
                 }
             }.store(in: &subscription)
     }
@@ -87,8 +86,12 @@ class LoginViewModel: ObservableObject{
     }
     
     func validityPw(_ pw: String) -> Bool{
-        let result = pw.range(of: #"[\w\"!#$%&'()*+,-./:;<=>?@\[\]^_`{|}~\\]{8,64}"#,
+        let regexResult = pw.range(of: #"[\w\"!#$%&'()*+,-./:;<=>?@\[\]^_`{|}~\\]{8,64}"#,
                          options: .regularExpression) != nil
-        return result
+        let charResult = pw.range(of: #"[a-z,A-Z]+"#,
+                         options: .regularExpression) != nil
+        let intResult = pw.range(of: #"[0-9]+"#,
+                                options: .regularExpression) != nil
+        return regexResult && charResult && intResult
     }
 }

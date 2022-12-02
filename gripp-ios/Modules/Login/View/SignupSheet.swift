@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignupSheet: View {
     
@@ -18,6 +19,7 @@ struct SignupSheet: View {
     @State var pw = ""
     @State var pw2 = ""
     
+    
     var body: some View {
         VStack(alignment: .leading){
             HStack{
@@ -26,72 +28,31 @@ struct SignupSheet: View {
                     Text("영문과 숫자, 최소 2자").font(.context)
                         .foregroundColor(.red)
                 }
+                else if(loginViewModel.userNameAvailable){
+                    Text("사용 가능한 ID").font(.context)
+                        .foregroundColor(Color(named: "AccentSubduedColor"))
+                }
+                else{
+                    Text("이미 사용 중인 ID").font(.context)
+                        .foregroundColor(.red)
+                }
             }
             .padding(.top, 24)
             .padding(.bottom, 10)
-            if(loginViewModel.shouldCheckUserName){
-                HStack{
-                    TextField("ID", text: $id)
-                        .padding(.all, 18)
-                        .background(Color(named: "BackgroundSubduedColor"))
-                        .foregroundColor(Color(named: "TextSubduedColor"))
-                        .cornerRadius(12)
-                        .shadow(color: .black.opacity(0.08), radius: 3, y: 2)
-                        .padding(.trailing, 12)
-                        .padding(.bottom, 12)
-                        .font(.login_textfield)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                    if(id != ""){
-                        Button(action: {
-                            loginViewModel.checkUser(username: id)
-                        }, label: {
-                            Text("중복 확인").font(.login_button)
-                                .padding(.all, 18)
-                                .background(Color(named: "AccentSubduedColor"))
-                                .cornerRadius(12)
-                                .shadow(color: Color(.black).opacity(0.1), radius: 10)
-                                .padding(.bottom, 12)
-                                .foregroundColor(.white)
-                        })
-                    }
-                    else{
-                        Text("중복 확인").font(.login_button)
-                            .padding(.all, 18)
-                            .background(Color(named: "AccentSubduedColor"))
-                            .cornerRadius(12)
-                            .shadow(color: Color(.black).opacity(0.1), radius: 10)
-                            .padding(.bottom, 12)
-                            .foregroundColor(.white)
-                            .opacity(0.4)
-                    }
+            TextField("ID", text: $id)
+                .onChange(of: id){ id in
+                    loginViewModel.checkUser(username: id)
                 }
-            }
-            else {
-                HStack{
-                    TextField("", text: $id)
-                        .padding(.all, 18)
-                        .background(Color(named: "BackgroundSubduedColor"))
-                        .foregroundColor(Color(named: "TextSubduedColor"))
-                        .cornerRadius(12)
-                        .shadow(color: .black.opacity(0.08), radius: 3, y: 2)
-                        .padding(.trailing, 12)
-                        .padding(.bottom, 12)
-                        .font(.login_textfield)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .disabled(true)
-                        .opacity(0.4)
-                    Text("사용 가능").font(.login_button)
-                        .padding(.all, 18)
-                        .background(Color(named: "BackgroundSubduedColor").opacity(0.3))
-                        .cornerRadius(12)
-                        .shadow(color: Color(.black).opacity(0.1), radius: 10)
-                        .padding(.bottom, 12)
-                        .foregroundColor(Color(named: "TextMasterColor"))
-                        .disabled(true)
-                }
-            }
+                .padding(.all, 18)
+                .background(Color(named: "BackgroundSubduedColor"))
+                .foregroundColor(Color(named: "TextSubduedColor"))
+                .cornerRadius(12)
+                .shadow(color: .black.opacity(0.08), radius: 3, y: 2)
+                .padding(.bottom, 12)
+                .font(.login_textfield)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+            
             
             
             
@@ -149,7 +110,7 @@ struct SignupSheet: View {
                 
                 if(
                     pw==pw2 &&
-                    !loginViewModel.shouldCheckUserName &&
+                    !loginViewModel.userNameAvailable &&
                     loginViewModel.validityId(id) &&
                     loginViewModel.validityPw(pw)
                 ){
@@ -178,10 +139,6 @@ struct SignupSheet: View {
             }
             .onReceive(loginViewModel.registrationSuccess, perform: {
                 loginViewModel.login(username: id, password: pw)
-                
-            })
-            .onReceive(loginViewModel.loginSuccess, perform: {
-                presentationMode.wrappedValue.dismiss()
             })
             
         }
