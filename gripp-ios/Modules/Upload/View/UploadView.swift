@@ -66,27 +66,22 @@ struct UploadView: View {
                         Text("영상 올리기").font(.large_title)
                     }
                     Spacer()
-                    if(movieURL != nil && movieFileName != nil && title != "" && description != "" && !uploadViewModel.uploadingNow){
-                        Button(action: {
+                    let buttonVisibility = movieURL != nil && movieFileName != nil && title != "" && description != "" && !uploadViewModel.uploadingNow
+                    Button(action: {
+                        if(!uploadViewModel.uploadingNow){
                             uploadViewModel.uploadVideo(videoUrl: movieURL!, filename: movieFileName!, title: title, description: description, difficulty: difficulty, angle: angle)
-                        }){
-                            Image("Pencil")
-                                .foregroundColor(.white)
-                                .frame(width: 48, height: 48)
-                                .background(Color(named:"AccentMasterColor"))
-                                .cornerRadius(40)
-                                .shadow(color: Color(named:"AccentMasterColor").opacity(0.4), radius: 10)
                         }
-                    }
-                    else{
+                        uploadViewModel.uploadingNow = true
+                    }){
                         Image("Pencil")
                             .foregroundColor(.white)
                             .frame(width: 48, height: 48)
                             .background(Color(named:"AccentMasterColor"))
                             .cornerRadius(40)
                             .shadow(color: Color(named:"AccentMasterColor").opacity(0.4), radius: 10)
-                            .opacity(0.4)
                     }
+                    .disabled(buttonVisibility ? false : true)
+                    .opacity(buttonVisibility ? 1 : 0.4)
                 }.padding(.leading, 30).padding(.top, 24).padding(.trailing, 20)
                 
                 //video area
