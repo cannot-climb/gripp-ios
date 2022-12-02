@@ -21,7 +21,7 @@ struct UploadView: View {
     @State var difficulty = 0
     
     let angles = Array(0...14).map({$0*5})
-    let difficulties = Array(0...20)
+    let difficulties = Array(0...19)
     
     //    private var playerLayer:AVPlayerLayer
     @State private var zoomFactor:Float = 1.0
