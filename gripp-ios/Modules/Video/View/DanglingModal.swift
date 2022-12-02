@@ -217,6 +217,7 @@ struct DanglingModal: View {
                 }
             }
             .frame(width: UIScreen.main.bounds.width)
+            .background(Color(named: "BackgroundMasterColor").opacity(0.3))
             .background(.thinMaterial)
             .cornerRadius(24, corners: [.topLeft, .topRight])
         }
