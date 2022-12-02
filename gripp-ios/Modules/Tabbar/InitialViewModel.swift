@@ -28,7 +28,9 @@ class InitialViewModel: ObservableObject{
             }
             receiveValue: { (received: User) in
                 homeVM.fetchUserSuccess.send()
-                homeVM.titleUserInfoString = "V\(String(received.tier ?? -1)), 상위 \(String(100 - (received.percentile ?? -1)))%"
+                homeVM.tier = received.tier ?? 0
+                homeVM.titleUserInfoString = "상위 \(String(100 - (received.percentile ?? 0)))%, \(String(received.score ?? 0))점"
+                homeVM.tierColor = tierColorProvider(homeVM.tier)
                 UserApiService.loadArticles(minLevel:0,maxLevel:19, pageToken: "")
                     .sink{
                         (completion: Subscribers.Completion<AFError>) in
