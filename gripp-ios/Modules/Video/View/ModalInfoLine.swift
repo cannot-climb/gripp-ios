@@ -23,7 +23,7 @@ struct ModalInfoLine: View {
                 .font(.player_vid_info)
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
-                .lineLimit(10)
+                .lineLimit(8)
                 .lineSpacing(3)
             Spacer()
                 
