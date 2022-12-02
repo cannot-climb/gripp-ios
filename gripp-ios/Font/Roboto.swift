@@ -26,7 +26,7 @@ extension Font {
     }
     
     /// Create a font with the subheadline text style.
-    public static var subheadline: Font {
+    public static var sub_head_line: Font {
         return Font.custom("Roboto-Regular", size: 14)
     }
     
@@ -66,6 +66,10 @@ extension Font {
     }
     
     
+    
+    public static var player_tier_pill: Font {
+        return Font.custom("Roboto-Bold", size: 10)
+    }
     public static var player_id: Font {
         return Font.custom("Roboto-Bold", size: 16)
     }
