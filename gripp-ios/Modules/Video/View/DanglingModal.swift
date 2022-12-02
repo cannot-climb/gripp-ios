@@ -55,10 +55,10 @@ struct DanglingModal: View {
             .animation(.easeInOut(duration: 0.2))
             .gesture(dragGesture)
             .onAppear(){
-                minHeight = geometry.size.height - geometry.size.width/9*16
+                minHeight = max(geometry.size.height - geometry.size.width/9*16, 50)
                 currHeight = minHeight
                 isExpanded = false
-                maxHeight = geometry.size.height - 50 - 24 - 30
+                maxHeight = geometry.size.height - 50 - 24
                 
                 galleryViewModel.username = playerViewModel.videoUser
             }
@@ -85,6 +85,8 @@ struct DanglingModal: View {
                     .contentShape(Rectangle())
                 Button(action: {
                     avPlayer.seek(to: .zero)
+                    avPlayer.playImmediately(atRate: 1.0)
+                    videoPlaying = true
                 }){
                     Image("Refresh")
                         .padding(.horizontal, 10)
@@ -176,10 +178,10 @@ struct DanglingModal: View {
                         .frame(width: 50, height: 6)
                         .opacity(0.5)
                         .padding(.vertical, 10)
-
+                    
+                    ModalInfoLine(imageString: "Fire", pre:"V", text: $playerViewModel.videoLevel)
                     ModalInfoLine(imageString: "Angle", text: $playerViewModel.videoAngle, post: "º")
                         .padding(.top, 4)
-                    ModalInfoLine(imageString: "Fire", pre:"V", text: $playerViewModel.videoLevel)
                     ModalInfoLine(imageString: "Calendar", text: $playerViewModel.videoDate)
                     HStack(alignment: .top){
                         Spacer()
