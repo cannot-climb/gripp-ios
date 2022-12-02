@@ -89,7 +89,6 @@ class LoginViewModel: ObservableObject{
     func validityPw(_ pw: String) -> Bool{
         let result = pw.range(of: #"[\w\"!#$%&'()*+,-./:;<=>?@\[\]^_`{|}~\\]{8,64}"#,
                          options: .regularExpression) != nil
-        print(pw, result)
         return result
     }
 }
