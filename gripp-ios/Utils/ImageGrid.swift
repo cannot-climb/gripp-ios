@@ -59,7 +59,7 @@ struct ImageGrid: View {
                     }
                     LazyVGrid(columns: gridItemLayout, spacing: 3){
                         ForEach(postItemImages[3..<postItemImages.count], id: \.self){ item in
-                            ImageCell(articleResponse: item, username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented)
+                            ImageCell(articleResponse: item, username: $username, isPlayerPresented: $isPlayerPresented, isGalleryPresented:$isGalleryPresented, lastAction: postItemImages.last!==item ? moreAction : nil)
                                 .environmentObject(playerViewModel)
                                 .clipped()
                                 .aspectRatio(1, contentMode: .fit)
@@ -79,23 +79,6 @@ struct ImageGrid: View {
                 else{
                     Text("\n\n게시물이 없어요!")
                         .frame(width: gr.size.width)
-                }
-                if(postItemImages.count > 0 && !noMoreData){
-                    Button(action: {
-                        moreAction()
-                    }){
-                        Text("더 보기").font(.login_button)
-                            .padding(.all, 10)
-                            .frame(width: gr.size.width - 40)
-                            .background(Color("#005DDD"))
-                            .cornerRadius(14)
-                            .shadow(color: Color(.black).opacity(0.16), radius: 10)
-                            .foregroundColor(.white)
-                            .padding(.bottom, 10)
-                    }
-                    .onAppear(perform: {
-                        moreAction()
-                    })
                 }
                 if(shouldHaveChin){
                     Spacer().frame(height: DOCK_HEIGHT)

@@ -24,8 +24,10 @@ struct ImageCell: View {
     var useDecoration = false
     @Binding var isPlayerPresented : Bool
     @Binding var isGalleryPresented : Bool
+    var lastAction: (() -> Void)?
     
-    init(articleResponse: ArticleResponse, username: Binding<String>, isPlayerPresented: Binding<Bool>, isGalleryPresented: Binding<Bool>, useDecoration: Bool? = false) {
+    
+    init(articleResponse: ArticleResponse, username: Binding<String>, isPlayerPresented: Binding<Bool>, isGalleryPresented: Binding<Bool>, useDecoration: Bool? = false, lastAction: (() -> Void)? = nil) {
         self.imagePath = articleResponse.video!.thumbnailUrl!
         self.processing = articleResponse.video!.status! == "PREPROCESSING"
         self.conquered = articleResponse.video!.status! == "CERTIFIED"
@@ -37,6 +39,7 @@ struct ImageCell: View {
         self.useDecoration = useDecoration ?? false
         self._isPlayerPresented = isPlayerPresented
         self._isGalleryPresented = isGalleryPresented
+        self.lastAction = lastAction
     }
     
     var body: some View {
@@ -161,6 +164,11 @@ struct ImageCell: View {
         }
         .clipped()
         .aspectRatio(1, contentMode: .fit)
+        .onAppear(perform: {
+            if(lastAction != nil){
+                lastAction!()
+            }
+        })
     }
 }
 
