@@ -80,6 +80,7 @@ struct ContentView: View {
                 .onDisappear(perform: {
                     homeViewModel.refresh()
                     galleryViewModel.refresh()
+                    viewRouter.apply(page: .home)
                 })
         }
         .onAppear() {
