@@ -100,7 +100,6 @@ enum UserRouter: URLRequestConvertible{
             params["order"] = "NEW"
             params["pageToken"] = pageToken
 //            print(params)
-
             return params
         case .fetchUserInfo:
             return Parameters()
