@@ -28,6 +28,13 @@ struct HomeView: View {
                     viewRouter.currentPage = .myGallery
                 }
             }){
+                Text("V\(homeViewModel.tier)").font(.player_tier_pill)
+                    .padding(.vertical, 5)
+                    .padding(.horizontal, 10)
+                    .foregroundColor(homeViewModel.tierColor[2])
+                    .background(getGradient(color1: homeViewModel.tierColor[0], color2: homeViewModel.tierColor[1]))
+                    .cornerRadius(50, corners: .allCorners)
+                    .offset(y: 2)
                 Text(homeViewModel.titleUserName).font(.large_title)
                 Image("ArrowRight")
             }.padding(.leading, 30).padding(.top, 5)
@@ -53,7 +60,7 @@ struct HomeView: View {
                         .foregroundColor(Color(named: "TextMasterColor"))
                 }
                 
-            }.padding(.top, 4).padding(.bottom, 16)
+            }.padding(.top, 10).padding(.bottom, 16)
             
             
             ZStack(alignment: .topTrailing){

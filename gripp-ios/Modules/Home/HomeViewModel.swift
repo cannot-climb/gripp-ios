@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import Combine
+import SwiftUI
 
 
 class HomeViewModel: ObservableObject{
@@ -17,8 +18,10 @@ class HomeViewModel: ObservableObject{
     var loadVideoListSuccess = PassthroughSubject<(), Never>()
     
     @Published var titleUserName = ""
+    @Published var tier = 0
     @Published var titleUserInfoString = ""
-    @Published var selectedDifficulties = [true, true, true, true]
+    @Published var tierColor: [Color] = [.black.opacity(0),.black.opacity(0),.black.opacity(0)]
+    
     
     @Published var articles: [ArticleResponse] = []
     @Published var nextPageToken = ""
@@ -52,7 +55,9 @@ class HomeViewModel: ObservableObject{
             }
             receiveValue: { (received: User) in
                 self.fetchUserSuccess.send()
-                self.titleUserInfoString = "V\(String(received.tier ?? -1)), 상위 \(String(100 - (received.percentile ?? -1)))%"
+                self.tier = received.tier ?? 0
+                self.titleUserInfoString = "상위 \(String(100 - (received.percentile ?? 0)))%, \(String(received.score ?? 0))점"
+                self.tierColor = tierColorProvider(self.tier)
             }.store(in: &subscription)
     }
     func refreshVideoList(){
