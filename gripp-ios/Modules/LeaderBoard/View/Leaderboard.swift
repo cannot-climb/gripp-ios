@@ -86,7 +86,7 @@ struct LeaderBoardView: View {
                                     Spacer()
                                     Text(leaderboardViewModel.podiums[2].username).font(.podium_id).padding(.vertical, 5)
                                     Text(leaderboardViewModel.podiums[2].level).font(.player_tier_pill)
-                                        .padding(.vertical, 5)
+                                        .padding(.vertical, 7)
                                         .padding(.horizontal, 10)
                                         .foregroundColor(leaderboardViewModel.tierColors[2].colors[2])
                                         .background(getGradient(color1: leaderboardViewModel.tierColors[2].colors[0], color2: leaderboardViewModel.tierColors[2].colors[1]))

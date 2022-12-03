@@ -58,10 +58,10 @@ struct DanglingModal: View {
             .animation(.easeInOut(duration: 0.2))
             .gesture(dragGesture)
             .onAppear(){
-                minHeight = max(geometry.size.height - geometry.size.width/9*16, 50)
+                minHeight = DOCK_HEIGHT
                 currHeight = minHeight
                 isExpanded = false
-                maxHeight = geometry.size.height - 50 - 24
+                maxHeight = UIScreen.main.bounds.height-160
                 
                 galleryViewModel.username = playerViewModel.videoUser
             }

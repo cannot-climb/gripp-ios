@@ -44,7 +44,6 @@ struct ContentView: View {
                     TabBarItem(title: "홈", iconString: "Home", viewRouter: viewRouter, assignedPage: .home)
                         .disabled(true)
                         .onTapGesture {
-                            impactLight.impactOccurred()
                             homeViewModel.refresh()
                             viewRouter.apply(page: .home)
                         }
