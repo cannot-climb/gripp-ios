@@ -16,8 +16,8 @@ struct InitialView: View {
     @State var viewRouter: ViewRouter
 
     var body: some View {
-        Spacer()
-            .frame(width: 10, height: 10)
+        LoadAnimationView(alwaysDark: false)
+            .frame(width: 100, height: 100)
             .onAppear(perform: {
                 initialViewModel.initialize(homeViewModel, viewRouter)
             })

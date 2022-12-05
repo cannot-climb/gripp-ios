@@ -61,7 +61,7 @@ struct DanglingModal: View {
                 minHeight = DOCK_HEIGHT
                 currHeight = minHeight
                 isExpanded = false
-                maxHeight = UIScreen.main.bounds.height-80-geometry.safeAreaInsets.top
+                maxHeight = UIScreen.main.bounds.height-160
                 
                 galleryViewModel.username = playerViewModel.videoUser
             }
