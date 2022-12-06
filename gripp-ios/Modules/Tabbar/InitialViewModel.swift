@@ -27,23 +27,22 @@ class InitialViewModel: ObservableObject{
 //                print("HVM completion \(completion)")
             }
             receiveValue: { (received: User) in
-                homeVM.fetchUserSuccess.send()
                 homeVM.tier = received.tier ?? 0
                 homeVM.titleUserInfoString = "상위 \(String(100 - (received.percentile ?? 0)))%, \(String(received.score ?? 0))점"
                 homeVM.tierColor = tierColorProvider(homeVM.tier)
-                UserApiService.loadArticles(minLevel:0,maxLevel:19, pageToken: "")
-                    .sink{
-                        (completion: Subscribers.Completion<AFError>) in
-        //                print("HVM completion \(completion)")
-                    }
-                    receiveValue: { (received: ArticleListResponse) in
-                        homeVM.loadVideoListSuccess.send()
-                        homeVM.currPageToken = homeVM.nextPageToken
-                        homeVM.nextPageToken = received.nextPageToken
-                        homeVM.articles = received.articles
-                        viewRouter.apply(page: .home)
-                    }.store(in: &self.subscription2)
+                homeVM.fetchUserSuccess.send()
             }.store(in: &subscription)
-        
+        UserApiService.loadArticles(minLevel:0,maxLevel:19, pageToken: "")
+            .sink{
+                (completion: Subscribers.Completion<AFError>) in
+//                print("HVM completion \(completion)")
+            }
+            receiveValue: { (received: ArticleListResponse) in
+                homeVM.currPageToken = homeVM.nextPageToken
+                homeVM.nextPageToken = received.nextPageToken
+                homeVM.articles = received.articles
+                viewRouter.apply(page: .home)
+                homeVM.loadVideoListSuccess.send()
+            }.store(in: &self.subscription2)
     }
 }
