@@ -110,7 +110,7 @@ struct SignupSheet: View {
                 
                 if(
                     pw==pw2 &&
-                    !loginViewModel.userNameAvailable &&
+                    loginViewModel.userNameAvailable &&
                     loginViewModel.validityId(id) &&
                     loginViewModel.validityPw(pw)
                 ){
