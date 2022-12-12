@@ -141,6 +141,10 @@ struct SignupSheet: View {
                 impactRigid.impactOccurred()
                 loginViewModel.login(username: id, password: pw)
             })
+            .onReceive(loginViewModel.loginSuccess, perform: {
+                impactRigid.impactOccurred()
+                presentationMode.wrappedValue.dismiss()
+            })
             
         }
         .padding(.horizontal, 28)

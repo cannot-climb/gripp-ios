@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1790118F1E03408AE7583739 /* Pods_gripp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFAA3EA85D31AF13D14EE8E /* Pods_gripp_ios.framework */; };
 		3C0D6FF52914886400C7C91B /* ModalInfoLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D6FF42914886400C7C91B /* ModalInfoLine.swift */; };
 		3C20772C2920C1EC00689B3D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C20772B2920C1EC00689B3D /* UserModel.swift */; };
 		3C20772E2920C20200689B3D /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C20772D2920C20200689B3D /* ArticleModel.swift */; };
-		3C2077312920C2C400689B3D /* Pods_gripp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DFB0D2A38862808A610522 /* Pods_gripp_ios.framework */; };
 		3C2BE4EA28D8CD7B007A24FD /* gripp_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4E928D8CD7B007A24FD /* gripp_iosApp.swift */; };
 		3C2BE4EC28D8CD7B007A24FD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4EB28D8CD7B007A24FD /* Persistence.swift */; };
 		3C2BE4EF28D8CD7B007A24FD /* gripp_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C2BE4ED28D8CD7B007A24FD /* gripp_ios.xcdatamodeld */; };
@@ -79,24 +79,10 @@
 		3CF357CB28EB5E7600646D37 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF357CA28EB5E7600646D37 /* HomeView.swift */; };
 		3CFD6AE528EC4B390039EBAF /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFD6AE428EC4B390039EBAF /* UploadView.swift */; };
 		3CFD6AE928EC8F720039EBAF /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFD6AE828EC8F720039EBAF /* GalleryView.swift */; };
-		3CFD6AF928ECB5910039EBAF /* img4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AEB28ECB5900039EBAF /* img4.jpg */; };
-		3CFD6AFA28ECB5910039EBAF /* img9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AEC28ECB5900039EBAF /* img9.jpg */; };
-		3CFD6AFB28ECB5910039EBAF /* img13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AED28ECB5900039EBAF /* img13.jpg */; };
-		3CFD6AFC28ECB5910039EBAF /* img5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AEE28ECB5900039EBAF /* img5.jpg */; };
-		3CFD6AFD28ECB5910039EBAF /* img7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AEF28ECB5900039EBAF /* img7.jpg */; };
-		3CFD6AFE28ECB5910039EBAF /* img8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF028ECB5900039EBAF /* img8.jpg */; };
-		3CFD6AFF28ECB5910039EBAF /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF128ECB5900039EBAF /* img2.jpg */; };
-		3CFD6B0028ECB5910039EBAF /* img6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF228ECB5900039EBAF /* img6.jpg */; };
-		3CFD6B0128ECB5910039EBAF /* img12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF328ECB5910039EBAF /* img12.jpg */; };
-		3CFD6B0228ECB5910039EBAF /* img10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF428ECB5910039EBAF /* img10.jpg */; };
-		3CFD6B0328ECB5910039EBAF /* img11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF528ECB5910039EBAF /* img11.jpg */; };
-		3CFD6B0428ECB5910039EBAF /* img14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF628ECB5910039EBAF /* img14.jpg */; };
-		3CFD6B0528ECB5910039EBAF /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF728ECB5910039EBAF /* img1.jpg */; };
-		3CFD6B0628ECB5910039EBAF /* img3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFD6AF828ECB5910039EBAF /* img3.jpg */; };
 		3CFD6B0928EE488B0039EBAF /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFD6B0828EE488B0039EBAF /* PlayerView.swift */; };
 		3CFE18FE292665D5005A44A2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE18FD292665D5005A44A2 /* HomeViewModel.swift */; };
-		BDCB942D2CB3B7A8087FD5EC /* Pods_gripp_ios_gripp_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F689AA517D07AB83D850C6 /* Pods_gripp_ios_gripp_iosUITests.framework */; };
-		C876AA86E518B084950945FE /* Pods_gripp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3D4E74320BD39D2342E3EE /* Pods_gripp_iosTests.framework */; };
+		B98DA066767FDE8C2622F40F /* Pods_gripp_ios_gripp_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6519694D8F1F397455B6483 /* Pods_gripp_ios_gripp_iosUITests.framework */; };
+		FEF718E1D3F7A038730AD49D /* Pods_gripp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C58B7067C40FC64DC3656061 /* Pods_gripp_iosTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +103,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F03A195E967790471E4F180 /* Pods-gripp-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gripp-iosTests/Pods-gripp-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1E97973EE0620C3A33395FAA /* Pods-gripp-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-ios.release.xcconfig"; path = "Target Support Files/Pods-gripp-ios/Pods-gripp-ios.release.xcconfig"; sourceTree = "<group>"; };
+		25AE8BA248E1B4D57B238210 /* Pods-gripp-ios-gripp-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-ios-gripp-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3C0D6FF42914886400C7C91B /* ModalInfoLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfoLine.swift; sourceTree = "<group>"; };
 		3C20772B2920C1EC00689B3D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3C20772D2920C20200689B3D /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
@@ -192,31 +181,14 @@
 		3CF357CA28EB5E7600646D37 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3CFD6AE428EC4B390039EBAF /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		3CFD6AE828EC8F720039EBAF /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
-		3CFD6AEB28ECB5900039EBAF /* img4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img4.jpg; sourceTree = "<group>"; };
-		3CFD6AEC28ECB5900039EBAF /* img9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img9.jpg; sourceTree = "<group>"; };
-		3CFD6AED28ECB5900039EBAF /* img13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img13.jpg; sourceTree = "<group>"; };
-		3CFD6AEE28ECB5900039EBAF /* img5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img5.jpg; sourceTree = "<group>"; };
-		3CFD6AEF28ECB5900039EBAF /* img7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img7.jpg; sourceTree = "<group>"; };
-		3CFD6AF028ECB5900039EBAF /* img8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img8.jpg; sourceTree = "<group>"; };
-		3CFD6AF128ECB5900039EBAF /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
-		3CFD6AF228ECB5900039EBAF /* img6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img6.jpg; sourceTree = "<group>"; };
-		3CFD6AF328ECB5910039EBAF /* img12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img12.jpg; sourceTree = "<group>"; };
-		3CFD6AF428ECB5910039EBAF /* img10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img10.jpg; sourceTree = "<group>"; };
-		3CFD6AF528ECB5910039EBAF /* img11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img11.jpg; sourceTree = "<group>"; };
-		3CFD6AF628ECB5910039EBAF /* img14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img14.jpg; sourceTree = "<group>"; };
-		3CFD6AF728ECB5910039EBAF /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
-		3CFD6AF828ECB5910039EBAF /* img3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img3.jpg; sourceTree = "<group>"; };
 		3CFD6B0828EE488B0039EBAF /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		3CFE18FD292665D5005A44A2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		3FF9E6070CD64904AF6CC7B6 /* Pods-gripp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-ios.debug.xcconfig"; path = "Target Support Files/Pods-gripp-ios/Pods-gripp-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		6BBC698D32C48B3D2DE4ED4B /* Pods-gripp-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gripp-iosTests/Pods-gripp-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
-		73DFB0D2A38862808A610522 /* Pods_gripp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gripp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84A53AF294A0F42454E7AA0D /* Pods-gripp-ios-gripp-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-ios-gripp-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		BEDEE73EAE526A6DDF825A03 /* Pods-gripp-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-iosTests.release.xcconfig"; path = "Target Support Files/Pods-gripp-iosTests/Pods-gripp-iosTests.release.xcconfig"; sourceTree = "<group>"; };
-		CD3D4E74320BD39D2342E3EE /* Pods_gripp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gripp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E10DA180CC81AED9E29BD843 /* Pods-gripp-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-ios.release.xcconfig"; path = "Target Support Files/Pods-gripp-ios/Pods-gripp-ios.release.xcconfig"; sourceTree = "<group>"; };
-		E2F689AA517D07AB83D850C6 /* Pods_gripp_ios_gripp_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gripp_ios_gripp_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECD4278582396F34A968A5FB /* Pods-gripp-ios-gripp-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-ios-gripp-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5258FD3CB40C89EC2B61AAFF /* Pods-gripp-ios-gripp-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-ios-gripp-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7BFAA3EA85D31AF13D14EE8E /* Pods_gripp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gripp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B24FB1FED37B3B2DF6FA984E /* Pods-gripp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-ios.debug.xcconfig"; path = "Target Support Files/Pods-gripp-ios/Pods-gripp-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		B6519694D8F1F397455B6483 /* Pods_gripp_ios_gripp_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gripp_ios_gripp_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C58B7067C40FC64DC3656061 /* Pods_gripp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gripp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0C39E2175A3A8E76654B705 /* Pods-gripp-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gripp-iosTests.release.xcconfig"; path = "Target Support Files/Pods-gripp-iosTests/Pods-gripp-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,8 +196,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C2077312920C2C400689B3D /* Pods_gripp_ios.framework in Frameworks */,
 				3C48D2F7293543FC00D348EB /* CachedAsyncImage in Frameworks */,
+				1790118F1E03408AE7583739 /* Pods_gripp_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C876AA86E518B084950945FE /* Pods_gripp_iosTests.framework in Frameworks */,
+				FEF718E1D3F7A038730AD49D /* Pods_gripp_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDCB942D2CB3B7A8087FD5EC /* Pods_gripp_ios_gripp_iosUITests.framework in Frameworks */,
+				B98DA066767FDE8C2622F40F /* Pods_gripp_ios_gripp_iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +228,7 @@
 				3C2BE50928D8CD7C007A24FD /* gripp-iosUITests */,
 				3C2BE4E728D8CD7B007A24FD /* Products */,
 				D3F1377C336C6A8D46BAD445 /* Pods */,
-				9E03B3D2FDA1BE7C95C51F3D /* Frameworks */,
+				FA65F8CD79449DF25D14804E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -438,7 +410,6 @@
 		3CDDF41828EB9D4900884847 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				3CFD6AEA28ECB5170039EBAF /* DemoImages */,
 				3C4913662914196800792CDF /* Dimensions.swift */,
 				3C3CF0DD2920C40F00DDBE69 /* Config.swift */,
 				3C335463293A89B600B970CB /* Taptic.swift */,
@@ -564,27 +535,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3CFD6AEA28ECB5170039EBAF /* DemoImages */ = {
-			isa = PBXGroup;
-			children = (
-				3CFD6AF728ECB5910039EBAF /* img1.jpg */,
-				3CFD6AF128ECB5900039EBAF /* img2.jpg */,
-				3CFD6AF828ECB5910039EBAF /* img3.jpg */,
-				3CFD6AEB28ECB5900039EBAF /* img4.jpg */,
-				3CFD6AEE28ECB5900039EBAF /* img5.jpg */,
-				3CFD6AF228ECB5900039EBAF /* img6.jpg */,
-				3CFD6AEF28ECB5900039EBAF /* img7.jpg */,
-				3CFD6AF028ECB5900039EBAF /* img8.jpg */,
-				3CFD6AEC28ECB5900039EBAF /* img9.jpg */,
-				3CFD6AF428ECB5910039EBAF /* img10.jpg */,
-				3CFD6AF528ECB5910039EBAF /* img11.jpg */,
-				3CFD6AF328ECB5910039EBAF /* img12.jpg */,
-				3CFD6AED28ECB5900039EBAF /* img13.jpg */,
-				3CFD6AF628ECB5910039EBAF /* img14.jpg */,
-			);
-			path = DemoImages;
-			sourceTree = "<group>";
-		};
 		3CFD6B0728EE487D0039EBAF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,27 +545,27 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9E03B3D2FDA1BE7C95C51F3D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				73DFB0D2A38862808A610522 /* Pods_gripp_ios.framework */,
-				E2F689AA517D07AB83D850C6 /* Pods_gripp_ios_gripp_iosUITests.framework */,
-				CD3D4E74320BD39D2342E3EE /* Pods_gripp_iosTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D3F1377C336C6A8D46BAD445 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3FF9E6070CD64904AF6CC7B6 /* Pods-gripp-ios.debug.xcconfig */,
-				E10DA180CC81AED9E29BD843 /* Pods-gripp-ios.release.xcconfig */,
-				84A53AF294A0F42454E7AA0D /* Pods-gripp-ios-gripp-iosUITests.debug.xcconfig */,
-				ECD4278582396F34A968A5FB /* Pods-gripp-ios-gripp-iosUITests.release.xcconfig */,
-				6BBC698D32C48B3D2DE4ED4B /* Pods-gripp-iosTests.debug.xcconfig */,
-				BEDEE73EAE526A6DDF825A03 /* Pods-gripp-iosTests.release.xcconfig */,
+				B24FB1FED37B3B2DF6FA984E /* Pods-gripp-ios.debug.xcconfig */,
+				1E97973EE0620C3A33395FAA /* Pods-gripp-ios.release.xcconfig */,
+				5258FD3CB40C89EC2B61AAFF /* Pods-gripp-ios-gripp-iosUITests.debug.xcconfig */,
+				25AE8BA248E1B4D57B238210 /* Pods-gripp-ios-gripp-iosUITests.release.xcconfig */,
+				0F03A195E967790471E4F180 /* Pods-gripp-iosTests.debug.xcconfig */,
+				F0C39E2175A3A8E76654B705 /* Pods-gripp-iosTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA65F8CD79449DF25D14804E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BFAA3EA85D31AF13D14EE8E /* Pods_gripp_ios.framework */,
+				B6519694D8F1F397455B6483 /* Pods_gripp_ios_gripp_iosUITests.framework */,
+				C58B7067C40FC64DC3656061 /* Pods_gripp_iosTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -625,11 +575,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2BE51028D8CD7C007A24FD /* Build configuration list for PBXNativeTarget "gripp-ios" */;
 			buildPhases = (
-				F24FC084E11727B68A2DA32A /* [CP] Check Pods Manifest.lock */,
+				1E9E023DD302FA5877F9A66C /* [CP] Check Pods Manifest.lock */,
 				3C2BE4E228D8CD7B007A24FD /* Sources */,
 				3C2BE4E328D8CD7B007A24FD /* Frameworks */,
 				3C2BE4E428D8CD7B007A24FD /* Resources */,
-				1D791E38D3927337690F8AD6 /* [CP] Embed Pods Frameworks */,
+				5C3BAE49911E9572CD9A6BF9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -647,7 +597,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2BE51328D8CD7C007A24FD /* Build configuration list for PBXNativeTarget "gripp-iosTests" */;
 			buildPhases = (
-				04D0580E77EEA886477773E0 /* [CP] Check Pods Manifest.lock */,
+				5CD73EAB94DEC9CADBE263A0 /* [CP] Check Pods Manifest.lock */,
 				3C2BE4F828D8CD7C007A24FD /* Sources */,
 				3C2BE4F928D8CD7C007A24FD /* Frameworks */,
 				3C2BE4FA28D8CD7C007A24FD /* Resources */,
@@ -666,11 +616,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2BE51628D8CD7C007A24FD /* Build configuration list for PBXNativeTarget "gripp-iosUITests" */;
 			buildPhases = (
-				3B24D6302043CBF144FCFE46 /* [CP] Check Pods Manifest.lock */,
+				BA6E51299BFDAA9CFC33A141 /* [CP] Check Pods Manifest.lock */,
 				3C2BE50228D8CD7C007A24FD /* Sources */,
 				3C2BE50328D8CD7C007A24FD /* Frameworks */,
 				3C2BE50428D8CD7C007A24FD /* Resources */,
-				9A5875CAE34CCC7BFFACEADD /* [CP] Embed Pods Frameworks */,
+				39330C582F3EAF637C70E26E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -733,35 +683,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFD6B0228ECB5910039EBAF /* img10.jpg in Resources */,
 				3CDDF47128EB9E4200884847 /* Roboto-Thin.ttf in Resources */,
 				3CDDF46E28EB9E4200884847 /* LICENSE.txt in Resources */,
 				3CDDF47228EB9E4200884847 /* Roboto-Black.ttf in Resources */,
-				3CFD6AFA28ECB5910039EBAF /* img9.jpg in Resources */,
 				3CDDF47028EB9E4200884847 /* Roboto-Bold.ttf in Resources */,
 				3C2BE4F728D8CD7C007A24FD /* Preview Assets.xcassets in Resources */,
-				3CFD6B0328ECB5910039EBAF /* img11.jpg in Resources */,
 				3C2BE4F328D8CD7C007A24FD /* Assets.xcassets in Resources */,
-				3CFD6B0528ECB5910039EBAF /* img1.jpg in Resources */,
-				3CFD6AFC28ECB5910039EBAF /* img5.jpg in Resources */,
-				3CFD6B0128ECB5910039EBAF /* img12.jpg in Resources */,
 				3CDDF46B28EB9E4200884847 /* Roboto-BoldItalic.ttf in Resources */,
 				3CDDF46728EB9E4200884847 /* Roboto-Regular.ttf in Resources */,
-				3CFD6AF928ECB5910039EBAF /* img4.jpg in Resources */,
-				3CFD6AFD28ECB5910039EBAF /* img7.jpg in Resources */,
-				3CFD6B0628ECB5910039EBAF /* img3.jpg in Resources */,
 				3CDDF46A28EB9E4200884847 /* Roboto-ThinItalic.ttf in Resources */,
-				3CFD6B0028ECB5910039EBAF /* img6.jpg in Resources */,
-				3CFD6B0428ECB5910039EBAF /* img14.jpg in Resources */,
 				3CDDF46C28EB9E4200884847 /* Roboto-LightItalic.ttf in Resources */,
 				3CDDF46F28EB9E4200884847 /* Roboto-BlackItalic.ttf in Resources */,
 				3CDDF46628EB9E4200884847 /* Roboto-Light.ttf in Resources */,
-				3CFD6AFE28ECB5910039EBAF /* img8.jpg in Resources */,
 				3CDDF46D28EB9E4200884847 /* Roboto-Italic.ttf in Resources */,
 				3CDDF46828EB9E4200884847 /* Roboto-MediumItalic.ttf in Resources */,
 				3CDDF46528EB9E4200884847 /* Roboto-Medium.ttf in Resources */,
-				3CFD6AFF28ECB5910039EBAF /* img2.jpg in Resources */,
-				3CFD6AFB28ECB5910039EBAF /* img13.jpg in Resources */,
 				3C491354291354C500792CDF /* CustomIcons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,7 +719,63 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04D0580E77EEA886477773E0 /* [CP] Check Pods Manifest.lock */ = {
+		1E9E023DD302FA5877F9A66C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gripp-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39330C582F3EAF637C70E26E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C3BAE49911E9572CD9A6BF9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gripp-ios/Pods-gripp-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gripp-ios/Pods-gripp-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gripp-ios/Pods-gripp-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CD73EAB94DEC9CADBE263A0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -805,24 +797,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1D791E38D3927337690F8AD6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gripp-ios/Pods-gripp-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gripp-ios/Pods-gripp-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gripp-ios/Pods-gripp-ios-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3B24D6302043CBF144FCFE46 /* [CP] Check Pods Manifest.lock */ = {
+		BA6E51299BFDAA9CFC33A141 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -838,45 +813,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-gripp-ios-gripp-iosUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A5875CAE34CCC7BFFACEADD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gripp-ios-gripp-iosUITests/Pods-gripp-ios-gripp-iosUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F24FC084E11727B68A2DA32A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-gripp-ios-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1092,7 +1028,7 @@
 		};
 		3C2BE51128D8CD7C007A24FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FF9E6070CD64904AF6CC7B6 /* Pods-gripp-ios.debug.xcconfig */;
+			baseConfigurationReference = B24FB1FED37B3B2DF6FA984E /* Pods-gripp-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
@@ -1140,7 +1076,7 @@
 		};
 		3C2BE51228D8CD7C007A24FD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E10DA180CC81AED9E29BD843 /* Pods-gripp-ios.release.xcconfig */;
+			baseConfigurationReference = 1E97973EE0620C3A33395FAA /* Pods-gripp-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1187,7 +1123,7 @@
 		};
 		3C2BE51428D8CD7C007A24FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BBC698D32C48B3D2DE4ED4B /* Pods-gripp-iosTests.debug.xcconfig */;
+			baseConfigurationReference = 0F03A195E967790471E4F180 /* Pods-gripp-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1211,7 +1147,7 @@
 		};
 		3C2BE51528D8CD7C007A24FD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDEE73EAE526A6DDF825A03 /* Pods-gripp-iosTests.release.xcconfig */;
+			baseConfigurationReference = F0C39E2175A3A8E76654B705 /* Pods-gripp-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1235,7 +1171,7 @@
 		};
 		3C2BE51728D8CD7C007A24FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84A53AF294A0F42454E7AA0D /* Pods-gripp-ios-gripp-iosUITests.debug.xcconfig */;
+			baseConfigurationReference = 5258FD3CB40C89EC2B61AAFF /* Pods-gripp-ios-gripp-iosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1258,7 +1194,7 @@
 		};
 		3C2BE51828D8CD7C007A24FD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECD4278582396F34A968A5FB /* Pods-gripp-ios-gripp-iosUITests.release.xcconfig */;
+			baseConfigurationReference = 25AE8BA248E1B4D57B238210 /* Pods-gripp-ios-gripp-iosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
